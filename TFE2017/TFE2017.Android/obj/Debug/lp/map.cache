@@ -1,10 +1,4 @@
-FastAndroidCamera
 FormsViewGroup
-Plugin.CurrentActivity
-Plugin.Media.Abstractions
-Plugin.Media
-Plugin.Permissions.Abstractions
-Plugin.Permissions
 System.Runtime
 TFE2017.Core
 Xamarin.Android.Support.Animated.Vector.Drawable
@@ -27,9 +21,4 @@ Xamarin.Forms.Core
 Xamarin.Forms.Platform.Android
 Xamarin.Forms.Platform
 Xamarin.Forms.Xaml
-ZXing.Net.Mobile.Core
-zxing.portable
-ZXingNetMobile
 netstandard
-System.ComponentModel
-System.Reflection.Extensions

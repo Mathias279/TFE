@@ -1,23 +1,20 @@
-﻿using System.Collections.Generic;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
+using Xamarin.Forms;
+
 namespace TFE2017
 {
 	public partial class App : Application
 	{
-        public static IList<string> PhoneNumbers { get; set; }
-
-        public App ()
+		public App ()
 		{
 			InitializeComponent();
 
-            PhoneNumbers = new List<string>();
-
-            //MainPage = new MainPage();
-            MainPage = new NavigationPage(new MainPage());
-        }
+			MainPage = new TFE2017.MainPage();
+		}
 
 		protected override void OnStart ()
 		{
