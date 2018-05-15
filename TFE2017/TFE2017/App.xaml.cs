@@ -13,7 +13,7 @@ namespace TFE2017
 		{
 			InitializeComponent();
 
-			MainPage = new TFE2017.MainPage();
+			MainPage = new NavigationPage( new TFE2017.MainPage());
 		}
 
 		protected override void OnStart ()
