@@ -1,3 +1,4 @@
+FastAndroidCamera
 FormsViewGroup
 System.Runtime
 TFE2017.Core
@@ -21,4 +22,11 @@ Xamarin.Forms.Core
 Xamarin.Forms.Platform.Android
 Xamarin.Forms.Platform
 Xamarin.Forms.Xaml
+ZXing.Net.Mobile.Core
+ZXing.Net.Mobile.Forms
+zxing.portable
+ZXingNetMobile
 netstandard
+Plugin.CurrentActivity
+Plugin.Permissions.Abstractions
+Plugin.Permissions

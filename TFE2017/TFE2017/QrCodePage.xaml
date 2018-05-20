@@ -13,6 +13,9 @@
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="EndAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+
+            <Button x:Name="ButtonScan" Text="scan" Clicked="ButtonScanClicked" />
+            <Label x:Name="LabelCode" Text="" HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

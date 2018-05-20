@@ -8,13 +8,30 @@ using Xamarin.Forms;
 
 namespace TFE2017
 {
-	public partial class MainPage : ContentPage
-	{
-		public MainPage()
-		{
-			InitializeComponent();
+    public partial class MainPage : ContentPage
+    {
+        public MainPage()
+        {
+            InitializeComponent();
+
+
+
+            //async Task TryGetLocationAsync()
+            //{
+            //    if ((int)Build.VERSION.SdkInt < 23)
+            //    {
+            //        await GetLocationAsync();
+            //        return;
+            //    }
+
+            //    await GetLocationPermissionAsync();
+            //}
+
+
+
 
             Navigation.PushAsync(new QrCodePage());
-		}
-	}
+        }
+
+    }
 }

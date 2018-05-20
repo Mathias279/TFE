@@ -1,4 +1,3 @@
-C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE\TFE2017\TFE2017.Android\obj\Debug\TFE2017.Android.csprojResolveAssemblyReference.cache
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\bin\Debug\TFE2017.Android.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\bin\Debug\TFE2017.Android.pdb
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\bin\Debug\com.companyname.TFE2017.apk
@@ -89,8 +88,14 @@ C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Andr
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\TFE2017.Core.pdb
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\Xamarin.Forms.Core.pdb
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.pdb
+C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\bin\Debug\Plugin.Permissions.Abstractions.pdb
+C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\linksrc\Plugin.Permissions.Abstractions.pdb
+C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\bin\Debug\Plugin.Permissions.dll.mdb
+C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\linksrc\Plugin.Permissions.dll.mdb
+C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\Plugin.Permissions.dll.mdb
+C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\Plugin.Permissions.Abstractions.pdb
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\bin\Debug\TFE2017.Android.dll
-C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\linksrc\TFE2017.Core.pdb
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\linksrc\TFE2017.Android.dll.mdb
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
+C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\linksrc\Plugin.Permissions.dll.mdb
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\linksrc\Xamarin.Forms.Platform.Android.dll.mdb
