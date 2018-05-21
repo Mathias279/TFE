@@ -2,6 +2,17 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
+      "Plugin.Permissions/2.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/Plugin.Permissions.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Plugin.Permissions.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/Plugin.Permissions.dll": {}
+        }
+      },
       "Xamarin.Forms/3.0.0.482510": {
         "type": "package",
         "compile": {
@@ -125,11 +136,42 @@
           "build/netstandard2.0/Xamarin.Forms.targets": {}
         }
       },
+      "ZXing.Net.Mobile/2.4.1": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/Xamarin.iOS10/ZXingNetMobile.dll": {},
+          "lib/Xamarin.iOS10/zxing.portable.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/Xamarin.iOS10/ZXingNetMobile.dll": {},
+          "lib/Xamarin.iOS10/zxing.portable.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile.Forms/2.4.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.5.0.122203",
+          "ZXing.Net.Mobile": "2.4.1"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll": {},
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll": {},
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll": {}
+        }
+      },
       "TFE2017.Core/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Xamarin.Forms": "3.0.0.482510"
+          "Plugin.Permissions": "2.2.1",
+          "Xamarin.Forms": "3.0.0.482510",
+          "ZXing.Net.Mobile": "2.4.1",
+          "ZXing.Net.Mobile.Forms": "2.4.1"
         },
         "compile": {
           "bin/placeholder/TFE2017.Core.dll": {}
@@ -140,6 +182,17 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
+      "Plugin.Permissions/2.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/Plugin.Permissions.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Plugin.Permissions.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/Plugin.Permissions.dll": {}
+        }
+      },
       "Xamarin.Forms/3.0.0.482510": {
         "type": "package",
         "compile": {
@@ -263,11 +316,42 @@
           "build/netstandard2.0/Xamarin.Forms.targets": {}
         }
       },
+      "ZXing.Net.Mobile/2.4.1": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/Xamarin.iOS10/ZXingNetMobile.dll": {},
+          "lib/Xamarin.iOS10/zxing.portable.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/Xamarin.iOS10/ZXingNetMobile.dll": {},
+          "lib/Xamarin.iOS10/zxing.portable.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile.Forms/2.4.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.5.0.122203",
+          "ZXing.Net.Mobile": "2.4.1"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll": {},
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll": {},
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll": {}
+        }
+      },
       "TFE2017.Core/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Xamarin.Forms": "3.0.0.482510"
+          "Plugin.Permissions": "2.2.1",
+          "Xamarin.Forms": "3.0.0.482510",
+          "ZXing.Net.Mobile": "2.4.1",
+          "ZXing.Net.Mobile.Forms": "2.4.1"
         },
         "compile": {
           "bin/placeholder/TFE2017.Core.dll": {}
@@ -278,6 +362,17 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
+      "Plugin.Permissions/2.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/Plugin.Permissions.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Plugin.Permissions.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/Plugin.Permissions.dll": {}
+        }
+      },
       "Xamarin.Forms/3.0.0.482510": {
         "type": "package",
         "compile": {
@@ -401,11 +496,42 @@
           "build/netstandard2.0/Xamarin.Forms.targets": {}
         }
       },
+      "ZXing.Net.Mobile/2.4.1": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/Xamarin.iOS10/ZXingNetMobile.dll": {},
+          "lib/Xamarin.iOS10/zxing.portable.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/Xamarin.iOS10/ZXingNetMobile.dll": {},
+          "lib/Xamarin.iOS10/zxing.portable.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile.Forms/2.4.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.5.0.122203",
+          "ZXing.Net.Mobile": "2.4.1"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll": {},
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll": {},
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll": {}
+        }
+      },
       "TFE2017.Core/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Xamarin.Forms": "3.0.0.482510"
+          "Plugin.Permissions": "2.2.1",
+          "Xamarin.Forms": "3.0.0.482510",
+          "ZXing.Net.Mobile": "2.4.1",
+          "ZXing.Net.Mobile.Forms": "2.4.1"
         },
         "compile": {
           "bin/placeholder/TFE2017.Core.dll": {}
@@ -416,6 +542,17 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
+      "Plugin.Permissions/2.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/Plugin.Permissions.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Plugin.Permissions.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/Plugin.Permissions.dll": {}
+        }
+      },
       "Xamarin.Forms/3.0.0.482510": {
         "type": "package",
         "compile": {
@@ -539,11 +676,42 @@
           "build/netstandard2.0/Xamarin.Forms.targets": {}
         }
       },
+      "ZXing.Net.Mobile/2.4.1": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/Xamarin.iOS10/ZXingNetMobile.dll": {},
+          "lib/Xamarin.iOS10/zxing.portable.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/Xamarin.iOS10/ZXingNetMobile.dll": {},
+          "lib/Xamarin.iOS10/zxing.portable.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile.Forms/2.4.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.5.0.122203",
+          "ZXing.Net.Mobile": "2.4.1"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll": {},
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll": {},
+          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll": {}
+        }
+      },
       "TFE2017.Core/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Xamarin.Forms": "3.0.0.482510"
+          "Plugin.Permissions": "2.2.1",
+          "Xamarin.Forms": "3.0.0.482510",
+          "ZXing.Net.Mobile": "2.4.1",
+          "ZXing.Net.Mobile.Forms": "2.4.1"
         },
         "compile": {
           "bin/placeholder/TFE2017.Core.dll": {}
@@ -555,6 +723,42 @@
     }
   },
   "libraries": {
+    "Plugin.Permissions/2.2.1": {
+      "sha512": "ixEdsOBokh6eIofokJmru0u18hZKUODkvJZeest0CsHiiuRcO38yiTr+2Nq6Pg9hm0fhyavFQydhbldfHOp44Q==",
+      "type": "package",
+      "path": "plugin.permissions/2.2.1",
+      "files": [
+        "lib/MonoAndroid10/Plugin.Permissions.Abstractions.dll",
+        "lib/MonoAndroid10/Plugin.Permissions.Abstractions.pdb",
+        "lib/MonoAndroid10/Plugin.Permissions.Abstractions.xml",
+        "lib/MonoAndroid10/Plugin.Permissions.XML",
+        "lib/MonoAndroid10/Plugin.Permissions.dll",
+        "lib/MonoAndroid10/Plugin.Permissions.dll.mdb",
+        "lib/MonoAndroid10/Plugin.Permissions.pdb",
+        "lib/UAP10/Plugin.Permissions.Abstractions.dll",
+        "lib/UAP10/Plugin.Permissions.Abstractions.pdb",
+        "lib/UAP10/Plugin.Permissions.Abstractions.xml",
+        "lib/UAP10/Plugin.Permissions.XML",
+        "lib/UAP10/Plugin.Permissions.dll",
+        "lib/UAP10/Plugin.Permissions.pdb",
+        "lib/UAP10/Plugin.Permissions.pri",
+        "lib/Xamarin.iOS10/Plugin.Permissions.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.Permissions.Abstractions.pdb",
+        "lib/Xamarin.iOS10/Plugin.Permissions.Abstractions.xml",
+        "lib/Xamarin.iOS10/Plugin.Permissions.XML",
+        "lib/Xamarin.iOS10/Plugin.Permissions.dll",
+        "lib/netstandard1.0/Plugin.Permissions.Abstractions.dll",
+        "lib/netstandard1.0/Plugin.Permissions.Abstractions.pdb",
+        "lib/netstandard1.0/Plugin.Permissions.Abstractions.xml",
+        "lib/netstandard1.0/Plugin.Permissions.deps.json",
+        "lib/netstandard1.0/Plugin.Permissions.dll",
+        "lib/netstandard1.0/Plugin.Permissions.pdb",
+        "lib/netstandard1.0/Plugin.Permissions.xml",
+        "plugin.permissions.2.2.1.nupkg.sha512",
+        "plugin.permissions.nuspec",
+        "readme.txt"
+      ]
+    },
     "Xamarin.Forms/3.0.0.482510": {
       "sha512": "kq209d8qVvulrY3o+nGirENZ3kaZpEN7VWRErWcW1M+ahtDgm4BUXQJ5s9hnp1SAGxQMTMhDAVI3uk5g9NV7hA==",
       "type": "package",
@@ -702,6 +906,46 @@
         "xamarin.forms.nuspec"
       ]
     },
+    "ZXing.Net.Mobile/2.4.1": {
+      "sha512": "iCL2WcqOyUnC1iFFdzXijk0EXfoLMDqW88MyhoTZigSyhJZM2C5hKgSZVyfx9E35tgkde/IZwHkk8cVDnbQlYg==",
+      "type": "package",
+      "path": "zxing.net.mobile/2.4.1",
+      "files": [
+        "lib/MonoAndroid71/ZXing.Net.Mobile.Core.dll",
+        "lib/MonoAndroid71/ZXingNetMobile.dll",
+        "lib/MonoAndroid71/zxing.portable.dll",
+        "lib/UAP10/ZXing.Net.Mobile.Core.dll",
+        "lib/UAP10/ZXingNetMobile.dll",
+        "lib/UAP10/ZXingNetMobile.pri",
+        "lib/UAP10/ZXingNetMobile/ZXingNetMobile.xr.xml",
+        "lib/UAP10/zxing.portable.dll",
+        "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll",
+        "lib/Xamarin.iOS10/ZXingNetMobile.dll",
+        "lib/Xamarin.iOS10/zxing.portable.dll",
+        "lib/netstandard1.0/ZXing.Net.Mobile.Core.dll",
+        "lib/netstandard1.0/ZXingNetMobile.dll",
+        "lib/netstandard1.0/zxing.portable.dll",
+        "zxing.net.mobile.2.4.1.nupkg.sha512",
+        "zxing.net.mobile.nuspec"
+      ]
+    },
+    "ZXing.Net.Mobile.Forms/2.4.1": {
+      "sha512": "7z+MfL8TbfE36s1GGvrnlkhLUOV5dgdn1gYhUb3GU2W6YXzpfF39k6EqkmFsyNm1O07evTaKFgh7UTOqcWub3g==",
+      "type": "package",
+      "path": "zxing.net.mobile.forms/2.4.1",
+      "files": [
+        "lib/MonoAndroid71/ZXing.Net.Mobile.Forms.Android.dll",
+        "lib/MonoAndroid71/ZXing.Net.Mobile.Forms.dll",
+        "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.dll",
+        "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.pri",
+        "lib/UAP10/ZXing.Net.Mobile.Forms.dll",
+        "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll",
+        "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll",
+        "lib/netstandard1.0/ZXing.Net.Mobile.Forms.dll",
+        "zxing.net.mobile.forms.2.4.1.nupkg.sha512",
+        "zxing.net.mobile.forms.nuspec"
+      ]
+    },
     "TFE2017.Core/1.0.0": {
       "type": "project",
       "path": "../TFE2017/TFE2017.Core.csproj",
@@ -710,8 +954,11 @@
   },
   "projectFileDependencyGroups": {
     "Xamarin.iOS,Version=v1.0": [
+      "Plugin.Permissions >= 2.2.1",
       "TFE2017.Core >= 1.0.0",
-      "Xamarin.Forms >= 3.0.0.482510"
+      "Xamarin.Forms >= 3.0.0.482510",
+      "ZXing.Net.Mobile >= 2.4.1",
+      "ZXing.Net.Mobile.Forms >= 2.4.1"
     ]
   },
   "packageFolders": {
@@ -751,9 +998,21 @@
     "frameworks": {
       "xamarinios10": {
         "dependencies": {
+          "Plugin.Permissions": {
+            "target": "Package",
+            "version": "[2.2.1, )"
+          },
           "Xamarin.Forms": {
             "target": "Package",
             "version": "[3.0.0.482510, )"
+          },
+          "ZXing.Net.Mobile": {
+            "target": "Package",
+            "version": "[2.4.1, )"
+          },
+          "ZXing.Net.Mobile.Forms": {
+            "target": "Package",
+            "version": "[2.4.1, )"
           }
         }
       }
