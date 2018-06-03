@@ -25,13 +25,19 @@ namespace TFE2017
             //    }
 
             //    await GetLocationPermissionAsync();
-            //}
-
-
-
-
-            Navigation.PushAsync(new QrCodePage());
+            //}        
         }
+        public async void ButtonScanPageClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new QrCodePage());
+        }
+
+        public async void ButtonPositionPageClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PositionPage());
+        }
+        
+    
 
     }
 }
