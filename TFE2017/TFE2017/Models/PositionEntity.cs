@@ -10,7 +10,7 @@ namespace TFE2017.Core.Models
         public float PosY { get; set; }
 
 
-        public string ToString()
+        public new string ToString()
         {
             return string.Join(" ", this.PosX.ToString(), this.PosX.ToString());
         }

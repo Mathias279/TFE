@@ -5,9 +5,10 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="current coordonates:"
-                VerticalOptions="CenterAndExpand" 
+                VerticalOptions="Center" 
                 HorizontalOptions="CenterAndExpand" />
             <Label x:Name="LabelPosition" VerticalOptions="Center" HorizontalOptions="Center" />
+            <Label x:Name="LabelPosition1" VerticalOptions="Center" HorizontalOptions="Center" />
         </StackLayout> 
     </ContentPage.Content>
 </ContentPage>

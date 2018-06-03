@@ -17,9 +17,12 @@ namespace TFE2017.Core
             InitializeComponent();
 
 
-            new PositionEntity() { PosX = 10, PosY = 10};
+            PositionEntity pos1 =  new PositionEntity() { PosX = 10, PosY = 10};
+
+            LabelPosition.Text = pos1.ToString();
 
 
-		}
+
+        }
 	}
 }
