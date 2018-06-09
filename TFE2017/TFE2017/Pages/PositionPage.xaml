@@ -9,6 +9,8 @@
                 HorizontalOptions="CenterAndExpand" />
             <Label x:Name="LabelPosition" VerticalOptions="Center" HorizontalOptions="Center" />
             <Label x:Name="LabelPosition1" VerticalOptions="Center" HorizontalOptions="Center" />
+            <Label x:Name="LabelHeading" VerticalOptions="Center" HorizontalOptions="Center" />
+            <Label x:Name="LabelDirection" VerticalOptions="Center" HorizontalOptions="Center" />
         </StackLayout> 
     </ContentPage.Content>
 </ContentPage>

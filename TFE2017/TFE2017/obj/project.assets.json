@@ -26,6 +26,20 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "Plugin.Compass/3.0.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.0/Plugin.Compass.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.Compass.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Plugin.Compass.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.Compass.dll": {}
+        }
+      },
       "Plugin.Permissions/2.2.1": {
         "type": "package",
         "dependencies": {
@@ -225,6 +239,40 @@
         "build/netstandard2.0/ref/netstandard.dll",
         "build/netstandard2.0/ref/netstandard.xml",
         "lib/netstandard1.0/_._"
+      ]
+    },
+    "Plugin.Compass/3.0.1": {
+      "sha512": "8+qdWFgiVqwwWIwKwfqVGtVeqJY8ZsLABcg4Xrwve2Yikx6cdaCeStdewZ4azihdqiYlzSIaY0IwWOdZc7wkrA==",
+      "type": "package",
+      "path": "plugin.compass/3.0.1",
+      "files": [
+        "lib/MonoAndroid10/Plugin.Compass.Abstractions.dll",
+        "lib/MonoAndroid10/Plugin.Compass.Abstractions.pdb",
+        "lib/MonoAndroid10/Plugin.Compass.Abstractions.xml",
+        "lib/MonoAndroid10/Plugin.Compass.dll",
+        "lib/MonoAndroid10/Plugin.Compass.pdb",
+        "lib/MonoAndroid10/Plugin.Compass.xml",
+        "lib/UAP10/Plugin.Compass.Abstractions.dll",
+        "lib/UAP10/Plugin.Compass.Abstractions.pdb",
+        "lib/UAP10/Plugin.Compass.Abstractions.xml",
+        "lib/UAP10/Plugin.Compass.dll",
+        "lib/UAP10/Plugin.Compass.pdb",
+        "lib/UAP10/Plugin.Compass.pri",
+        "lib/UAP10/Plugin.Compass.xml",
+        "lib/Xamarin.iOS10/Plugin.Compass.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.Compass.Abstractions.pdb",
+        "lib/Xamarin.iOS10/Plugin.Compass.Abstractions.xml",
+        "lib/Xamarin.iOS10/Plugin.Compass.dll",
+        "lib/Xamarin.iOS10/Plugin.Compass.xml",
+        "lib/netstandard1.0/Plugin.Compass.Abstractions.dll",
+        "lib/netstandard1.0/Plugin.Compass.Abstractions.pdb",
+        "lib/netstandard1.0/Plugin.Compass.Abstractions.xml",
+        "lib/netstandard1.0/Plugin.Compass.deps.json",
+        "lib/netstandard1.0/Plugin.Compass.dll",
+        "lib/netstandard1.0/Plugin.Compass.pdb",
+        "lib/netstandard1.0/Plugin.Compass.xml",
+        "plugin.compass.3.0.1.nupkg.sha512",
+        "plugin.compass.nuspec"
       ]
     },
     "Plugin.Permissions/2.2.1": {
@@ -454,6 +502,7 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "NETStandard.Library >= 2.0.1",
+      "Plugin.Compass >= 3.0.1",
       "Plugin.Permissions >= 2.2.1",
       "Xamarin.Forms >= 3.0.0.482510",
       "ZXing.Net.Mobile >= 2.4.1",
@@ -506,6 +555,10 @@
             "target": "Package",
             "version": "[2.0.1, )",
             "autoReferenced": true
+          },
+          "Plugin.Compass": {
+            "target": "Package",
+            "version": "[3.0.1, )"
           },
           "Plugin.Permissions": {
             "target": "Package",
