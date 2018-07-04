@@ -30,3 +30,5 @@ ZXing.Net.Mobile.Forms.Android
 ZXing.Net.Mobile.Forms
 zxing.portable
 ZXingNetMobile
+Plugin.Compass.Abstractions
+Plugin.Compass
