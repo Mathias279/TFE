@@ -15,31 +15,33 @@ namespace TFE2017.Core
 	public partial class PositionPage : ContentPage
 	{
         private List<string> _listDirections;
+        private int _degres;
+        PositionEntity _pos1;
+        int _indexDirection;
 
         public PositionPage()
         {
             InitializeComponent();
-
             _listDirections = new List<string>(){ "N","NE","E","SE","S","SO","O","NO" };
-
-            PositionEntity pos1 =  new PositionEntity() { PosX = 10, PosY = 10};
-
-            LabelPosition.Text = pos1.ToString();
-
-
-
-
+            _degres = 0;            
+            
             CrossCompass.Current.CompassChanged += (s, e) =>
             {
-                Debug.WriteLine("*** Compass Heading = {0}", e.Heading);
+                _degres = (int)(e.Heading) + 1;// so always > 0
 
-                LabelHeading.Text = ((int)(e.Heading)).ToString() + "°";
-
-                LabelDirection.Text = _listDirections[(int)((e.Heading + 22.5) / 45)];
-
+                LabelHeading.Text = _degres.ToString() + "°";
+                _indexDirection = (_degres + 22) / 45;
+                LabelDirection.Text = _listDirections[_indexDirection];
             };
 
             CrossCompass.Current.Start();
+
+
+            BuildingEntity ephec = new BuildingEntity();
+            ephec.FloorsList[0] = new FloorEntity();
+
+
+
 
 
 

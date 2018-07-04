@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TFE2017.Core;
+using TFE2017.Core.Pages;
 using Xamarin.Forms;
 
 namespace TFE2017
@@ -36,8 +37,13 @@ namespace TFE2017
         {
             await Navigation.PushAsync(new PositionPage());
         }
-        
-    
+
+        public async void BoutonDBPageClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DBPage2());
+        }
+
+
 
     }
 }
