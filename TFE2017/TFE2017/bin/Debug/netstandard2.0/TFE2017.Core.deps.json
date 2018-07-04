@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "79739f15b7f9c116a4785a47a1be56e19361dcde"
+    "signature": "c20b8bbc2a172dfc02c17cb3f84800483dead4ad"
   },
   "compilationOptions": {},
   "targets": {
@@ -10,6 +10,7 @@
       "TFE2017.Core/1.0.0": {
         "dependencies": {
           "NETStandard.Library": "2.0.1",
+          "Plugin.Compass": "3.0.1",
           "Plugin.Permissions": "2.2.1",
           "Xamarin.Forms": "3.0.0.482510",
           "ZXing.Net.Mobile": "2.4.1",
@@ -23,6 +24,15 @@
       "NETStandard.Library/2.0.1": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
+      "Plugin.Compass/3.0.1": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.1"
+        },
+        "runtime": {
+          "lib/netstandard1.0/Plugin.Compass.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.Compass.dll": {}
         }
       },
       "Plugin.Permissions/2.2.1": {
@@ -78,6 +88,13 @@
       "sha512": "sha512-oA6nwv9MhEKYvLpjZ0ggSpb1g4CQViDVQjLUcDWg598jtvJbpfeP2reqwI1GLW2TbxC/Ml7xL6BBR1HmKPXlTg==",
       "path": "netstandard.library/2.0.1",
       "hashPath": "netstandard.library.2.0.1.nupkg.sha512"
+    },
+    "Plugin.Compass/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8+qdWFgiVqwwWIwKwfqVGtVeqJY8ZsLABcg4Xrwve2Yikx6cdaCeStdewZ4azihdqiYlzSIaY0IwWOdZc7wkrA==",
+      "path": "plugin.compass/3.0.1",
+      "hashPath": "plugin.compass.3.0.1.nupkg.sha512"
     },
     "Plugin.Permissions/2.2.1": {
       "type": "package",
