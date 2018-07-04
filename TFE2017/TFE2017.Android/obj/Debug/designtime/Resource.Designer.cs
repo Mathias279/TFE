@@ -26,6 +26,7 @@ namespace TFE2017.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::TFE2017.Droid.Resource.String.ApplicationName;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::TFE2017.Droid.Resource.Attribute.actionBarSize;
 			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscanneractivitylayout = global::TFE2017.Droid.Resource.Layout.zxingscanneractivitylayout;
 			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscannerfragmentlayout = global::TFE2017.Droid.Resource.Layout.zxingscannerfragmentlayout;
@@ -3757,6 +3758,9 @@ namespace TFE2017.Droid
 			
 			// aapt resource value: 2131099681
 			public static int appbar_scrolling_view_behavior = 2131099681;
+			
+			// aapt resource value: 0
+			public static int ApplicationName = 0;
 			
 			// aapt resource value: 0
 			public static int app_name = 0;
