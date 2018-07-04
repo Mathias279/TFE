@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
-
+using TFE2017.Core.Managers;
 using Xamarin.Forms;
 
 namespace TFE2017
@@ -11,10 +12,24 @@ namespace TFE2017
 	{
 		public App ()
 		{
-			InitializeComponent();
-
-			MainPage = new NavigationPage( new TFE2017.MainPage());
+            try
+            {
+                InitializeComponent();
+                Init();
+                MainPage = new  NavigationPage( new TFE2017.Core.Pages.DBPage2());
+                //MainPage = new NavigationPage(new TFE2017.MainPage());
+            }
+            catch (Exception ex)
+            {
+                Debugger.Break();
+            }
 		}
+
+        private void Init()
+        {
+            //DatabaseManager
+
+        }
 
 		protected override void OnStart ()
 		{
