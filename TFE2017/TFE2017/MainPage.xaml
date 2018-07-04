@@ -11,7 +11,7 @@
 
             <Button x:Name="ButtonScanPage" Clicked="ButtonScanPageClicked" Text="ScanPage" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
             <Button x:Name="ButtonPositionPage" Clicked="ButtonPositionPageClicked" Text="PositionPage" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
-            <Button x:Name="ButtonDBPage" Clicked="BoutonDBPageClicked" Text="PositionPage" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
+            <Button x:Name="ButtonDBPage" Clicked="BoutonDBPageClicked" Text="DBPage" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

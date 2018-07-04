@@ -21,29 +21,35 @@ namespace TFE2017.Core
 
         public PositionPage()
         {
-            InitializeComponent();
-            _listDirections = new List<string>(){ "N","NE","E","SE","S","SO","O","NO" };
-            _degres = 0;            
-            
-            CrossCompass.Current.CompassChanged += (s, e) =>
+            try
             {
-                _degres = (int)(e.Heading) + 1;// so always > 0
+                InitializeComponent();
+                _listDirections = new List<string>() { "N", "NE", "E", "SE", "S", "SO", "O", "NO" };
+                _degres = 0;
+
+                CrossCompass.Current.CompassChanged += (s, e) =>
+                {
+                    _degres = (int)(e.Heading) + 1;// so always > 0
 
                 LabelHeading.Text = _degres.ToString() + "°";
-                _indexDirection = (_degres + 22) / 45;
-                LabelDirection.Text = _listDirections[_indexDirection];
-            };
+                    _indexDirection = (_degres + 22) / 45;
+                    LabelDirection.Text = _listDirections[_indexDirection];
+                };
 
-            CrossCompass.Current.Start();
-
-
-            BuildingEntity ephec = new BuildingEntity();
-            ephec.FloorsList[0] = new FloorEntity();
+                CrossCompass.Current.Start();
 
 
+                BuildingEntity ephec = new BuildingEntity();
+                ephec.FloorsList[0] = new FloorEntity();
 
 
 
+
+            }
+            catch(Exception ex)
+            {
+                Debugger.Break();
+            }
 
         }
 	}

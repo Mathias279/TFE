@@ -15,8 +15,7 @@ namespace TFE2017.Core.Pages
     public partial class DBPage2 : ContentPage
     {
         public IDriver Neo4jDB;
-
-
+        
         public DBPage2()
         {
             InitializeComponent();

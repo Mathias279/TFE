@@ -16,8 +16,7 @@ namespace TFE2017
             {
                 InitializeComponent();
                 Init();
-                MainPage = new  NavigationPage( new TFE2017.Core.Pages.DBPage2());
-                //MainPage = new NavigationPage(new TFE2017.MainPage());
+                MainPage = new NavigationPage(new TFE2017.MainPage());
             }
             catch (Exception ex)
             {
