@@ -4,18 +4,9 @@
              x:Class="TFE2017.Core.QrCodePage">
     <ContentPage.Content>
         <StackLayout>
-            <ContentView x:Name="TitleView" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-                <Label x:Name="TitleLabel" HorizontalOptions="CenterAndExpand" Text="TITRE"/>
-            </ContentView>
-            <ContentView>
-                
-            </ContentView>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="EndAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="LabelCode" VerticalOptions="Center" HorizontalOptions="Center"/>
 
-            <Button x:Name="ButtonScan" Text="scan" Clicked="ButtonScanClicked" />
-            <Label x:Name="LabelCode" Text="" HorizontalOptions="Center"/>
+            <Button x:Name="ButtonSuivant" Clicked="ButtonSuivantCicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

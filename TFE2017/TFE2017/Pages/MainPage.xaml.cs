@@ -81,7 +81,8 @@ namespace TFE2017.Core.Pages
 
         public async void ButtonSuivantCicked(object sender, EventArgs e)
         {
+
             await Navigation.PushAsync(new QrCodePage());
         }
-        }
+    }
 }

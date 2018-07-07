@@ -26,14 +26,15 @@ namespace TFE2017.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
-            await TryToGetPermissions();
 
+            while(ShouldShowRequestPermissionRationale(Manifest.Permission.Camera))
+            {
+                await TryToGetPermissions();
+            }
             LoadApplication(new App());
         }
 
-
-
-
+        
         #region RuntimePermissions
 
         async Task TryToGetPermissions()
@@ -64,7 +65,7 @@ namespace TFE2017.Droid
         {
             const string permission = Manifest.Permission.Camera;
 
-            if (CheckSelfPermission(permission) == (int)Android.Content.PM.Permission.Granted)
+            if (CheckSelfPermission(permission) == (int)Permission.Granted)
             {
                 //TODO change the message to show the permissions name
                 Toast.MakeText(this, "Camera permissions granted", ToastLength.Short).Show();
