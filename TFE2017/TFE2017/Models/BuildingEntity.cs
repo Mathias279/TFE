@@ -11,7 +11,7 @@ namespace TFE2017.Core.Models
 
         public BuildingEntity()
         {
-            Id = 0;
+            Id = "0";
             FloorsList = new List<FloorEntity>();
         }
     }

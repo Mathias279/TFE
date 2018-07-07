@@ -22,6 +22,7 @@ namespace TFE2017.Core
         public async void ButtonScanClicked(object sender, EventArgs e)
         {
             var scan = new ZXingScannerPage();
+            
             Navigation.PushAsync(scan);
             scan.OnScanResult += (result) =>
             {
