@@ -2155,20 +2155,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lenovo\\.nuget\\packages\\": {}
+    "C:\\Users\\Mathias\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\EPHEC_3e_tris\\tfe\\Application\\TFE\\TFE2017\\TFE2017.iOS\\TFE2017.iOS.csproj",
+      "projectUniqueName": "D:\\Perso\\TFE\\TFE2017\\TFE2017.iOS\\TFE2017.iOS.csproj",
       "projectName": "TFE2017.iOS",
-      "projectPath": "C:\\Users\\Lenovo\\Documents\\EPHEC_3e_tris\\tfe\\Application\\TFE\\TFE2017\\TFE2017.iOS\\TFE2017.iOS.csproj",
-      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lenovo\\Documents\\EPHEC_3e_tris\\tfe\\Application\\TFE\\TFE2017\\TFE2017.iOS\\obj\\",
+      "projectPath": "D:\\Perso\\TFE\\TFE2017\\TFE2017.iOS\\TFE2017.iOS.csproj",
+      "packagesPath": "C:\\Users\\Mathias\\.nuget\\packages\\",
+      "outputPath": "D:\\Perso\\TFE\\TFE2017\\TFE2017.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mathias\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2181,8 +2181,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\Lenovo\\Documents\\EPHEC_3e_tris\\tfe\\Application\\TFE\\TFE2017\\TFE2017\\TFE2017.Core.csproj": {
-              "projectPath": "C:\\Users\\Lenovo\\Documents\\EPHEC_3e_tris\\tfe\\Application\\TFE\\TFE2017\\TFE2017\\TFE2017.Core.csproj"
+            "D:\\Perso\\TFE\\TFE2017\\TFE2017\\TFE2017.Core.csproj": {
+              "projectPath": "D:\\Perso\\TFE\\TFE2017\\TFE2017\\TFE2017.Core.csproj"
             }
           }
         }

@@ -4074,23 +4074,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lenovo\\.nuget\\packages\\": {},
+    "C:\\Users\\Mathias\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\EPHEC_3e_tris\\tfe\\Application\\TFE\\TFE2017\\TFE2017\\TFE2017.Core.csproj",
+      "projectUniqueName": "D:\\Perso\\TFE\\TFE2017\\TFE2017\\TFE2017.Core.csproj",
       "projectName": "TFE2017.Core",
-      "projectPath": "C:\\Users\\Lenovo\\Documents\\EPHEC_3e_tris\\tfe\\Application\\TFE\\TFE2017\\TFE2017\\TFE2017.Core.csproj",
-      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lenovo\\Documents\\EPHEC_3e_tris\\tfe\\Application\\TFE\\TFE2017\\TFE2017\\obj\\",
+      "projectPath": "D:\\Perso\\TFE\\TFE2017\\TFE2017\\TFE2017.Core.csproj",
+      "packagesPath": "C:\\Users\\Mathias\\.nuget\\packages\\",
+      "outputPath": "D:\\Perso\\TFE\\TFE2017\\TFE2017\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mathias\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
