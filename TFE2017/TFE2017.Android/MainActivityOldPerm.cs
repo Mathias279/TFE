@@ -34,7 +34,7 @@ namespace TFE2017.Droid
             bool gotPermission = true;
             if (ShouldShowRequestPermissionRationale(Manifest.Permission.Camera))
             {
-                gotPermission =  await TryToGetPermissions();
+                 await TryToGetPermissions();
             }
             LoadApplication(new App());
         }
@@ -47,7 +47,7 @@ namespace TFE2017.Droid
                 Manifest.Permission.Camera
             };
 
-        async Task<bool> TryToGetPermissions()
+        async Task TryToGetPermissions()
         {
             if (_verbose)
                 Toast.MakeText(this, "SDK version = " + (int)Build.VERSION.SdkInt, ToastLength.Short).Show();

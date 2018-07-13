@@ -78,18 +78,13 @@
           "lib/netstandard1.0/Plugin.Compass.dll": {}
         }
       },
-      "Plugin.Permissions/2.2.1": {
+      "Plugin.Permissions/3.0.0.12": {
         "type": "package",
-        "dependencies": {
-          "NETStandard.Library": "1.6.1"
-        },
         "compile": {
-          "lib/netstandard1.0/Plugin.Permissions.Abstractions.dll": {},
-          "lib/netstandard1.0/Plugin.Permissions.dll": {}
+          "lib/netstandard2.0/Plugin.Permissions.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.0/Plugin.Permissions.Abstractions.dll": {},
-          "lib/netstandard1.0/Plugin.Permissions.dll": {}
+          "lib/netstandard2.0/Plugin.Permissions.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -1298,38 +1293,23 @@
         "plugin.compass.nuspec"
       ]
     },
-    "Plugin.Permissions/2.2.1": {
-      "sha512": "ixEdsOBokh6eIofokJmru0u18hZKUODkvJZeest0CsHiiuRcO38yiTr+2Nq6Pg9hm0fhyavFQydhbldfHOp44Q==",
+    "Plugin.Permissions/3.0.0.12": {
+      "sha512": "VrYqI/ufk3bH6gTP1JJlLByjhS0CHu3riKmdozhX9/qXA9hlvLolmcqKJdyAqpzmrVC74m3ZtirUBIrBxvT1Lw==",
       "type": "package",
-      "path": "plugin.permissions/2.2.1",
+      "path": "plugin.permissions/3.0.0.12",
       "files": [
-        "lib/MonoAndroid10/Plugin.Permissions.Abstractions.dll",
-        "lib/MonoAndroid10/Plugin.Permissions.Abstractions.pdb",
-        "lib/MonoAndroid10/Plugin.Permissions.Abstractions.xml",
-        "lib/MonoAndroid10/Plugin.Permissions.XML",
-        "lib/MonoAndroid10/Plugin.Permissions.dll",
-        "lib/MonoAndroid10/Plugin.Permissions.dll.mdb",
-        "lib/MonoAndroid10/Plugin.Permissions.pdb",
-        "lib/UAP10/Plugin.Permissions.Abstractions.dll",
-        "lib/UAP10/Plugin.Permissions.Abstractions.pdb",
-        "lib/UAP10/Plugin.Permissions.Abstractions.xml",
-        "lib/UAP10/Plugin.Permissions.XML",
-        "lib/UAP10/Plugin.Permissions.dll",
-        "lib/UAP10/Plugin.Permissions.pdb",
-        "lib/UAP10/Plugin.Permissions.pri",
-        "lib/Xamarin.iOS10/Plugin.Permissions.Abstractions.dll",
-        "lib/Xamarin.iOS10/Plugin.Permissions.Abstractions.pdb",
-        "lib/Xamarin.iOS10/Plugin.Permissions.Abstractions.xml",
-        "lib/Xamarin.iOS10/Plugin.Permissions.XML",
-        "lib/Xamarin.iOS10/Plugin.Permissions.dll",
-        "lib/netstandard1.0/Plugin.Permissions.Abstractions.dll",
-        "lib/netstandard1.0/Plugin.Permissions.Abstractions.pdb",
-        "lib/netstandard1.0/Plugin.Permissions.Abstractions.xml",
-        "lib/netstandard1.0/Plugin.Permissions.deps.json",
+        "lib/monoandroid71/Plugin.Permissions.dll",
+        "lib/monoandroid71/Plugin.Permissions.xml",
         "lib/netstandard1.0/Plugin.Permissions.dll",
-        "lib/netstandard1.0/Plugin.Permissions.pdb",
         "lib/netstandard1.0/Plugin.Permissions.xml",
-        "plugin.permissions.2.2.1.nupkg.sha512",
+        "lib/netstandard2.0/Plugin.Permissions.dll",
+        "lib/netstandard2.0/Plugin.Permissions.xml",
+        "lib/uap10.0.10240/Plugin.Permissions.dll",
+        "lib/uap10.0.10240/Plugin.Permissions.pri",
+        "lib/uap10.0.10240/Plugin.Permissions.xml",
+        "lib/xamarinios10/Plugin.Permissions.dll",
+        "lib/xamarinios10/Plugin.Permissions.xml",
+        "plugin.permissions.3.0.0.12.nupkg.sha512",
         "plugin.permissions.nuspec",
         "readme.txt"
       ]
@@ -3887,7 +3867,7 @@
       "NETStandard.Library >= 2.0.1",
       "Neo4j.Driver >= 1.6.1",
       "Plugin.Compass >= 3.0.1",
-      "Plugin.Permissions >= 2.2.1",
+      "Plugin.Permissions >= 3.0.0.12",
       "System.Linq >= 4.3.0",
       "Xamarin.Forms >= 3.0.0.482510",
       "ZXing.Net.Mobile >= 2.4.1",
@@ -3951,7 +3931,7 @@
           },
           "Plugin.Permissions": {
             "target": "Package",
-            "version": "[2.2.1, )"
+            "version": "[3.0.0.12, )"
           },
           "System.Linq": {
             "target": "Package",

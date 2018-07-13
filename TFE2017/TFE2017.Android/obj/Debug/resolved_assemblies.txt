@@ -8,7 +8,6 @@ C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Andr
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\Plugin.Compass.Abstractions.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\Plugin.Compass.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\Plugin.CurrentActivity.dll
-C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\Plugin.Permissions.Abstractions.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\Plugin.Permissions.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.Core.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.dll

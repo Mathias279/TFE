@@ -1,13 +1,12 @@
+System.Runtime
+TFE2017.Core
 FastAndroidCamera
 FormsViewGroup
 Neo4j.Driver
 Plugin.Compass.Abstractions
 Plugin.Compass
 Plugin.CurrentActivity
-Plugin.Permissions.Abstractions
 Plugin.Permissions
-System.Runtime
-TFE2017.Core
 Xamarin.Android.Support.Animated.Vector.Drawable
 Xamarin.Android.Support.Annotations
 Xamarin.Android.Support.Compat

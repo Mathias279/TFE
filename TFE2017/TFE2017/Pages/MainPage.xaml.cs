@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.Permissions.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -38,6 +39,12 @@ namespace TFE2017.Core.Pages
             }
         }
 
+        protected override void OnAppearing()
+        {
+
+            bool IsPermissionGiven = App.CheckPermission(Permission.Camera).Result;
+        }
+
         private void InitVisual()
         {
             LabelTitre.Text = "Welcome to my app!";
@@ -61,7 +68,7 @@ namespace TFE2017.Core.Pages
 
         public async void ButtonScanPageClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new QrCodePage());
+            await Navigation.PushAsync(new QrPage());
         }
 
         public async void ButtonPositionPageClicked(object sender, EventArgs e)
@@ -76,7 +83,7 @@ namespace TFE2017.Core.Pages
 
         public async void ButtonSuivantCicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new QrCodePage());
+            await Navigation.PushAsync(new QrPage());
         }
     }
 }

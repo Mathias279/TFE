@@ -113,7 +113,6 @@ class MonoPackageManager_Resources {
 		"Plugin.Compass.Abstractions.dll",
 		"Plugin.Compass.dll",
 		"Plugin.CurrentActivity.dll",
-		"Plugin.Permissions.Abstractions.dll",
 		"Plugin.Permissions.dll",
 		"TFE2017.Core.dll",
 		"Xamarin.Android.Support.Animated.Vector.Drawable.dll",
