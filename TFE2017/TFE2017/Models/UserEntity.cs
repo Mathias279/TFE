@@ -9,6 +9,5 @@ namespace TFE2017.Core.Models
         public PositionEntity Position { get; set; }
         public string Name { get; private set; }
         public double Orientation { get; set; }
-
     }
 }

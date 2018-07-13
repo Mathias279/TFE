@@ -10,5 +10,4 @@ namespace TFE2017.Core.Models
         public int FloorNbr { get; set; }
         private List<RoomEntity> RoomEntities { get; set; }
     }
-
 }

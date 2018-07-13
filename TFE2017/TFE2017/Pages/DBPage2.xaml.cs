@@ -19,9 +19,7 @@ namespace TFE2017.Core.Pages
         public DBPage2()
         {
             InitializeComponent();
-
             Connect();
-
             test();
         }
 
@@ -38,17 +36,16 @@ namespace TFE2017.Core.Pages
                 var result = tx.Run("match (n) return n").ToList();
                 foreach (var element in result)
                 {
-
+                    //TODO
                 }
                 tx.Success();
             }
             Debugger.Break();
-
             //Label1.TextColor = Color.Green;
         }
+
         public void GetPath(string origine, string destination)
-        {
-            
+        {            
         }
     }
 }

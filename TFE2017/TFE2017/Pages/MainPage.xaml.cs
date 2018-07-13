@@ -16,12 +16,8 @@ namespace TFE2017.Core.Pages
         {
             try
             {
-
                 InitializeComponent();
-
                 InitVisual();
-
-
 
                 //async Task TryGetLocationAsync()
                 //{
@@ -44,7 +40,6 @@ namespace TFE2017.Core.Pages
 
         private void InitVisual()
         {
-
             LabelTitre.Text = "Welcome to my app!";
             ButtonScanPage.Text = "ScanPage";
             ButtonPositionPage.Text = "PositionPage";
@@ -81,7 +76,6 @@ namespace TFE2017.Core.Pages
 
         public async void ButtonSuivantCicked(object sender, EventArgs e)
         {
-
             await Navigation.PushAsync(new QrCodePage());
         }
     }

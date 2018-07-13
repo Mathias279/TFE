@@ -27,7 +27,8 @@ namespace TFE2017.Core
                 InitializeComponent();
                 InitVisual();
                 Init();
-                Device.BeginInvokeOnMainThread(() => Scan());
+
+                Scan();
             }
             catch (Exception ex)
             {
@@ -45,24 +46,27 @@ namespace TFE2017.Core
             _textQR = "";
         }
 
-        public async void Scan()
+        public void Scan()
         {
-            var scan = new ZXingScannerPage();
-            scan.DefaultOverlayShowFlashButton = true;
+            ZXingScannerView scanView = new ZXingScannerView() {
+                IsScanning = true,
+                IsAnalyzing = true,
+                //Options = new ZXing.Mobile.MobileBarcodeScanningOptions() { DelayBetweenContinuousScans = 1000},
+            };
+
             
-            scan.OnScanResult += ((result) =>
+            scanView.OnScanResult += ((result) =>
             {
-                Device.BeginInvokeOnMainThread(async () =>
+                Device.BeginInvokeOnMainThread(() =>
+                //Device.BeginInvokeOnMainThread(async () =>
                 {
-                    await Navigation.PopAsync();
+                    //await Navigation.PopAsync();
 
                     _textQR = result.Text;
 
                     CheckScanResult();
                 });
-            });
-
-            await Navigation.PushAsync(scan);            
+            });           
         }
 
         private async void CheckScanResult()
@@ -73,29 +77,20 @@ namespace TFE2017.Core
                 bool isQRValid = true;
 
                 isQRValid &= _appUrl.Scheme == uriQR.Scheme;
-
                 isQRValid &= _appUrl.AbsoluteUri == uriQR.AbsoluteUri;
-
                 isQRValid &= _appUrl.LocalPath == uriQR.LocalPath;
                 
-                if (isQRValid)
-                {
+                if (isQRValid)                
                     await Navigation.PushAsync(new DestinationPage(_appUrl.Query));
-                }
                 else
                 {
                     await DisplayAlert("erreur", "qr non valide", "cancel");
                     await DisplayAlert("erreur", _appUrl.ToString() + "\n " + uriQR.ToString(), "cancel");
-
-
-
-                    await Navigation.PopAsync();
                 }
             }
             else
             {
                 await DisplayAlert("erreur", "scan non valide", "cancel");
-                await Navigation.PopAsync();
             }
         }
 
@@ -108,6 +103,5 @@ namespace TFE2017.Core
         {
             await DisplayAlert("qr code", "le code est: " + _textQR, "ok", null);
         }
-
     }
 }

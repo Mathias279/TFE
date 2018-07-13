@@ -38,19 +38,13 @@ namespace TFE2017.Core
 
                 CrossCompass.Current.Start();
 
-
                 BuildingEntity ephec = new BuildingEntity();
                 ephec.FloorsList[0] = new FloorEntity();
-
-
-
-
             }
             catch(Exception ex)
             {
                 Debugger.Break();
             }
-
         }
 	}
 }

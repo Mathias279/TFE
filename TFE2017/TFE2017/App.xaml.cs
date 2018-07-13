@@ -17,7 +17,6 @@ namespace TFE2017
             {
                 InitializeComponent();
                 Init();
-
                 MainPage = new NavigationPage(new MainPage());
             }
             catch (Exception ex)
