@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TFE2017.Core.Views.Pages.PositionPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="current coordonates:"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="LabelPosition" VerticalOptions="Center" HorizontalOptions="Center" />
+            <Label x:Name="LabelPosition1" VerticalOptions="Center" HorizontalOptions="Center" />
+            <Label x:Name="LabelHeading" VerticalOptions="Center" HorizontalOptions="Center" />
+            <Label x:Name="LabelDirection" VerticalOptions="Center" HorizontalOptions="Center" />
+        </StackLayout> 
+    </ContentPage.Content>
+</ContentPage>

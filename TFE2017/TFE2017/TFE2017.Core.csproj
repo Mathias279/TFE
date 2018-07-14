@@ -19,31 +19,31 @@
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="App.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
-    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\MainPage.xaml.cs">
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\Pages\MainPage.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\QrPage.xaml.cs">
+    <Compile Update="Views\Pages\QrPage.xaml.cs">
       <DependentUpon>QrPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\Custom\ScannerPage.xaml.cs">
+    <Compile Update="Views\Customs\ScannerPage.xaml.cs">
       <DependentUpon>ScannerPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Pages\DBPage2.xaml">
+    <EmbeddedResource Update="Views\Pages\DBPage2.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\DestinationPage.xaml">
+    <EmbeddedResource Update="Views\Pages\DestinationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\PositionPage.xaml">
+    <EmbeddedResource Update="Views\Pages\PositionPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\QrPage.xaml">
+    <EmbeddedResource Update="Views\Pages\QrPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Custom\ScannerPage.xaml">
+    <EmbeddedResource Update="Views\Customs\ScannerPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

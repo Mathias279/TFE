@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("TFE2017.Core.Pages.Custom.ScannerPage.xaml", "Pages/Custom/ScannerPage.xaml", typeof(global::TFE2017.Core.Pages.Custom.ScannerPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("TFE2017.Core.Pages.Custom.ScannerPage.xaml", "Pages/Custom/ScannerPage.xaml", typeof(global::TFE2017.Core.Views.Custom.ScannerPage))]
 
-namespace TFE2017.Core.Pages.Custom {
+namespace TFE2017.Core.Views.Custom {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages\\Custom\\ScannerPage.xaml")]

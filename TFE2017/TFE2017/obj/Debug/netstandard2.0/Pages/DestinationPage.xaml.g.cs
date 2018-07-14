@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("TFE2017.Core.Pages.DestinationPage.xaml", "Pages/DestinationPage.xaml", typeof(global::TFE2017.Core.Pages.DestinationPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("TFE2017.Core.Pages.DestinationPage.xaml", "Pages/DestinationPage.xaml", typeof(global::TFE2017.Core.Views.DestinationPage))]
 
-namespace TFE2017.Core.Pages {
+namespace TFE2017.Core.Views {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages\\DestinationPage.xaml")]

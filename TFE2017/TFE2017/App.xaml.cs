@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TFE2017.Core.Managers;
-using TFE2017.Core.Pages;
+using TFE2017.Core.Views.Pages;
 using Xamarin.Forms;
 
 namespace TFE2017
