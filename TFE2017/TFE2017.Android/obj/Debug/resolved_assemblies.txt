@@ -1,4 +1,6 @@
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\TFE2017.Android.dll
+C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\Acr.UserDialogs.dll
+C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\AndHUD.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\FastAndroidCamera.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\FormsViewGroup.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\Java.Interop.dll
@@ -11,6 +13,9 @@ C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Andr
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\Plugin.Permissions.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.Core.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.dll
+C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.IdentityModel.dll
+C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.Net.Http.dll
+C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.Runtime.Serialization.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.Xml.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.Xml.Linq.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\TFE2017.Core.dll
@@ -54,9 +59,6 @@ C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Andr
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.Runtime.InteropServices.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.Runtime.Extensions.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.Reflection.Extensions.dll
-C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.Net.Http.dll
-C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.Runtime.Serialization.dll
-C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.ServiceModel.Internals.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.Resources.ResourceManager.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.Threading.Tasks.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.Runtime.Serialization.Primitives.dll
@@ -73,6 +75,7 @@ C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Andr
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.Threading.Thread.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.Text.Encoding.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\Mono.Security.dll
+C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.ServiceModel.Internals.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\netstandard.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.Data.dll
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.Numerics.dll

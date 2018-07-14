@@ -2,6 +2,30 @@
   "version": 3,
   "targets": {
     "UAP,Version=v10.0.16299": {
+      "Acr.UserDialogs/7.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Coding4Fun.Toolkit.Controls": "2.1.8",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.5"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Acr.UserDialogs.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Acr.UserDialogs.dll": {}
+        }
+      },
+      "Coding4Fun.Toolkit.Controls/2.1.8": {
+        "type": "package",
+        "compile": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -749,6 +773,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Acr.UserDialogs": "7.0.1",
           "Neo4j.Driver": "1.6.1",
           "Plugin.Compass": "3.0.1",
           "Plugin.Permissions": "3.0.0.12",
@@ -766,6 +791,30 @@
       }
     },
     "UAP,Version=v10.0.16299/win10-arm": {
+      "Acr.UserDialogs/7.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Coding4Fun.Toolkit.Controls": "2.1.8",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.5"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Acr.UserDialogs.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Acr.UserDialogs.dll": {}
+        }
+      },
+      "Coding4Fun.Toolkit.Controls/2.1.8": {
+        "type": "package",
+        "compile": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -2044,6 +2093,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Acr.UserDialogs": "7.0.1",
           "Neo4j.Driver": "1.6.1",
           "Plugin.Compass": "3.0.1",
           "Plugin.Permissions": "3.0.0.12",
@@ -2061,6 +2111,30 @@
       }
     },
     "UAP,Version=v10.0.16299/win10-arm-aot": {
+      "Acr.UserDialogs/7.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Coding4Fun.Toolkit.Controls": "2.1.8",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.5"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Acr.UserDialogs.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Acr.UserDialogs.dll": {}
+        }
+      },
+      "Coding4Fun.Toolkit.Controls/2.1.8": {
+        "type": "package",
+        "compile": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -3413,6 +3487,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Acr.UserDialogs": "7.0.1",
           "Neo4j.Driver": "1.6.1",
           "Plugin.Compass": "3.0.1",
           "Plugin.Permissions": "3.0.0.12",
@@ -3430,6 +3505,30 @@
       }
     },
     "UAP,Version=v10.0.16299/win10-arm64-aot": {
+      "Acr.UserDialogs/7.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Coding4Fun.Toolkit.Controls": "2.1.8",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.5"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Acr.UserDialogs.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Acr.UserDialogs.dll": {}
+        }
+      },
+      "Coding4Fun.Toolkit.Controls/2.1.8": {
+        "type": "package",
+        "compile": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -4534,6 +4633,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Acr.UserDialogs": "7.0.1",
           "Neo4j.Driver": "1.6.1",
           "Plugin.Compass": "3.0.1",
           "Plugin.Permissions": "3.0.0.12",
@@ -4551,6 +4651,30 @@
       }
     },
     "UAP,Version=v10.0.16299/win10-x64": {
+      "Acr.UserDialogs/7.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Coding4Fun.Toolkit.Controls": "2.1.8",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.5"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Acr.UserDialogs.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Acr.UserDialogs.dll": {}
+        }
+      },
+      "Coding4Fun.Toolkit.Controls/2.1.8": {
+        "type": "package",
+        "compile": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -5829,6 +5953,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Acr.UserDialogs": "7.0.1",
           "Neo4j.Driver": "1.6.1",
           "Plugin.Compass": "3.0.1",
           "Plugin.Permissions": "3.0.0.12",
@@ -5846,6 +5971,30 @@
       }
     },
     "UAP,Version=v10.0.16299/win10-x64-aot": {
+      "Acr.UserDialogs/7.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Coding4Fun.Toolkit.Controls": "2.1.8",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.5"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Acr.UserDialogs.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Acr.UserDialogs.dll": {}
+        }
+      },
+      "Coding4Fun.Toolkit.Controls/2.1.8": {
+        "type": "package",
+        "compile": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -7198,6 +7347,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Acr.UserDialogs": "7.0.1",
           "Neo4j.Driver": "1.6.1",
           "Plugin.Compass": "3.0.1",
           "Plugin.Permissions": "3.0.0.12",
@@ -7215,6 +7365,30 @@
       }
     },
     "UAP,Version=v10.0.16299/win10-x86": {
+      "Acr.UserDialogs/7.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Coding4Fun.Toolkit.Controls": "2.1.8",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.5"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Acr.UserDialogs.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Acr.UserDialogs.dll": {}
+        }
+      },
+      "Coding4Fun.Toolkit.Controls/2.1.8": {
+        "type": "package",
+        "compile": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -8493,6 +8667,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Acr.UserDialogs": "7.0.1",
           "Neo4j.Driver": "1.6.1",
           "Plugin.Compass": "3.0.1",
           "Plugin.Permissions": "3.0.0.12",
@@ -8510,6 +8685,30 @@
       }
     },
     "UAP,Version=v10.0.16299/win10-x86-aot": {
+      "Acr.UserDialogs/7.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Coding4Fun.Toolkit.Controls": "2.1.8",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.5"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Acr.UserDialogs.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Acr.UserDialogs.dll": {}
+        }
+      },
+      "Coding4Fun.Toolkit.Controls/2.1.8": {
+        "type": "package",
+        "compile": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -9862,6 +10061,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Acr.UserDialogs": "7.0.1",
           "Neo4j.Driver": "1.6.1",
           "Plugin.Compass": "3.0.1",
           "Plugin.Permissions": "3.0.0.12",
@@ -9880,6 +10080,66 @@
     }
   },
   "libraries": {
+    "Acr.UserDialogs/7.0.1": {
+      "sha512": "+eGbTgwaFPzcaRnMdnAK5pHA0eoeoxkhy80FNwGeewqvA+DM6fUPM9yMbrN2hw3rcuBaXd2ghy2Xq5XU7m8qkw==",
+      "type": "package",
+      "path": "acr.userdialogs/7.0.1",
+      "files": [
+        "acr.userdialogs.7.0.1.nupkg.sha512",
+        "acr.userdialogs.nuspec",
+        "lib/monoandroid70/Acr.UserDialogs.dll",
+        "lib/monoandroid80/Acr.UserDialogs.dll",
+        "lib/netstandard2.0/Acr.UserDialogs.dll",
+        "lib/uap10.0.16299/Acr.UserDialogs.dll",
+        "lib/uap10.0.16299/Acr.UserDialogs.pri",
+        "lib/uap10.0.16299/Acr.UserDialogs/Acr.UserDialogs.xr.xml",
+        "lib/uap10.0.16299/Acr.UserDialogs/Platforms/Uwp/ActionSheetContentDialog.xaml",
+        "lib/uap10.0.16299/Acr.UserDialogs/Platforms/Uwp/DatePickerControl.xaml",
+        "lib/uap10.0.16299/Acr.UserDialogs/Platforms/Uwp/LoginContentDialog.xaml",
+        "lib/uap10.0.16299/Acr.UserDialogs/Platforms/Uwp/ProgressContentDialog.xaml",
+        "lib/uap10.0.16299/Acr.UserDialogs/Platforms/Uwp/TimePickerControl.xaml",
+        "lib/xamarinios10/Acr.UserDialogs.dll"
+      ]
+    },
+    "Coding4Fun.Toolkit.Controls/2.1.8": {
+      "sha512": "PCRWgCiW9H8qzT8xYxNtpq4ZWpvh2gtrKAnWtEOXzapyXTEt8esCt0cqRwvosW+bytyfohonmB7UxB0EGXmdsQ==",
+      "type": "package",
+      "path": "coding4fun.toolkit.controls/2.1.8",
+      "files": [
+        "coding4fun.toolkit.controls.2.1.8.nupkg.sha512",
+        "coding4fun.toolkit.controls.nuspec",
+        "content/ReadMe.Coding4Fun.Toolkit.txt",
+        "content/windowsphone8/Toolkit.Content/ApplicationBar.Cancel.png",
+        "content/windowsphone8/Toolkit.Content/ApplicationBar.Check.png",
+        "lib/netcore451/Coding4Fun.Toolkit.Controls.dll",
+        "lib/netcore451/Coding4Fun.Toolkit.Controls.pri",
+        "lib/netcore451/Coding4Fun.Toolkit.Controls/Coding4Fun.Toolkit.Controls.xr.xml",
+        "lib/netcore451/Coding4Fun.Toolkit.Controls/Themes/Generic.xbf",
+        "lib/netcore451/Coding4Fun.Toolkit.dll",
+        "lib/netcore451/Coding4Fun.Toolkit.pri",
+        "lib/windowsphone8/Coding4Fun.Toolkit.Controls.dll",
+        "lib/windowsphone8/Coding4Fun.Toolkit.dll",
+        "lib/windowsphone8/cs/Coding4Fun.Toolkit.Controls.resources.dll",
+        "lib/windowsphone8/da/Coding4Fun.Toolkit.Controls.resources.dll",
+        "lib/windowsphone8/de/Coding4Fun.Toolkit.Controls.resources.dll",
+        "lib/windowsphone8/es/Coding4Fun.Toolkit.Controls.resources.dll",
+        "lib/windowsphone8/fr/Coding4Fun.Toolkit.Controls.resources.dll",
+        "lib/windowsphone8/fr/hu/Coding4Fun.Toolkit.Controls.resources.dll",
+        "lib/windowsphone8/it/Coding4Fun.Toolkit.Controls.resources.dll",
+        "lib/windowsphone8/ko/Coding4Fun.Toolkit.Controls.resources.dll",
+        "lib/windowsphone8/no/Coding4Fun.Toolkit.Controls.resources.dll",
+        "lib/windowsphone8/pl/Coding4Fun.Toolkit.Controls.resources.dll",
+        "lib/windowsphone8/pt/Coding4Fun.Toolkit.Controls.resources.dll",
+        "lib/windowsphone8/ru/Coding4Fun.Toolkit.Controls.resources.dll",
+        "lib/windowsphone8/sk/Coding4Fun.Toolkit.Controls.resources.dll",
+        "lib/wpa81/Coding4Fun.Toolkit.Controls.dll",
+        "lib/wpa81/Coding4Fun.Toolkit.Controls.pri",
+        "lib/wpa81/Coding4Fun.Toolkit.Controls/Coding4Fun.Toolkit.Controls.xr.xml",
+        "lib/wpa81/Coding4Fun.Toolkit.Controls/Themes/Generic.xbf",
+        "lib/wpa81/Coding4Fun.Toolkit.dll",
+        "lib/wpa81/Coding4Fun.Toolkit.pri"
+      ]
+    },
     "Microsoft.Net.Native.Compiler/2.0.0": {
       "sha512": "LOVoWPYT9iJu7/CKsWt6hm5b2FSCfuJAOD1CUEoa0OEL1xR3THY+NPtRL57jmV6gVZOIiuw7iro60r4MV6sODA==",
       "type": "package",
@@ -16272,6 +16532,7 @@
   },
   "projectFileDependencyGroups": {
     "UAP,Version=v10.0.16299": [
+      "Acr.UserDialogs >= 7.0.1",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.0.1",
       "Plugin.Permissions >= 3.0.0.12",
       "TFE2017.Core >= 1.0.0",
@@ -16321,6 +16582,10 @@
     "frameworks": {
       "uap10.0.16299": {
         "dependencies": {
+          "Acr.UserDialogs": {
+            "target": "Package",
+            "version": "[7.0.1, )"
+          },
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
             "version": "[6.0.1, )"
@@ -16372,5 +16637,24 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Microsoft.NETCore.UniversalWindowsPlatform from 6.0.5 to 6.0.1. Reference the package directly from the project to select a different version. \r\n TFE2017.UWP -> Acr.UserDialogs 7.0.1 -> Microsoft.NETCore.UniversalWindowsPlatform (>= 6.0.5) \r\n TFE2017.UWP -> Microsoft.NETCore.UniversalWindowsPlatform (>= 6.0.1)",
+      "libraryId": "Microsoft.NETCore.UniversalWindowsPlatform",
+      "targetGraphs": [
+        "UAP,Version=v10.0.16299",
+        "UAP,Version=v10.0.16299/win10-arm",
+        "UAP,Version=v10.0.16299/win10-arm-aot",
+        "UAP,Version=v10.0.16299/win10-arm64-aot",
+        "UAP,Version=v10.0.16299/win10-x64",
+        "UAP,Version=v10.0.16299/win10-x64-aot",
+        "UAP,Version=v10.0.16299/win10-x86",
+        "UAP,Version=v10.0.16299/win10-x86-aot"
+      ]
+    }
+  ]
 }

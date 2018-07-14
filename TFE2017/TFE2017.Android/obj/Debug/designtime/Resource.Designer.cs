@@ -26,6 +26,7 @@ namespace TFE2017.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::AndroidHUD.Resource.String.library_name = global::TFE2017.Droid.Resource.String.library_name;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::TFE2017.Droid.Resource.Attribute.actionBarSize;
 			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscanneractivitylayout = global::TFE2017.Droid.Resource.Layout.zxingscanneractivitylayout;
 			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscannerfragmentlayout = global::TFE2017.Droid.Resource.Layout.zxingscannerfragmentlayout;

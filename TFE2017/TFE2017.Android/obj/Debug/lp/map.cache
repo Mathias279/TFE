@@ -49,3 +49,5 @@ System.Runtime.InteropServices.RuntimeInformation
 System.Threading.Thread
 System.ObjectModel
 System.Text.Encoding
+Acr.UserDialogs
+AndHUD

@@ -10,6 +10,7 @@ using ZXing.Mobile;
 using System.Threading.Tasks;
 using Android;
 using Plugin.Permissions;
+using Acr.UserDialogs;
 
 namespace TFE2017.Droid
 {
@@ -21,6 +22,8 @@ namespace TFE2017.Droid
 
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
+
+            UserDialogs.Init(this);
 
             base.OnCreate(bundle);
 

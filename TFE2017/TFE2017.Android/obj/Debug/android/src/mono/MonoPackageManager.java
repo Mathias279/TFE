@@ -107,6 +107,8 @@ class MonoPackageManager_Resources {
 	public static final String[] Assemblies = new String[]{
 		/* We need to ensure that "TFE2017.Android.dll" comes first in this list. */
 		"TFE2017.Android.dll",
+		"Acr.UserDialogs.dll",
+		"AndHUD.dll",
 		"FastAndroidCamera.dll",
 		"FormsViewGroup.dll",
 		"Neo4j.Driver.dll",

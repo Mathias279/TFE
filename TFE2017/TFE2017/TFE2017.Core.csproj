@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.0.1" />
     <PackageReference Include="Neo4j.Driver" Version="1.6.1" />
     <PackageReference Include="Plugin.Compass" Version="3.0.1" />
     <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
@@ -31,10 +32,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\Pages\DBPage2.xaml">
+    <EmbeddedResource Update="Views\Pages\DestinationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Pages\DestinationPage.xaml">
+    <EmbeddedResource Update="Views\Pages\OnTheWayPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Pages\PositionPage.xaml">
