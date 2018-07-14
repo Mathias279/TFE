@@ -26,8 +26,6 @@ namespace TFE2017.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::TFE2017.Droid.Resource.String.ApplicationName;
-			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::TFE2017.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::TFE2017.Droid.Resource.Attribute.actionBarSize;
 			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscanneractivitylayout = global::TFE2017.Droid.Resource.Layout.zxingscanneractivitylayout;
 			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscannerfragmentlayout = global::TFE2017.Droid.Resource.Layout.zxingscannerfragmentlayout;
@@ -3641,12 +3639,6 @@ namespace TFE2017.Droid
 		
 		public partial class String
 		{
-			
-			// aapt resource value: 0x7f070040
-			public const int ApplicationName = 2131165248;
-			
-			// aapt resource value: 0x7f07003f
-			public const int Hello = 2131165247;
 			
 			// aapt resource value: 0x7f070016
 			public const int abc_action_bar_home_description = 2131165206;

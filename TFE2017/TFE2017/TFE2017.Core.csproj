@@ -8,9 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Neo4j.Driver" Version="1.6.1" />
     <PackageReference Include="Plugin.Compass" Version="3.0.1" />
-    <PackageReference Include="Plugin.Permissions" Version="2.2.1" />
-    <PackageReference Include="sqlite-net-pcl" Version="1.4.118" />
-    <PackageReference Include="SQLite.Net-PCL" Version="3.1.1" />
+    <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
     <PackageReference Include="System.Linq" Version="4.3.0" />
     <PackageReference Include="Xamarin.Forms" Version="3.0.0.482510" />
     <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
@@ -21,26 +19,36 @@
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="App.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
-    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="MainPage.xaml.cs">
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\Pages\MainPage.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\QrCodePage.xaml.cs">
-      <DependentUpon>QrCodePage.xaml</DependentUpon>
+    <Compile Update="Views\Pages\QrPage.xaml.cs">
+      <DependentUpon>QrPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Customs\ScannerPage.xaml.cs">
+      <DependentUpon>ScannerPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Pages\DbPage.xaml">
+    <EmbeddedResource Update="Views\Pages\DBPage2.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\DBPage2.xaml">
+    <EmbeddedResource Update="Views\Pages\DestinationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\PositionPage.xaml">
+    <EmbeddedResource Update="Views\Pages\PositionPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\QrCodePage.xaml">
+    <EmbeddedResource Update="Views\Pages\QrPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Customs\ScannerPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Managers\Interfaces\" />
   </ItemGroup>
 </Project>

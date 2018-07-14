@@ -7,12 +7,8 @@ namespace TFE2017.Core.Managers
 {
     class BuildingManager
     {
-        
-
-
         public void Insert(BuildingEntity building)
         {
-
         }
     }
 }

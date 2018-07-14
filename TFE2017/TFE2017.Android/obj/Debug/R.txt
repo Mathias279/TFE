@@ -1151,8 +1151,6 @@ int layout tabbar 0x7f030042
 int layout toolbar 0x7f030043
 int layout zxingscanneractivitylayout 0x7f030044
 int layout zxingscannerfragmentlayout 0x7f030045
-int string ApplicationName 0x7f070040
-int string Hello 0x7f07003f
 int string abc_action_bar_home_description 0x7f070016
 int string abc_action_bar_home_description_format 0x7f070017
 int string abc_action_bar_home_subtitle_description_format 0x7f070018

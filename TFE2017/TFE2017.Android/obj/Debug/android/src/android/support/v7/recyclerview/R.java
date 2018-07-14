@@ -3294,8 +3294,6 @@ containing a value of this type.
         public static int zxingscannerfragmentlayout=0x7f030045;
     }
     public static final class string {
-        public static int ApplicationName=0x7f070040;
-        public static int Hello=0x7f07003f;
         public static int abc_action_bar_home_description=0x7f070016;
         public static int abc_action_bar_home_description_format=0x7f070017;
         public static int abc_action_bar_home_subtitle_description_format=0x7f070018;

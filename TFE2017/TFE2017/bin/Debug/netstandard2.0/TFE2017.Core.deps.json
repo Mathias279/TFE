@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "70c8c81ea98b286e1f4a64cad523c2d4495c2fd1"
+    "signature": "176d0cf3fdadfc26beb46ea61bcefb449daa6c32"
   },
   "compilationOptions": {},
   "targets": {
@@ -12,13 +12,11 @@
           "NETStandard.Library": "2.0.1",
           "Neo4j.Driver": "1.6.1",
           "Plugin.Compass": "3.0.1",
-          "Plugin.Permissions": "2.2.1",
-          "SQLite.Net-PCL": "3.1.1",
+          "Plugin.Permissions": "3.0.0.12",
           "System.Linq": "4.3.0",
           "Xamarin.Forms": "3.0.0.482510",
           "ZXing.Net.Mobile": "2.4.1",
-          "ZXing.Net.Mobile.Forms": "2.4.1",
-          "sqlite-net-pcl": "1.4.118"
+          "ZXing.Net.Mobile.Forms": "2.4.1"
         },
         "runtime": {
           "TFE2017.Core.dll": {}
@@ -61,13 +59,9 @@
           "lib/netstandard1.0/Plugin.Compass.dll": {}
         }
       },
-      "Plugin.Permissions/2.2.1": {
-        "dependencies": {
-          "NETStandard.Library": "2.0.1"
-        },
+      "Plugin.Permissions/3.0.0.12": {
         "runtime": {
-          "lib/netstandard1.0/Plugin.Permissions.Abstractions.dll": {},
-          "lib/netstandard1.0/Plugin.Permissions.dll": {}
+          "lib/netstandard2.0/Plugin.Permissions.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
@@ -118,47 +112,6 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
-      "sqlite-net-pcl/1.4.118": {
-        "dependencies": {
-          "NETStandard.Library": "2.0.1",
-          "SQLitePCLRaw.bundle_green": "1.1.5"
-        },
-        "runtime": {
-          "lib/netstandard1.1/SQLite-net.dll": {}
-        }
-      },
-      "SQLite.Net-PCL/3.1.1": {
-        "dependencies": {
-          "SQLite.Net.Core-PCL": "3.1.1"
-        },
-        "runtime": {
-          "lib/net4/SQLite.Net.Platform.Win32.dll": {},
-          "lib/net40/SQLite.Net.Platform.Generic.dll": {}
-        }
-      },
-      "SQLite.Net.Core-PCL/3.1.1": {
-        "runtime": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
-        }
-      },
-      "SQLitePCLRaw.bundle_green/1.1.5": {
-        "dependencies": {
-          "NETStandard.Library": "2.0.1",
-          "SQLitePCLRaw.core": "1.1.5"
-        },
-        "runtime": {
-          "lib/netstandard1.1/SQLitePCLRaw.batteries_green.dll": {},
-          "lib/netstandard1.1/SQLitePCLRaw.batteries_v2.dll": {}
-        }
-      },
-      "SQLitePCLRaw.core/1.1.5": {
-        "dependencies": {
-          "NETStandard.Library": "2.0.1"
-        },
-        "runtime": {
-          "lib/netstandard1.1/SQLitePCLRaw.core.dll": {}
-        }
-      },
       "System.Collections/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -710,12 +663,12 @@
       "path": "plugin.compass/3.0.1",
       "hashPath": "plugin.compass.3.0.1.nupkg.sha512"
     },
-    "Plugin.Permissions/2.2.1": {
+    "Plugin.Permissions/3.0.0.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ixEdsOBokh6eIofokJmru0u18hZKUODkvJZeest0CsHiiuRcO38yiTr+2Nq6Pg9hm0fhyavFQydhbldfHOp44Q==",
-      "path": "plugin.permissions/2.2.1",
-      "hashPath": "plugin.permissions.2.2.1.nupkg.sha512"
+      "sha512": "sha512-VrYqI/ufk3bH6gTP1JJlLByjhS0CHu3riKmdozhX9/qXA9hlvLolmcqKJdyAqpzmrVC74m3ZtirUBIrBxvT1Lw==",
+      "path": "plugin.permissions/3.0.0.12",
+      "hashPath": "plugin.permissions.3.0.0.12.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
@@ -828,41 +781,6 @@
       "sha512": "sha512-VB5cn/7OzUfzdnC8tqAIMQciVLiq2epm2NrAm1E9OjNRyG4lVhfR61SMcLizejzQP8R8Uf/0l5qOIbUEi+RdEg==",
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
-    },
-    "sqlite-net-pcl/1.4.118": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-66wl2z26PpA/m+hY2UJudsHF3GpbbC8Scx9WvXC0MomQxrbclkb2jiavYsXH3AEXHsTAjKIWavmwKoRIPWsdAg==",
-      "path": "sqlite-net-pcl/1.4.118",
-      "hashPath": "sqlite-net-pcl.1.4.118.nupkg.sha512"
-    },
-    "SQLite.Net-PCL/3.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-eIaIk+k4MwvBeKyzj1kgIegWXYZlaDAHNzsaYP7wNDgSqAdaza8FgCRun7mIZScJD/RIuKxN/b1V+bkC+/WIeA==",
-      "path": "sqlite.net-pcl/3.1.1",
-      "hashPath": "sqlite.net-pcl.3.1.1.nupkg.sha512"
-    },
-    "SQLite.Net.Core-PCL/3.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-/0VdXnyj2srEh5rM1RW/snXJrVGRsxGB3xjW4EkhZIig9N/8EocZZrEr0vwRJU8a9Lz4BrweoLyKwp2evmSIzg==",
-      "path": "sqlite.net.core-pcl/3.1.1",
-      "hashPath": "sqlite.net.core-pcl.3.1.1.nupkg.sha512"
-    },
-    "SQLitePCLRaw.bundle_green/1.1.5": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-rz+SPgp57CAWkEfCJmWqHXMd+fSqhgYmzOdjkSbCQ3OEG0I3+vUlycElvy5zTi0GAYg5pVrmRqbquotS0985CQ==",
-      "path": "sqlitepclraw.bundle_green/1.1.5",
-      "hashPath": "sqlitepclraw.bundle_green.1.1.5.nupkg.sha512"
-    },
-    "SQLitePCLRaw.core/1.1.5": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-NViT1KDYnPAQo7yoYmkAMWzT15ZjqbLTSZp9iTVwZDz7fBC5fQ9TYebOFUIxYxrD/RvBpYB8m9PtcL8x/QbKNg==",
-      "path": "sqlitepclraw.core/1.1.5",
-      "hashPath": "sqlitepclraw.core.1.1.5.nupkg.sha512"
     },
     "System.Collections/4.3.0": {
       "type": "package",

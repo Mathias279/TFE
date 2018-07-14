@@ -4,16 +4,7 @@ Neo4j.Driver
 Plugin.Compass.Abstractions
 Plugin.Compass
 Plugin.CurrentActivity
-Plugin.Permissions.Abstractions
 Plugin.Permissions
-SQLite-net
-SQLite.Net
-SQLite.Net.Platform.XamarinAndroid
-SQLitePCLRaw.batteries_green
-SQLitePCLRaw.batteries_v2
-SQLitePCLRaw.core
-SQLitePCLRaw.lib.e_sqlite3
-SQLitePCLRaw.provider.e_sqlite3
 System.Runtime
 TFE2017.Core
 Xamarin.Android.Support.Animated.Vector.Drawable
