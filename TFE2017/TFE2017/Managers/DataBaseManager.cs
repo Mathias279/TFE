@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace TFE2017.Core.Managers
 {
@@ -16,12 +18,10 @@ namespace TFE2017.Core.Managers
             return driver.Session();
         }
 
-        public List<string> GetAllNodesNames()
+        public async Task<List<string>> GetAllNodesNames()
         {
             try
             {
-                UserDialogs.Instance.ShowLoading();
-
                 ISession session = Connect();
                 List<string> roomsList = new List<string>();
 
@@ -34,6 +34,8 @@ namespace TFE2017.Core.Managers
                     }
                     tx.Success();
                 }
+
+                
                 return roomsList;
 
             }
@@ -43,10 +45,6 @@ namespace TFE2017.Core.Managers
                 Debugger.Break();
 #endif
                 return new List<string>();
-            }
-            finally
-            {
-                UserDialogs.Instance.HideLoading();
             }
         }
     }

@@ -7,12 +7,12 @@
         <StackLayout>
             
             <Label x:Name="LabelTitre" VerticalOptions="Center" HorizontalOptions="Center" />
-            <Switch x:Name="IsDebugMode" IsToggled="False" Toggled="IsDebugModeToggled" HorizontalOptions="Center" VerticalOptions="Center"></Switch>
+            <Switch x:Name="IsDebugMode" IsToggled="False" IsVisible="False" Toggled="IsDebugModeToggled" HorizontalOptions="Center" VerticalOptions="Center"></Switch>
 
             <StackLayout x:Name="ContainerDebug" IsVisible="False" VerticalOptions="End">
                 <Button x:Name="ButtonScanPage" Clicked="ButtonScanPageClicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
                 <Button x:Name="ButtonPositionPage" Clicked="ButtonPositionPageClicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
-                <Button x:Name="ButtonDBPage" Clicked="BoutonDBPageClicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
+                <Button x:Name="ButtonDestinationPage" Clicked="BoutonDestinationPageClicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
             </StackLayout>
 
             <Button x:Name="ButtonSuivant" Clicked="ButtonSuivantCicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />

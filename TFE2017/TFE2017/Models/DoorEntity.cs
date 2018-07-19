@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TFE2017.Core.Models.Interfaces;
 
 namespace TFE2017.Core.Models
 {
-    class DoorEntity
+    class DoorEntity: BuildingEntity
     {
         public PositionEntity Edge1 { get; private set; }
         public PositionEntity Edge2 { get; private set; }

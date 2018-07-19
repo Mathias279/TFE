@@ -1,5 +1,6 @@
 ﻿using Acr.UserDialogs;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -15,32 +16,81 @@ namespace TFE2017.Core.Views.Pages
     public partial class DestinationPage : ContentPage
     {
         private string _query;
+        private string _buildingId;
+        private string _entryId;
+        private string _destinationName;
+        private ListView _list;
+
         public DestinationPage(string query)
-        {            
+        {
             try
             {
                 InitializeComponent();
 
                 _query = query;
-
-                var dbMan = new DataBaseManager();
-                
-                ListDestinations.ItemsSource = dbMan.GetAllNodesNames();
-
-                ListDestinations.ItemTapped += (sender, e) =>
-                {
-                    DisplayAlert("", "source = " + _query + "  desination = " + sender.ToString(), "ok");
-                    Navigation.PushAsync(new OnTheWayPage());
-                };
-                    //recherche par nom
-                    //arborescence
-                }
+                                
+                DecodeQuery();
+            }
             catch (Exception ex)
             {
 #if DEBUG
                 Debugger.Break();
 #endif
             }
+        }
+
+        protected override async void OnAppearing()
+        {
+            if (_list is null)
+            {
+                await Task.Run(async () => await InitList());
+            }
+
+            base.OnAppearing();
+        }
+
+        private void DecodeQuery()
+        {
+            string[] fields = _query.Split('?')[1].Split('&');
+
+
+            if (fields.Count() == 3 &&
+                fields[0] == Constants.UrlField0 && fields[1].Split('=')[0] == Constants.UrlField1Key && fields[2].Split('=')[0] == Constants.UrlField2Key)
+            {
+                _buildingId = fields[1].Split('=')[1];
+                _entryId = fields[2].Split('=')[1];
+            }
+        }
+
+        private async Task<bool> InitList()
+        {
+            try
+            {
+                var dbMan = new DataBaseManager();
+
+                _list = new ListView();
+                _list.ItemsSource = await dbMan.GetAllNodesNames();
+                _list.ItemSelected += DestinationSelected;
+
+
+                Device.BeginInvokeOnMainThread(() => Container.Children.Add(_list));
+                return true;
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                Debugger.Break();
+#endif
+                return false;
+            }
+        }
+
+        private void DestinationSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            _list.IsEnabled = false;
+            _destinationName = _list.SelectedItem.ToString();
+            Device.BeginInvokeOnMainThread(() => DisplayAlert(_query, "building = " + _buildingId + "\n depart = " + _entryId + "\n desination = " + _destinationName, "ok"));
+            Navigation.PushAsync(new OnTheWayPage());
         }
     }
 }

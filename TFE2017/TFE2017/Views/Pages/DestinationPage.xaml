@@ -3,13 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TFE2017.Core.Views.Pages.DestinationPage">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout x:Name="Container">
             <Label x:Name="LabelDestination" Text="Select your destination"
                 VerticalOptions="Start" 
-                HorizontalOptions="CenterAndExpand" />
-            
-            <ListView x:Name="ListDestinations">
-            </ListView>
+                HorizontalOptions="CenterAndExpand" />            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

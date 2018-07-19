@@ -98,7 +98,6 @@ C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Andr
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\linksrc\System.IdentityModel.pdb
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\android\assets\System.IdentityModel.pdb
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\bin\Debug\TFE2017.Android.dll
-C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\linksrc\TFE2017.Core.pdb
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\linksrc\TFE2017.Android.dll.mdb
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
 C:\Users\Lenovo\Documents\EPHEC_3e_tris\tfe\Application\TFE\TFE2017\TFE2017.Android\obj\Debug\linksrc\Plugin.Compass.dll.mdb

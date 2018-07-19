@@ -8,6 +8,7 @@ using Xamarin.Forms.Xaml;
 using ZXing.Mobile;
 using ZXing.Net.Mobile.Forms;
 
+
 namespace TFE2017.Core.Views.Customs
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -28,18 +29,16 @@ namespace TFE2017.Core.Views.Customs
             Result = null;
             IsDone = false;
 
-            _withTorch = WithTorch;
+            _withTorch = false;//WithTorch;
 
             _scanOptions = MakeOptions();
-
             _scanView = MakeView();
-
             _scanOverlay = MakeOverlay();
-            if(_withTorch)
+            if (_withTorch)
                 _scanOverlay.FlashButtonClicked += (sender, e) => FlashButtonClickedCustom();
 
-            Device.BeginInvokeOnMainThread(() => MainGrid.Children.Add(_scanView));
-            Device.BeginInvokeOnMainThread(() => MainGrid.Children.Add(_scanOverlay));
+            MainGrid.Children.Add(_scanView);
+            MainGrid.Children.Add(_scanOverlay);
         }
 
         private MobileBarcodeScanningOptions MakeOptions()
@@ -66,7 +65,7 @@ namespace TFE2017.Core.Views.Customs
                 IsScanning = true,
                 IsAnalyzing = true
             };
-            view.OnScanResult += (result) => Device.BeginInvokeOnMainThread(async() => await Scanned(result));
+            view.OnScanResult += async (result) => await ScannedAsync(result);
             return view;
         }
 
@@ -84,7 +83,7 @@ namespace TFE2017.Core.Views.Customs
             return overlay;
         }
 
-        private async Task Scanned(ZXing.Result result)
+        private async Task ScannedAsync(ZXing.Result result)
         {
             if (!(string.IsNullOrWhiteSpace(result.ToString())))
             {
@@ -92,7 +91,7 @@ namespace TFE2017.Core.Views.Customs
                 IsDone = true;
                 _scanView.IsScanning = false;
 
-                Device.BeginInvokeOnMainThread(async () => await Navigation.PopAsync());
+                Device.BeginInvokeOnMainThread(() => Navigation.PopAsync());
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using Plugin.Permissions.Abstractions;
+﻿using Acr.UserDialogs;
+using Plugin.Permissions.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,16 +21,9 @@ namespace TFE2017.Core.Views.Pages
                 InitializeComponent();
                 InitVisual();
 
-                //async Task TryGetLocationAsync()
-                //{
-                //    if ((int)Build.VERSION.SdkInt < 23)
-                //    {
-                //        await GetLocationAsync();
-                //        return;
-                //    }
-
-                //    await GetLocationPermissionAsync();
-                //}        
+#if DEBUG
+                IsDebugMode.IsVisible = true;
+#endif
             }
             catch (Exception ex)
             {
@@ -38,13 +32,13 @@ namespace TFE2017.Core.Views.Pages
 #endif
             }
         }
-        
+
         private void InitVisual()
         {
             LabelTitre.Text = "Welcome to my app!";
             ButtonScanPage.Text = "ScanPage";
             ButtonPositionPage.Text = "PositionPage";
-            ButtonDBPage.Text = "DBPage";
+            ButtonDestinationPage.Text = "DestinationPage";
             ButtonSuivant.Text = "Suivant";
         }
 
@@ -70,9 +64,9 @@ namespace TFE2017.Core.Views.Pages
             await Navigation.PushAsync(new PositionPage());
         }
 
-        public async void BoutonDBPageClicked(object sender, EventArgs e)
+        public async void BoutonDestinationPageClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new DestinationPage("https://play.google.com/store/apps/details?id=com.Slack&builingId=1&entryId=1"));
+            await Navigation.PushAsync(new DestinationPage("https://play.google.com/store/apps/details?id=com.Slack&buildingId=1&entryId=1"));
         }
 
         public async void ButtonSuivantCicked(object sender, EventArgs e)
