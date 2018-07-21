@@ -1,24 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TFE2017.Core.Models.Abstract;
 
 namespace TFE2017.Core.Models
 {
-    class RoomEntity
+    class RoomEntity : PlaceEntity
     {
-        public List<PositionEntity> CornersList { get; set; }
-        public List<PositionEntity> CallsList { get; set; }
-        public List<DoorEntity> DoorsList { get; set; }
+        public override double Distance { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override double Accessibility { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override PositionEntity Coordonates { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override string Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public RoomEntity()
         {
-        }
-
-        public RoomEntity(List<PositionEntity> cornersList, List<PositionEntity> callsList, List<DoorEntity> doorsList)
-        {
-            CornersList = cornersList;
-            CallsList = callsList;
-            DoorsList = doorsList;
         }
     }
 }

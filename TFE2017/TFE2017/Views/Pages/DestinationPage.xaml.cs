@@ -66,12 +66,13 @@ namespace TFE2017.Core.Views.Pages
         {
             try
             {
-                var dbMan = new DataBaseManager();
+                //var dbMan = new DataBaseManager();
 
-                _list = new ListView();
-                _list.ItemsSource = await dbMan.GetAllNodesNames();
+                _list = new ListView()
+                {
+                    ItemsSource = await DataBaseManager.GetAllNodesNames()
+                };
                 _list.ItemSelected += DestinationSelected;
-
 
                 Device.BeginInvokeOnMainThread(() => Container.Children.Add(_list));
                 return true;
@@ -90,7 +91,12 @@ namespace TFE2017.Core.Views.Pages
             _list.IsEnabled = false;
             _destinationName = _list.SelectedItem.ToString();
             Device.BeginInvokeOnMainThread(() => DisplayAlert(_query, "building = " + _buildingId + "\n depart = " + _entryId + "\n desination = " + _destinationName, "ok"));
-            Navigation.PushAsync(new OnTheWayPage());
+            ButtonSuivant.IsEnabled = true;
+        }
+
+        public async void ButtonSuivantCicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new OnTheWayPage(_buildingId,_entryId,_destinationName));
         }
     }
 }

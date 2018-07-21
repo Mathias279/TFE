@@ -26,7 +26,43 @@ namespace TFE2017.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::AndroidHUD.Resource.Attribute.ahBarColor = global::TFE2017.Droid.Resource.Attribute.ahBarColor;
+			global::AndroidHUD.Resource.Attribute.ahBarLength = global::TFE2017.Droid.Resource.Attribute.ahBarLength;
+			global::AndroidHUD.Resource.Attribute.ahBarWidth = global::TFE2017.Droid.Resource.Attribute.ahBarWidth;
+			global::AndroidHUD.Resource.Attribute.ahCircleColor = global::TFE2017.Droid.Resource.Attribute.ahCircleColor;
+			global::AndroidHUD.Resource.Attribute.ahDelayMillis = global::TFE2017.Droid.Resource.Attribute.ahDelayMillis;
+			global::AndroidHUD.Resource.Attribute.ahRadius = global::TFE2017.Droid.Resource.Attribute.ahRadius;
+			global::AndroidHUD.Resource.Attribute.ahRimColor = global::TFE2017.Droid.Resource.Attribute.ahRimColor;
+			global::AndroidHUD.Resource.Attribute.ahRimWidth = global::TFE2017.Droid.Resource.Attribute.ahRimWidth;
+			global::AndroidHUD.Resource.Attribute.ahSpinSpeed = global::TFE2017.Droid.Resource.Attribute.ahSpinSpeed;
+			global::AndroidHUD.Resource.Attribute.ahText = global::TFE2017.Droid.Resource.Attribute.ahText;
+			global::AndroidHUD.Resource.Attribute.ahTextColor = global::TFE2017.Droid.Resource.Attribute.ahTextColor;
+			global::AndroidHUD.Resource.Attribute.ahTextSize = global::TFE2017.Droid.Resource.Attribute.ahTextSize;
+			global::AndroidHUD.Resource.Drawable.ic_errorstatus = global::TFE2017.Droid.Resource.Drawable.ic_errorstatus;
+			global::AndroidHUD.Resource.Drawable.ic_successstatus = global::TFE2017.Droid.Resource.Drawable.ic_successstatus;
+			global::AndroidHUD.Resource.Drawable.roundedbg = global::TFE2017.Droid.Resource.Drawable.roundedbg;
+			global::AndroidHUD.Resource.Drawable.roundedbgdark = global::TFE2017.Droid.Resource.Drawable.roundedbgdark;
+			global::AndroidHUD.Resource.Id.loadingImage = global::TFE2017.Droid.Resource.Id.loadingImage;
+			global::AndroidHUD.Resource.Id.loadingProgressBar = global::TFE2017.Droid.Resource.Id.loadingProgressBar;
+			global::AndroidHUD.Resource.Id.loadingProgressWheel = global::TFE2017.Droid.Resource.Id.loadingProgressWheel;
+			global::AndroidHUD.Resource.Id.textViewStatus = global::TFE2017.Droid.Resource.Id.textViewStatus;
+			global::AndroidHUD.Resource.Layout.loading = global::TFE2017.Droid.Resource.Layout.loading;
+			global::AndroidHUD.Resource.Layout.loadingimage = global::TFE2017.Droid.Resource.Layout.loadingimage;
+			global::AndroidHUD.Resource.Layout.loadingprogress = global::TFE2017.Droid.Resource.Layout.loadingprogress;
 			global::AndroidHUD.Resource.String.library_name = global::TFE2017.Droid.Resource.String.library_name;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel = global::TFE2017.Droid.Resource.Styleable.ProgressWheel;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahBarColor = global::TFE2017.Droid.Resource.Styleable.ProgressWheel_ahBarColor;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahBarLength = global::TFE2017.Droid.Resource.Styleable.ProgressWheel_ahBarLength;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahBarWidth = global::TFE2017.Droid.Resource.Styleable.ProgressWheel_ahBarWidth;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahCircleColor = global::TFE2017.Droid.Resource.Styleable.ProgressWheel_ahCircleColor;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahDelayMillis = global::TFE2017.Droid.Resource.Styleable.ProgressWheel_ahDelayMillis;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahRadius = global::TFE2017.Droid.Resource.Styleable.ProgressWheel_ahRadius;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahRimColor = global::TFE2017.Droid.Resource.Styleable.ProgressWheel_ahRimColor;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahRimWidth = global::TFE2017.Droid.Resource.Styleable.ProgressWheel_ahRimWidth;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahSpinSpeed = global::TFE2017.Droid.Resource.Styleable.ProgressWheel_ahSpinSpeed;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahText = global::TFE2017.Droid.Resource.Styleable.ProgressWheel_ahText;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextColor = global::TFE2017.Droid.Resource.Styleable.ProgressWheel_ahTextColor;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextSize = global::TFE2017.Droid.Resource.Styleable.ProgressWheel_ahTextSize;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::TFE2017.Droid.Resource.Attribute.actionBarSize;
 			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscanneractivitylayout = global::TFE2017.Droid.Resource.Layout.zxingscanneractivitylayout;
 			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscannerfragmentlayout = global::TFE2017.Droid.Resource.Layout.zxingscannerfragmentlayout;
@@ -217,6 +253,42 @@ namespace TFE2017.Droid
 			
 			// aapt resource value: 2130772075
 			public static int activityChooserViewStyle = 2130772075;
+			
+			// aapt resource value: 0
+			public static int ahBarColor = 0;
+			
+			// aapt resource value: 0
+			public static int ahBarLength = 0;
+			
+			// aapt resource value: 0
+			public static int ahBarWidth = 0;
+			
+			// aapt resource value: 0
+			public static int ahCircleColor = 0;
+			
+			// aapt resource value: 0
+			public static int ahDelayMillis = 0;
+			
+			// aapt resource value: 0
+			public static int ahRadius = 0;
+			
+			// aapt resource value: 0
+			public static int ahRimColor = 0;
+			
+			// aapt resource value: 0
+			public static int ahRimWidth = 0;
+			
+			// aapt resource value: 0
+			public static int ahSpinSpeed = 0;
+			
+			// aapt resource value: 0
+			public static int ahText = 0;
+			
+			// aapt resource value: 0
+			public static int ahTextColor = 0;
+			
+			// aapt resource value: 0
+			public static int ahTextSize = 0;
 			
 			// aapt resource value: 2130772112
 			public static int alertDialogButtonGroupStyle = 2130772112;
@@ -2253,6 +2325,9 @@ namespace TFE2017.Droid
 			// aapt resource value: 2130837590
 			public static int ic_dialog_close_light = 2130837590;
 			
+			// aapt resource value: 0
+			public static int ic_errorstatus = 0;
+			
 			// aapt resource value: 2130837591
 			public static int ic_group_collapse_00 = 2130837591;
 			
@@ -2658,6 +2733,9 @@ namespace TFE2017.Droid
 			// aapt resource value: 2130837725
 			public static int ic_mr_button_grey = 2130837725;
 			
+			// aapt resource value: 0
+			public static int ic_successstatus = 0;
+			
 			// aapt resource value: 2130837726
 			public static int ic_vol_type_speaker_dark = 2130837726;
 			
@@ -2774,6 +2852,12 @@ namespace TFE2017.Droid
 			
 			// aapt resource value: 2130837605
 			public static int notify_panel_notification_icon_bg = 2130837605;
+			
+			// aapt resource value: 0
+			public static int roundedbg = 0;
+			
+			// aapt resource value: 0
+			public static int roundedbgdark = 0;
 			
 			static Drawable()
 			{
@@ -3018,6 +3102,15 @@ namespace TFE2017.Droid
 			
 			// aapt resource value: 2131492936
 			public static int list_item = 2131492936;
+			
+			// aapt resource value: 0
+			public static int loadingImage = 0;
+			
+			// aapt resource value: 0
+			public static int loadingProgressBar = 0;
+			
+			// aapt resource value: 0
+			public static int loadingProgressWheel = 0;
 			
 			// aapt resource value: 2131493017
 			public static int masked = 2131493017;
@@ -3286,6 +3379,9 @@ namespace TFE2017.Droid
 			// aapt resource value: 2131492945
 			public static int textSpacerNoTitle = 2131492945;
 			
+			// aapt resource value: 0
+			public static int textViewStatus = 0;
+			
 			// aapt resource value: 2131492992
 			public static int text_input_password_toggle = 2131492992;
 			
@@ -3543,6 +3639,15 @@ namespace TFE2017.Droid
 			
 			// aapt resource value: 2130903080
 			public static int design_text_input_password_icon = 2130903080;
+			
+			// aapt resource value: 0
+			public static int loading = 0;
+			
+			// aapt resource value: 0
+			public static int loadingimage = 0;
+			
+			// aapt resource value: 0
+			public static int loadingprogress = 0;
 			
 			// aapt resource value: 0
 			public static int Main = 0;
@@ -6468,6 +6573,56 @@ namespace TFE2017.Droid
 			
 			// aapt resource value: 2
 			public static int PopupWindow_overlapAnchor = 2;
+			
+			public static int[] ProgressWheel = new int[] {
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0};
+			
+			// aapt resource value: 0
+			public static int ProgressWheel_ahBarColor = 0;
+			
+			// aapt resource value: 0
+			public static int ProgressWheel_ahBarLength = 0;
+			
+			// aapt resource value: 0
+			public static int ProgressWheel_ahBarWidth = 0;
+			
+			// aapt resource value: 0
+			public static int ProgressWheel_ahCircleColor = 0;
+			
+			// aapt resource value: 0
+			public static int ProgressWheel_ahDelayMillis = 0;
+			
+			// aapt resource value: 0
+			public static int ProgressWheel_ahRadius = 0;
+			
+			// aapt resource value: 0
+			public static int ProgressWheel_ahRimColor = 0;
+			
+			// aapt resource value: 0
+			public static int ProgressWheel_ahRimWidth = 0;
+			
+			// aapt resource value: 0
+			public static int ProgressWheel_ahSpinSpeed = 0;
+			
+			// aapt resource value: 0
+			public static int ProgressWheel_ahText = 0;
+			
+			// aapt resource value: 0
+			public static int ProgressWheel_ahTextColor = 0;
+			
+			// aapt resource value: 0
+			public static int ProgressWheel_ahTextSize = 0;
 			
 			public static int[] RecycleListView = new int[] {
 					2130772200,
