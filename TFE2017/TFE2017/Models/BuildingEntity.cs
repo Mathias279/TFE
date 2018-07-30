@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using TFE2017.Core.Models.Abstract;
+using Xamarin.Essentials;
+
 
 namespace TFE2017.Core.Models
 {
@@ -11,8 +13,10 @@ namespace TFE2017.Core.Models
         public string Name { get; private set; }
         //public PositionEntity Coordonates { get; private set; }
 
-        public BuildingEntity()
+        public BuildingEntity(string id, string name)
         {
+            Id = id;
+            Name = name;
         }
     }
 }

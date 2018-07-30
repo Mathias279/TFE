@@ -4,10 +4,10 @@ using System.Text;
 
 namespace TFE2017.Core.Models.Abstract
 {
-    abstract class PlaceEntity:MapEntity
+    class PlaceEntity:MapEntity
     {
-        public abstract double Distance { get; set; }
-        public abstract double Accessibility { get; set; }
-        public abstract PositionEntity Coordonates { get; set; }
+        //public double Distance { get; set; }
+        public double Accessibility { get; set; }
+        public PositionEntity Coordonates { get; set; }
     }
 }

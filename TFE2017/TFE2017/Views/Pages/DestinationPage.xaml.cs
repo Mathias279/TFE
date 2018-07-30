@@ -70,7 +70,7 @@ namespace TFE2017.Core.Views.Pages
 
                 _list = new ListView()
                 {
-                    ItemsSource = await DataBaseManager.GetAllNodesNames()
+                    ItemsSource = await DataBaseManager.GetAllRooms()
                 };
                 _list.ItemSelected += DestinationSelected;
 
@@ -90,7 +90,7 @@ namespace TFE2017.Core.Views.Pages
         {
             _list.IsEnabled = false;
             _destinationName = _list.SelectedItem.ToString();
-            Device.BeginInvokeOnMainThread(() => DisplayAlert(_query, "building = " + _buildingId + "\n depart = " + _entryId + "\n desination = " + _destinationName, "ok"));
+            //Device.BeginInvokeOnMainThread(() => DisplayAlert(_query, "building = " + _buildingId + "\n depart = " + _entryId + "\n desination = " + _destinationName, "ok"));
             ButtonSuivant.IsEnabled = true;
         }
 

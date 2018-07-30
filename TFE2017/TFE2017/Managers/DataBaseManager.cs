@@ -8,46 +8,109 @@ using System.Text;
 using System.Threading.Tasks;
 using TFE2017.Core.Models;
 using TFE2017.Core.Models.Abstract;
+using TFE2017.Core.Services;
 using Xamarin.Forms;
 
 namespace TFE2017.Core.Managers
 {
     static class DataBaseManager
     {
-        static private ISession Connect()
-        {
-            IDriver driver = GraphDatabase.Driver("bolt://hobby-ohlpjagjjjpngbkejmmoojbl.dbs.graphenedb.com:24786", AuthTokens.Basic("Math279", "b.Ge9EvCbZwWWH.DWYwHYCkL6ycEu18"), Config.Builder.WithEncryptionLevel(EncryptionLevel.Encrypted).ToConfig());
-            return driver.Session();
-        }
+        private static string _urlConnect = "bolt://hobby-ohlpjagjjjpngbkejmmoojbl.dbs.graphenedb.com:24786";
+        private static string _urlUser = "Math279";
+        private static string _urlPassword = "b.Ge9EvCbZwWWH.DWYwHYCkL6ycEu18";
 
-        static public async Task<List<string>> GetAllNodesNames()
+        private static IDriver _driver;
+
+        static private async Task<ISession> Connect()
         {
             try
             {
-                ISession session = Connect();
-                List<string> roomsList = new List<string>();
-
-                using (var tx = session.BeginTransaction())
-                {
-                    var result = tx.Run("match (n) return n.name").ToList();
-                    foreach (var element in result)
-                    {
-                        roomsList.Add(element["n.name"].ToString());
-                    }
-                    tx.Success();
-                }
-                return roomsList;
+                _driver = GraphDatabase.Driver(_urlConnect, AuthTokens.Basic(_urlUser, _urlPassword), Config.Builder.WithEncryptionLevel(EncryptionLevel.Encrypted).ToConfig());
+                return _driver.Session();
             }
             catch (Exception ex)
             {
 #if DEBUG
                 Debugger.Break();
 #endif
-                return new List<string>();
+                return null;
             }
         }
 
-        static public async Task<List<MapEntity>> GetPath(string a1,string a2,string a3)
+        static private async Task Disconnect()
+        {
+            try
+            {
+                _driver.Dispose();
+                await _driver.CloseAsync();
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                Debugger.Break();
+#endif
+            }
+        }
+
+        public static async Task<List<IRecord>> RunQuery(string query)
+        {
+            try
+            {
+                ISession session = await Connect();
+                IStatementResult result;
+
+                if (!(session is null))
+                {
+
+                    using (var tx = await session.BeginTransactionAsync())
+                    {
+                        result = tx.Run(query);
+
+                        tx.Success();
+                        tx.Dispose();
+                    }
+                    if (result.Any())
+                    {
+                        return result.ToList();
+                    }
+                    else
+                        return null;
+                }
+                else
+                    return null;
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                Debugger.Break();
+#endif
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
+
+        static public async Task<List<RoomEntity>> GetAllRooms()
+        {
+            try
+            {
+                IStatementResult queryResult =  await RunQuery($"MATCH (n:ROOM) RETURN n");
+
+                return  ParserService.ToObject(queryResult);
+
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                Debugger.Break();
+#endif
+                return null;
+            }
+        }
+
+        static public async Task<List<MapEntity>> GetPath(string a1, string a2, string a3)
         {
             try
             {
@@ -70,7 +133,7 @@ namespace TFE2017.Core.Managers
                     var result = tx.Run(query).ToList();
                     foreach (var element in result)
                     {
-                        roomsList.Add(new RoomEntity());
+                        roomsList.Add(new RoomEntity("a", "a", new PositionEntity(0, 0), 0));
                         //roomsList.Add(element["n.name"].ToString());
                     }
                     tx.Success();

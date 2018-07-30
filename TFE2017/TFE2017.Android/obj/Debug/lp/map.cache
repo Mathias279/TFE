@@ -1,3 +1,5 @@
+Acr.UserDialogs
+AndHUD
 FastAndroidCamera
 FormsViewGroup
 Neo4j.Driver
@@ -5,13 +7,19 @@ Plugin.Compass.Abstractions
 Plugin.Compass
 Plugin.CurrentActivity
 Plugin.Permissions
+System.Collections
 System.Runtime
+System.Threading.Tasks
 TFE2017.Core
+Xamarin.Android.Arch.Core.Common
+Xamarin.Android.Arch.Lifecycle.Common
+Xamarin.Android.Arch.Lifecycle.Runtime
 Xamarin.Android.Support.Animated.Vector.Drawable
 Xamarin.Android.Support.Annotations
 Xamarin.Android.Support.Compat
 Xamarin.Android.Support.Core.UI
 Xamarin.Android.Support.Core.Utils
+Xamarin.Android.Support.CustomTabs
 Xamarin.Android.Support.Design
 Xamarin.Android.Support.Fragment
 Xamarin.Android.Support.Media.Compat
@@ -23,6 +31,7 @@ Xamarin.Android.Support.v7.MediaRouter
 Xamarin.Android.Support.v7.Palette
 Xamarin.Android.Support.v7.RecyclerView
 Xamarin.Android.Support.Vector.Drawable
+Xamarin.Essentials
 Xamarin.Forms.Core
 Xamarin.Forms.Platform.Android
 Xamarin.Forms.Platform
@@ -34,14 +43,12 @@ zxing.portable
 ZXingNetMobile
 netstandard
 System.Resources.ResourceManager
-System.Collections
-System.Threading.Tasks
 System.Diagnostics.Debug
+System.Net.Primitives
 System.Collections.Concurrent
 System.Globalization
 System.Xml.XDocument
 System.Threading
-System.Net.Primitives
 System.Net.NameResolution
 System.Net.Security
 System.Reflection.Extensions
@@ -49,5 +56,3 @@ System.Runtime.InteropServices.RuntimeInformation
 System.Threading.Thread
 System.ObjectModel
 System.Text.Encoding
-Acr.UserDialogs
-AndHUD

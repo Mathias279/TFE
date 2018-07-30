@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "af7f0bc85b041aa6450e0e0e2772f38b986fb146"
+    "signature": "072b38933c335d19fad7591b5f261aaba3890780"
   },
   "compilationOptions": {},
   "targets": {
@@ -11,11 +11,12 @@
         "dependencies": {
           "Acr.UserDialogs": "7.0.1",
           "NETStandard.Library": "2.0.1",
-          "Neo4j.Driver": "1.6.1",
+          "Neo4j.Driver": "1.7.0-alpha02",
           "Plugin.Compass": "3.0.1",
           "Plugin.Permissions": "3.0.0.12",
           "System.Linq": "4.3.0",
-          "Xamarin.Forms": "3.0.0.482510",
+          "Xamarin.Essentials": "0.8.0-preview",
+          "Xamarin.Forms": "3.2.0.637442-pre1",
           "ZXing.Net.Mobile": "2.4.1",
           "ZXing.Net.Mobile.Forms": "2.4.1"
         },
@@ -37,7 +38,7 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "Neo4j.Driver/1.6.1": {
+      "Neo4j.Driver/1.7.0-alpha02": {
         "dependencies": {
           "NETStandard.Library": "2.0.1",
           "System.Net.NameResolution": "4.3.0",
@@ -288,6 +289,11 @@
           "System.Net.Primitives": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Threading.Tasks": "4.3.0"
+        }
+      },
+      "System.Numerics.Vectors/4.5.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Numerics.Vectors.dll": {}
         }
       },
       "System.Reflection/4.3.0": {
@@ -596,7 +602,15 @@
           "lib/netstandard1.3/System.Threading.ThreadPool.dll": {}
         }
       },
-      "Xamarin.Forms/3.0.0.482510": {
+      "Xamarin.Essentials/0.8.0-preview": {
+        "dependencies": {
+          "System.Numerics.Vectors": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Forms/3.2.0.637442-pre1": {
         "runtime": {
           "lib/netstandard2.0/Xamarin.Forms.Core.dll": {},
           "lib/netstandard2.0/Xamarin.Forms.Platform.dll": {},
@@ -612,7 +626,7 @@
       },
       "ZXing.Net.Mobile.Forms/2.4.1": {
         "dependencies": {
-          "Xamarin.Forms": "3.0.0.482510",
+          "Xamarin.Forms": "3.2.0.637442-pre1",
           "ZXing.Net.Mobile": "2.4.1"
         },
         "runtime": {
@@ -655,12 +669,12 @@
       "path": "microsoft.win32.primitives/4.3.0",
       "hashPath": "microsoft.win32.primitives.4.3.0.nupkg.sha512"
     },
-    "Neo4j.Driver/1.6.1": {
+    "Neo4j.Driver/1.7.0-alpha02": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gMp2CNCEM5vAv84zxACBUz2NXnDBOX8Zc838k2Fu8p9j2wuhd3uoR4L3Yccqxw2961il6lDBMLYMtuFVa5d9lQ==",
-      "path": "neo4j.driver/1.6.1",
-      "hashPath": "neo4j.driver.1.6.1.nupkg.sha512"
+      "sha512": "sha512-zo6a2WunG4YXu2jGMjOFRti6xTwAX4Er1rAH8GEm1XDkrfLrNxjsx4AcYoBdJFXCbUEw5GrxKUl+rCuS7EXn5A==",
+      "path": "neo4j.driver/1.7.0-alpha02",
+      "hashPath": "neo4j.driver.1.7.0-alpha02.nupkg.sha512"
     },
     "NETStandard.Library/2.0.1": {
       "type": "package",
@@ -900,6 +914,13 @@
       "path": "system.net.sockets/4.3.0",
       "hashPath": "system.net.sockets.4.3.0.nupkg.sha512"
     },
+    "System.Numerics.Vectors/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MNcaYxUJvUcoXOa+jgKl/GDw/Mh+wMrxDjW4dre7qrp35LUGTjUBNtZsNjxsWX592ocdyqt1X5hMJB+5OStoYw==",
+      "path": "system.numerics.vectors/4.5.0",
+      "hashPath": "system.numerics.vectors.4.5.0.nupkg.sha512"
+    },
     "System.Reflection/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1082,12 +1103,19 @@
       "path": "system.threading.threadpool/4.3.0",
       "hashPath": "system.threading.threadpool.4.3.0.nupkg.sha512"
     },
-    "Xamarin.Forms/3.0.0.482510": {
+    "Xamarin.Essentials/0.8.0-preview": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kq209d8qVvulrY3o+nGirENZ3kaZpEN7VWRErWcW1M+ahtDgm4BUXQJ5s9hnp1SAGxQMTMhDAVI3uk5g9NV7hA==",
-      "path": "xamarin.forms/3.0.0.482510",
-      "hashPath": "xamarin.forms.3.0.0.482510.nupkg.sha512"
+      "sha512": "sha512-L/j4TYXF5ZngEBg3EEK3INFDtaV2mmPjbdtXtA2nZPKMiwQL0LO5v+vzJ/u1Ej7tdRLbCHJGLvihkOzlQfZxkg==",
+      "path": "xamarin.essentials/0.8.0-preview",
+      "hashPath": "xamarin.essentials.0.8.0-preview.nupkg.sha512"
+    },
+    "Xamarin.Forms/3.2.0.637442-pre1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-V3fuFk/8pDjfDa+yRgf8TsiRIu7N1fzzuaJ5+qNPOwlYvIWCtFGCuxL6KIPx/jwA1VX4O85o0EKgAB7oNzJy1A==",
+      "path": "xamarin.forms/3.2.0.637442-pre1",
+      "hashPath": "xamarin.forms.3.2.0.637442-pre1.nupkg.sha512"
     },
     "ZXing.Net.Mobile/2.4.1": {
       "type": "package",

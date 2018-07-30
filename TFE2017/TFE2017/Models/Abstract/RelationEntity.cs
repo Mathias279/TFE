@@ -4,8 +4,8 @@ using System.Text;
 
 namespace TFE2017.Core.Models.Abstract
 {
-    abstract class RelationEntity : PlaceEntity
+    class RelationEntity : PlaceEntity
     {
-        public abstract double Width { get; set; }
+        public double Width { get; set; }
     }
 }

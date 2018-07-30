@@ -7,38 +7,15 @@ namespace TFE2017.Core.Models
 {
     class DoorEntity: RelationEntity
     {
-        public string Id { get; set; }
-        public string Name { get ; set; }
-        public PositionEntity Coordonates { get; set; }
-        public double Width { get; private set; }
-        public override double Distance { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public override double Accessibility { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public DoorEntity()
+        public DoorEntity(string id, string name, PositionEntity position, double accessibilite, double width)
         {
+            Id = id;
+            Name = name;
+            Coordonates = position;
+            Accessibility = accessibilite;
+            Width = width;
         }
 
-
-
-
-
-
-
-
-
-
-        public DoorEntity(PositionEntity edge1, PositionEntity edge2)
-        {
-        //    Edge1 = edge1;
-        //    Edge2 = edge2;
-
-        //    SetCenter();
-        //    SetWidth();
-        }
-        public DoorEntity(double x1, double y1, double x2, double y2)
-        {
-            //new DoorEntity(new PositionEntity(x1, y1), new PositionEntity(x2,y2));
-        }
         private void SetCenter()
         {
             //Center = new PositionEntity((Edge1.X + Edge2.X) / 2, (Edge1.Y + Edge2.Y) / 2);
