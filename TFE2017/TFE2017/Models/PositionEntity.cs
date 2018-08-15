@@ -6,18 +6,15 @@ namespace TFE2017.Core.Models
 {
     public class PositionEntity
     {
-        public double X { get; set; }
-        public double Y { get; set; }
+        public double X { get; private set; }
+        public double Y { get; private set; }
+        public double Z { get; private set; }
 
-        public PositionEntity(double x, double y)
+        public PositionEntity(double x, double y, double z)
         {
             X = x;
             Y = y;
-        }
-
-        public new string ToString()
-        {
-            return string.Join(" ", this.X.ToString(), this.Y.ToString());
+            Z = z;
         }
     }
 }

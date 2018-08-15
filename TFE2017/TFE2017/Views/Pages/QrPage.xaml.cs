@@ -1,4 +1,5 @@
-﻿using Plugin.Permissions.Abstractions;
+﻿using Acr.UserDialogs;
+using Plugin.Permissions.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,9 +15,9 @@ using ZXing.Net.Mobile.Forms;
 
 namespace TFE2017.Core.Views.Pages
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class QrPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class QrPage : ContentPage
+    {
         private Uri _appUrl;
         private string _idBuilding;
         private string _idQrCode;
@@ -24,18 +25,18 @@ namespace TFE2017.Core.Views.Pages
         private ScannerPage _scanner;
 
         public QrPage()
-		{
+        {
             try
             {
                 InitializeComponent();
                 InitVisual();
 
-                _appUrl = new Uri("https://play.google.com/store/apps/details?id=com.Slack&builingId=1&entryId=1");
-                _idBuilding = "";
-                _idQrCode = "";
-                _textQR = "";
+                _appUrl = new Uri("https://play.google.com/store/apps/details?id=com.Slack&buildingId=1&entryId=1");
+                _idBuilding = string.Empty;
+                _idQrCode = string.Empty;
+                _textQR = string.Empty;
 
-                Scan();
+                //ScanAsync();
             }
             catch (Exception ex)
             {
@@ -44,89 +45,87 @@ namespace TFE2017.Core.Views.Pages
 #endif
             }
         }
-        
-        public async Task Scan()
+
+        protected override void OnAppearing()
+        {
+            //Scan();
+            base.OnAppearing();
+        }
+
+        public async Task ScanAsync()
         {
             if (!(await App.CheckPermission(Permission.Camera)))
             {
-                Device.BeginInvokeOnMainThread(async () => await DisplayAlert("permission", "veuillez autoriser l'utilisations de l'appareil photo", "ok"));
-                Device.BeginInvokeOnMainThread(async () => await Navigation.PopAsync(true));
+                await DisplayAlert("permission", "veuillez autoriser l'utilisations de l'appareil photo", "ok");
+                //await Navigation.PopAsync(true);
             }
             else
             {
                 _scanner = new ScannerPage(true);// App.CheckPermission(Permission.FLASHLIGHT).Result));
-                _scanner.PropertyChanged += ScanDone;
+                _scanner.PropertyChanged += ScanDoneAsync;
 
                 Device.BeginInvokeOnMainThread(() => Navigation.PushAsync(_scanner, true));
-
-
-                //ZXingScannerView scanView = new ZXingScannerView()
-                //{
-                //    IsScanning = true,
-                //    IsAnalyzing = true,
-                //    //Options = new ZXing.Mobile.MobileBarcodeScanningOptions() { DelayBetweenContinuousScans = 1000},
-                //};
-
-                //scanView.OnScanResult += ((result) =>
-                //{
-                //    Device.BeginInvokeOnMainThread(() =>
-                //    //Device.BeginInvokeOnMainThread(async () =>
-                //    {
-                //        //await Navigation.PopAsync();
-
-                //        _textQR = result.Text;
-
-                //        CheckScanResult();
-                //    });
-                //});
+                //Device.BeginInvokeOnMainThread(() => ButtonReScan.IsVisible = true);
+                ButtonReScan.IsVisible = true;
             }
         }
 
-        private async void ScanDone(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private async void ScanDoneAsync(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             var qrSender = (ScannerPage)sender;
             if (qrSender.IsDone)
             {
-                qrSender.PropertyChanged -= ScanDone;
+                qrSender.PropertyChanged -= ScanDoneAsync;
                 _textQR = _scanner.Result;
                 //await Navigation.PopAsync();
-                CheckScanResult();
+                await CheckScanResultasync();
             }
-         }
+        }
 
-        private void CheckScanResult()
+        private async Task CheckScanResultasync()
         {
-            if (!string.IsNullOrWhiteSpace(_textQR))
+            Uri uriQR = null;
+            if (!string.IsNullOrWhiteSpace(_textQR) && Uri.TryCreate(_textQR, UriKind.RelativeOrAbsolute, out uriQR))
             {
-                Uri uriQR = new Uri(_textQR);
-                bool isQRValid = true;
+                //    bool isQRValid = true;
 
-                isQRValid &= _appUrl.Scheme == uriQR.Scheme;
-                isQRValid &= _appUrl.AbsoluteUri == uriQR.AbsoluteUri;
-                isQRValid &= _appUrl.LocalPath == uriQR.LocalPath;
-                
-                if (isQRValid)                
-                    Navigation.PushAsync(new DestinationPage(_appUrl.Query));
-                else
-                {
-                    DisplayAlert("erreur", "qr non valide", "cancel");
-                    DisplayAlert("erreur", _appUrl.ToString() + "\n " + uriQR.ToString(), "cancel");
-                }
+                //    isQRValid &= _appUrl.Scheme == uriQR.Scheme;
+                //    isQRValid &= _appUrl.AbsoluteUri == uriQR.AbsoluteUri;
+                //    isQRValid &= _appUrl.LocalPath == uriQR.LocalPath;
+
+                //    if (isQRValid)
+                //    {
+                await DisplayAlert("qr code", "le code est: " + _textQR, "ok");
+                ButtonSuivant.IsEnabled = true;
+                //}
+                //else
+                //{
+                //    await DisplayAlert("erreur", "qr non valide", "cancel");
+                //    await DisplayAlert("erreur", _appUrl.ToString() + "\n " + uriQR.ToString(), "cancel");
+                //}
             }
             else
             {
-                DisplayAlert("erreur", "scan non valide", "cancel");
+                await DisplayAlert("erreur", "qr vide ou incorrect", "cancel");
             }
         }
 
         private void InitVisual()
         {
             ButtonSuivant.Text = "Suivant";
+            ButtonReScan.Text = "Scan";
         }
 
-        public async void ButtonSuivantCicked(object sender, EventArgs e)
+        public async void ButtonSuivantClicked(object sender, EventArgs e)
         {
-            await DisplayAlert("qr code", "le code est: " + _textQR, "ok", null);
+            UserDialogs.Instance.ShowLoading();
+            await Navigation.PushAsync(new DestinationPage(_appUrl.Query));
+            UserDialogs.Instance.HideLoading();
+        }
+
+        public async void ButtonReScanClicked(object sender, EventArgs e)
+        {
+            ScanAsync();
         }
     }
 }

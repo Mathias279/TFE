@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using TFE2017.Core.Managers;
 using TFE2017.Core.Views.Pages;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace TFE2017
 {

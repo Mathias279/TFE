@@ -6,7 +6,8 @@
         <StackLayout>
             <Label x:Name="LabelCode" VerticalOptions="Center" HorizontalOptions="Center"/>
 
-            <Button x:Name="ButtonSuivant" Clicked="ButtonSuivantCicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
+            <Button x:Name="ButtonReScan" Clicked="ButtonReScanClicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
+            <Button x:Name="ButtonSuivant" IsEnabled="False" Clicked="ButtonSuivantClicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

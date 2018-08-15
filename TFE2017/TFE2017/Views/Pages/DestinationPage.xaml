@@ -4,12 +4,10 @@
              x:Class="TFE2017.Core.Views.Pages.DestinationPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label x:Name="LabelDestination" Text="Select your destination"
-                VerticalOptions="Start" 
-                HorizontalOptions="CenterAndExpand" />
-            
-            <ListView x:Name="ListDestinations">
-            </ListView>
+            <Label x:Name="LabelDestination" Text="Select your destination" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
+            <StackLayout x:Name="Container">
+            </StackLayout>
+            <Button x:Name="ButtonSuivant" Clicked="ButtonSuivantCicked" IsEnabled="False" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

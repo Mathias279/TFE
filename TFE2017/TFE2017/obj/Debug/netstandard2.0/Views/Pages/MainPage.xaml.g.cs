@@ -32,7 +32,7 @@ namespace TFE2017.Core.Views.Pages {
         private global::Xamarin.Forms.Button ButtonPositionPage;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.Button ButtonDBPage;
+        private global::Xamarin.Forms.Button ButtonDestinationPage;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Button ButtonSuivant;
@@ -45,7 +45,7 @@ namespace TFE2017.Core.Views.Pages {
             ContainerDebug = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.StackLayout>(this, "ContainerDebug");
             ButtonScanPage = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "ButtonScanPage");
             ButtonPositionPage = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "ButtonPositionPage");
-            ButtonDBPage = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "ButtonDBPage");
+            ButtonDestinationPage = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "ButtonDestinationPage");
             ButtonSuivant = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "ButtonSuivant");
         }
     }

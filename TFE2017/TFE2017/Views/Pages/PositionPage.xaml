@@ -8,9 +8,12 @@
                 VerticalOptions="Center" 
                 HorizontalOptions="CenterAndExpand" />
             <Label x:Name="LabelPosition" VerticalOptions="Center" HorizontalOptions="Center" />
-            <Label x:Name="LabelPosition1" VerticalOptions="Center" HorizontalOptions="Center" />
             <Label x:Name="LabelHeading" VerticalOptions="Center" HorizontalOptions="Center" />
             <Label x:Name="LabelDirection" VerticalOptions="Center" HorizontalOptions="Center" />
-        </StackLayout> 
+
+            <Button x:Name="Speed" Clicked="SpeedClicked" VerticalOptions="End" HorizontalOptions="Center" Text="change speed" />
+            <Label x:Name="LabelDirectionXam" VerticalOptions="End" HorizontalOptions="Center" />
+            <Button x:Name="Comparer" Clicked="ComparerClicked" VerticalOptions="End" HorizontalOptions="Center" Text="Comparer" />
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
