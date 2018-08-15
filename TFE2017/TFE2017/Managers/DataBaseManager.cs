@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using TFE2017.Core.Models;
 using TFE2017.Core.Models.Abstract;
 using TFE2017.Core.Services;
-using Xamarin.Forms;
 
 namespace TFE2017.Core.Managers
 {
@@ -92,13 +91,13 @@ namespace TFE2017.Core.Managers
             }
         }
 
-        static public async Task<List<RoomEntity>> GetAllRooms()
+        static public async Task<List<Room>> GetAllRooms()
         {
             try
             {
-                IStatementResult queryResult =  await RunQuery($"MATCH (n:ROOM) RETURN n");
+                List<IRecord> queryResult = await RunQuery($"MATCH (n:ROOM) RETURN n");
 
-                return  ParserService.ToObject(queryResult);
+                return new List<Room>();// ParserService.ToObjects(queryResult);
 
             }
             catch (Exception ex)
@@ -110,12 +109,12 @@ namespace TFE2017.Core.Managers
             }
         }
 
-        static public async Task<List<MapEntity>> GetPath(string a1, string a2, string a3)
+        static public async Task<List<IPlaceEntity>> GetPath(string a1, string a2, string a3)
         {
             try
             {
-                ISession session = Connect();
-                List<MapEntity> roomsList = new List<MapEntity>();
+                ISession session = await Connect();
+                List<IPlaceEntity> roomsList = new List<IPlaceEntity>();
 
                 int floor = 0;
                 string name = "nom";
@@ -133,7 +132,7 @@ namespace TFE2017.Core.Managers
                     var result = tx.Run(query).ToList();
                     foreach (var element in result)
                     {
-                        roomsList.Add(new RoomEntity("a", "a", new PositionEntity(0, 0), 0));
+                        roomsList.Add(new Room());
                         //roomsList.Add(element["n.name"].ToString());
                     }
                     tx.Success();
@@ -146,7 +145,7 @@ namespace TFE2017.Core.Managers
 #if DEBUG
                 Debugger.Break();
 #endif
-                return new List<MapEntity>();
+                return new List<IPlaceEntity>();
             }
         }
     }

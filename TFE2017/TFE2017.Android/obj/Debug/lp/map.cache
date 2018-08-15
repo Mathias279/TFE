@@ -3,6 +3,8 @@ AndHUD
 FastAndroidCamera
 FormsViewGroup
 Neo4j.Driver
+Neo4jClient
+Newtonsoft.Json
 Plugin.Compass.Abstractions
 Plugin.Compass
 Plugin.CurrentActivity
@@ -56,3 +58,7 @@ System.Runtime.InteropServices.RuntimeInformation
 System.Threading.Thread
 System.ObjectModel
 System.Text.Encoding
+System.Dynamic.Runtime
+System.Collections.NonGeneric
+System.ComponentModel
+System.Reflection.Primitives

@@ -53,16 +53,7 @@ namespace TFE2017.Core.Views.Pages
                 comp.ToggleCompass();
 
                 Compass.ReadingChanged += (e) => ReadingChanged(e);
-
-
-
-
-
-
-
-
-                //BuildingEntity ephec = new BuildingEntity();
-                //ephec.FloorsList[0] = new FloorEntity();
+                
             }
             catch (Exception ex)
             {

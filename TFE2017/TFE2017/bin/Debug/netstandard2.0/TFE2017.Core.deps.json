@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "072b38933c335d19fad7591b5f261aaba3890780"
+    "signature": "74778d49ed968dd36ea6f4e86820c7ac9751e072"
   },
   "compilationOptions": {},
   "targets": {
@@ -10,15 +10,16 @@
       "TFE2017.Core/1.0.0": {
         "dependencies": {
           "Acr.UserDialogs": "7.0.1",
-          "NETStandard.Library": "2.0.1",
+          "NETStandard.Library": "2.0.3",
           "Neo4j.Driver": "1.7.0-alpha02",
           "Plugin.Compass": "3.0.1",
           "Plugin.Permissions": "3.0.0.12",
           "System.Linq": "4.3.0",
           "Xamarin.Essentials": "0.8.0-preview",
-          "Xamarin.Forms": "3.2.0.637442-pre1",
+          "Xamarin.Forms": "3.1.0.697729",
           "ZXing.Net.Mobile": "2.4.1",
-          "ZXing.Net.Mobile.Forms": "2.4.1"
+          "ZXing.Net.Mobile.Forms": "2.4.1",
+          "Mono.Android": "0.0.0.0"
         },
         "runtime": {
           "TFE2017.Core.dll": {}
@@ -26,7 +27,10 @@
       },
       "Acr.UserDialogs/7.0.1": {
         "runtime": {
-          "lib/netstandard2.0/Acr.UserDialogs.dll": {}
+          "lib/netstandard2.0/Acr.UserDialogs.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
@@ -40,7 +44,7 @@
       },
       "Neo4j.Driver/1.7.0-alpha02": {
         "dependencies": {
-          "NETStandard.Library": "2.0.1",
+          "NETStandard.Library": "2.0.3",
           "System.Net.NameResolution": "4.3.0",
           "System.Net.Security": "4.3.1",
           "System.Net.Sockets": "4.3.0",
@@ -49,26 +53,38 @@
           "System.Threading.Thread": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.3/Neo4j.Driver.dll": {}
+          "lib/netstandard1.3/Neo4j.Driver.dll": {
+            "assemblyVersion": "1.7.41.0",
+            "fileVersion": "1.7.41.0"
+          }
         }
       },
-      "NETStandard.Library/2.0.1": {
+      "NETStandard.Library/2.0.3": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
         }
       },
       "Plugin.Compass/3.0.1": {
         "dependencies": {
-          "NETStandard.Library": "2.0.1"
+          "NETStandard.Library": "2.0.3"
         },
         "runtime": {
-          "lib/netstandard1.0/Plugin.Compass.Abstractions.dll": {},
-          "lib/netstandard1.0/Plugin.Compass.dll": {}
+          "lib/netstandard1.0/Plugin.Compass.Abstractions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          },
+          "lib/netstandard1.0/Plugin.Compass.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Plugin.Permissions/3.0.0.12": {
         "runtime": {
-          "lib/netstandard2.0/Plugin.Permissions.dll": {}
+          "lib/netstandard2.0/Plugin.Permissions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
@@ -140,7 +156,10 @@
           "System.Threading.Tasks": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.3/System.Collections.Concurrent.dll": {}
+          "lib/netstandard1.3/System.Collections.Concurrent.dll": {
+            "assemblyVersion": "4.0.13.0",
+            "fileVersion": "4.6.24705.1"
+          }
         }
       },
       "System.Diagnostics.Debug/4.3.0": {
@@ -208,7 +227,10 @@
           "System.Runtime": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.3/System.IO.FileSystem.Primitives.dll": {}
+          "lib/netstandard1.3/System.IO.FileSystem.Primitives.dll": {
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.6.24705.1"
+          }
         }
       },
       "System.Linq/4.3.0": {
@@ -220,7 +242,10 @@
           "System.Runtime.Extensions": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.6/System.Linq.dll": {}
+          "lib/netstandard1.6/System.Linq.dll": {
+            "assemblyVersion": "4.1.1.0",
+            "fileVersion": "4.6.24705.1"
+          }
         }
       },
       "System.Net.NameResolution/4.3.0": {
@@ -293,7 +318,10 @@
       },
       "System.Numerics.Vectors/4.5.0": {
         "runtime": {
-          "lib/netstandard2.0/System.Numerics.Vectors.dll": {}
+          "lib/netstandard2.0/System.Numerics.Vectors.dll": {
+            "assemblyVersion": "4.1.4.0",
+            "fileVersion": "4.6.26515.6"
+          }
         }
       },
       "System.Reflection/4.3.0": {
@@ -370,7 +398,10 @@
           "runtime.native.System": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {}
+          "lib/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.6.24705.1"
+          }
         }
       },
       "System.Runtime.Numerics/4.3.0": {
@@ -381,7 +412,10 @@
           "System.Runtime.Extensions": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.3/System.Runtime.Numerics.dll": {}
+          "lib/netstandard1.3/System.Runtime.Numerics.dll": {
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.6.24705.1"
+          }
         }
       },
       "System.Runtime.Serialization.Primitives/4.3.0": {
@@ -390,7 +424,10 @@
           "System.Runtime": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.3/System.Runtime.Serialization.Primitives.dll": {}
+          "lib/netstandard1.3/System.Runtime.Serialization.Primitives.dll": {
+            "assemblyVersion": "4.1.2.0",
+            "fileVersion": "4.6.24705.1"
+          }
         }
       },
       "System.Security.Claims/4.3.0": {
@@ -404,7 +441,10 @@
           "System.Security.Principal": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.3/System.Security.Claims.dll": {}
+          "lib/netstandard1.3/System.Security.Claims.dll": {
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.6.24705.1"
+          }
         }
       },
       "System.Security.Cryptography.Algorithms/4.3.0": {
@@ -490,7 +530,10 @@
           "runtime.native.System.Security.Cryptography.OpenSsl": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.6/System.Security.Cryptography.OpenSsl.dll": {}
+          "lib/netstandard1.6/System.Security.Cryptography.OpenSsl.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "1.0.24212.1"
+          }
         }
       },
       "System.Security.Cryptography.Primitives/4.3.0": {
@@ -504,7 +547,10 @@
           "System.Threading.Tasks": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.3/System.Security.Cryptography.Primitives.dll": {}
+          "lib/netstandard1.3/System.Security.Cryptography.Primitives.dll": {
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.6.24705.1"
+          }
         }
       },
       "System.Security.Cryptography.X509Certificates/4.3.0": {
@@ -541,7 +587,10 @@
           "System.Runtime": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.0/System.Security.Principal.dll": {}
+          "lib/netstandard1.0/System.Security.Principal.dll": {
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.6.24705.1"
+          }
         }
       },
       "System.Security.Principal.Windows/4.3.0": {
@@ -575,7 +624,10 @@
           "System.Threading.Tasks": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.3/System.Threading.dll": {}
+          "lib/netstandard1.3/System.Threading.dll": {
+            "assemblyVersion": "4.0.12.0",
+            "fileVersion": "4.6.24705.1"
+          }
         }
       },
       "System.Threading.Tasks/4.3.0": {
@@ -590,7 +642,10 @@
           "System.Runtime": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.3/System.Threading.Thread.dll": {}
+          "lib/netstandard1.3/System.Threading.Thread.dll": {
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.6.24705.1"
+          }
         }
       },
       "System.Threading.ThreadPool/4.3.0": {
@@ -599,7 +654,10 @@
           "System.Runtime.Handles": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.3/System.Threading.ThreadPool.dll": {}
+          "lib/netstandard1.3/System.Threading.ThreadPool.dll": {
+            "assemblyVersion": "4.0.11.0",
+            "fileVersion": "4.6.24705.1"
+          }
         }
       },
       "Xamarin.Essentials/0.8.0-preview": {
@@ -607,30 +665,62 @@
           "System.Numerics.Vectors": "4.5.0"
         },
         "runtime": {
-          "lib/netstandard2.0/Xamarin.Essentials.dll": {}
+          "lib/netstandard2.0/Xamarin.Essentials.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
-      "Xamarin.Forms/3.2.0.637442-pre1": {
+      "Xamarin.Forms/3.1.0.697729": {
         "runtime": {
-          "lib/netstandard2.0/Xamarin.Forms.Core.dll": {},
-          "lib/netstandard2.0/Xamarin.Forms.Platform.dll": {},
-          "lib/netstandard2.0/Xamarin.Forms.Xaml.dll": {}
+          "lib/netstandard2.0/Xamarin.Forms.Core.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          },
+          "lib/netstandard2.0/Xamarin.Forms.Platform.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          },
+          "lib/netstandard2.0/Xamarin.Forms.Xaml.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
         }
       },
       "ZXing.Net.Mobile/2.4.1": {
         "runtime": {
-          "lib/netstandard1.0/ZXing.Net.Mobile.Core.dll": {},
-          "lib/netstandard1.0/ZXingNetMobile.dll": {},
-          "lib/netstandard1.0/zxing.portable.dll": {}
+          "lib/netstandard1.0/ZXing.Net.Mobile.Core.dll": {
+            "assemblyVersion": "2.4.1.0",
+            "fileVersion": "2.4.1.0"
+          },
+          "lib/netstandard1.0/ZXingNetMobile.dll": {
+            "assemblyVersion": "2.4.1.0",
+            "fileVersion": "2.4.1.0"
+          },
+          "lib/netstandard1.0/zxing.portable.dll": {
+            "assemblyVersion": "0.16.2.0",
+            "fileVersion": "0.16.2.0"
+          }
         }
       },
       "ZXing.Net.Mobile.Forms/2.4.1": {
         "dependencies": {
-          "Xamarin.Forms": "3.2.0.637442-pre1",
+          "Xamarin.Forms": "3.1.0.697729",
           "ZXing.Net.Mobile": "2.4.1"
         },
         "runtime": {
-          "lib/netstandard1.0/ZXing.Net.Mobile.Forms.dll": {}
+          "lib/netstandard1.0/ZXing.Net.Mobile.Forms.dll": {
+            "assemblyVersion": "2.4.1.0",
+            "fileVersion": "2.4.1.0"
+          }
+        }
+      },
+      "Mono.Android/0.0.0.0": {
+        "runtime": {
+          "Mono.Android.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
         }
       }
     }
@@ -676,12 +766,12 @@
       "path": "neo4j.driver/1.7.0-alpha02",
       "hashPath": "neo4j.driver.1.7.0-alpha02.nupkg.sha512"
     },
-    "NETStandard.Library/2.0.1": {
+    "NETStandard.Library/2.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-oA6nwv9MhEKYvLpjZ0ggSpb1g4CQViDVQjLUcDWg598jtvJbpfeP2reqwI1GLW2TbxC/Ml7xL6BBR1HmKPXlTg==",
-      "path": "netstandard.library/2.0.1",
-      "hashPath": "netstandard.library.2.0.1.nupkg.sha512"
+      "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "path": "netstandard.library/2.0.3",
+      "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
     },
     "Plugin.Compass/3.0.1": {
       "type": "package",
@@ -1110,12 +1200,12 @@
       "path": "xamarin.essentials/0.8.0-preview",
       "hashPath": "xamarin.essentials.0.8.0-preview.nupkg.sha512"
     },
-    "Xamarin.Forms/3.2.0.637442-pre1": {
+    "Xamarin.Forms/3.1.0.697729": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-V3fuFk/8pDjfDa+yRgf8TsiRIu7N1fzzuaJ5+qNPOwlYvIWCtFGCuxL6KIPx/jwA1VX4O85o0EKgAB7oNzJy1A==",
-      "path": "xamarin.forms/3.2.0.637442-pre1",
-      "hashPath": "xamarin.forms.3.2.0.637442-pre1.nupkg.sha512"
+      "sha512": "sha512-YlFOM9u8onIRxJwYJ3l+O0wFKqzzrDjDrgnoBr1rct+eaQKU77vFydxvTP+WxYlYzR14hYvyLNC65L84+6ke6w==",
+      "path": "xamarin.forms/3.1.0.697729",
+      "hashPath": "xamarin.forms.3.1.0.697729.nupkg.sha512"
     },
     "ZXing.Net.Mobile/2.4.1": {
       "type": "package",
@@ -1130,6 +1220,11 @@
       "sha512": "sha512-7z+MfL8TbfE36s1GGvrnlkhLUOV5dgdn1gYhUb3GU2W6YXzpfF39k6EqkmFsyNm1O07evTaKFgh7UTOqcWub3g==",
       "path": "zxing.net.mobile.forms/2.4.1",
       "hashPath": "zxing.net.mobile.forms.2.4.1.nupkg.sha512"
+    },
+    "Mono.Android/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

@@ -778,7 +778,7 @@
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/3.2.0.637442-pre1": {
+      "Xamarin.Forms/3.1.0.697729": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
@@ -839,7 +839,7 @@
           "Plugin.Permissions": "3.0.0.12",
           "System.Linq": "4.3.0",
           "Xamarin.Essentials": "0.8.0-preview",
-          "Xamarin.Forms": "3.2.0.637442-pre1",
+          "Xamarin.Forms": "3.1.0.697729",
           "ZXing.Net.Mobile": "2.4.1",
           "ZXing.Net.Mobile.Forms": "2.4.1"
         },
@@ -2160,7 +2160,7 @@
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/3.2.0.637442-pre1": {
+      "Xamarin.Forms/3.1.0.697729": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
@@ -2221,7 +2221,7 @@
           "Plugin.Permissions": "3.0.0.12",
           "System.Linq": "4.3.0",
           "Xamarin.Essentials": "0.8.0-preview",
-          "Xamarin.Forms": "3.2.0.637442-pre1",
+          "Xamarin.Forms": "3.1.0.697729",
           "ZXing.Net.Mobile": "2.4.1",
           "ZXing.Net.Mobile.Forms": "2.4.1"
         },
@@ -3616,7 +3616,7 @@
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/3.2.0.637442-pre1": {
+      "Xamarin.Forms/3.1.0.697729": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
@@ -3677,7 +3677,7 @@
           "Plugin.Permissions": "3.0.0.12",
           "System.Linq": "4.3.0",
           "Xamarin.Essentials": "0.8.0-preview",
-          "Xamarin.Forms": "3.2.0.637442-pre1",
+          "Xamarin.Forms": "3.1.0.697729",
           "ZXing.Net.Mobile": "2.4.1",
           "ZXing.Net.Mobile.Forms": "2.4.1"
         },
@@ -4999,7 +4999,7 @@
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/3.2.0.637442-pre1": {
+      "Xamarin.Forms/3.1.0.697729": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
@@ -5060,7 +5060,7 @@
           "Plugin.Permissions": "3.0.0.12",
           "System.Linq": "4.3.0",
           "Xamarin.Essentials": "0.8.0-preview",
-          "Xamarin.Forms": "3.2.0.637442-pre1",
+          "Xamarin.Forms": "3.1.0.697729",
           "ZXing.Net.Mobile": "2.4.1",
           "ZXing.Net.Mobile.Forms": "2.4.1"
         },
@@ -6381,7 +6381,7 @@
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/3.2.0.637442-pre1": {
+      "Xamarin.Forms/3.1.0.697729": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
@@ -6442,7 +6442,7 @@
           "Plugin.Permissions": "3.0.0.12",
           "System.Linq": "4.3.0",
           "Xamarin.Essentials": "0.8.0-preview",
-          "Xamarin.Forms": "3.2.0.637442-pre1",
+          "Xamarin.Forms": "3.1.0.697729",
           "ZXing.Net.Mobile": "2.4.1",
           "ZXing.Net.Mobile.Forms": "2.4.1"
         },
@@ -7837,7 +7837,7 @@
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/3.2.0.637442-pre1": {
+      "Xamarin.Forms/3.1.0.697729": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
@@ -7898,7 +7898,7 @@
           "Plugin.Permissions": "3.0.0.12",
           "System.Linq": "4.3.0",
           "Xamarin.Essentials": "0.8.0-preview",
-          "Xamarin.Forms": "3.2.0.637442-pre1",
+          "Xamarin.Forms": "3.1.0.697729",
           "ZXing.Net.Mobile": "2.4.1",
           "ZXing.Net.Mobile.Forms": "2.4.1"
         },
@@ -9219,7 +9219,7 @@
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/3.2.0.637442-pre1": {
+      "Xamarin.Forms/3.1.0.697729": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
@@ -9280,7 +9280,7 @@
           "Plugin.Permissions": "3.0.0.12",
           "System.Linq": "4.3.0",
           "Xamarin.Essentials": "0.8.0-preview",
-          "Xamarin.Forms": "3.2.0.637442-pre1",
+          "Xamarin.Forms": "3.1.0.697729",
           "ZXing.Net.Mobile": "2.4.1",
           "ZXing.Net.Mobile.Forms": "2.4.1"
         },
@@ -10675,7 +10675,7 @@
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/3.2.0.637442-pre1": {
+      "Xamarin.Forms/3.1.0.697729": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
@@ -10736,7 +10736,7 @@
           "Plugin.Permissions": "3.0.0.12",
           "System.Linq": "4.3.0",
           "Xamarin.Essentials": "0.8.0-preview",
-          "Xamarin.Forms": "3.2.0.637442-pre1",
+          "Xamarin.Forms": "3.1.0.697729",
           "ZXing.Net.Mobile": "2.4.1",
           "ZXing.Net.Mobile.Forms": "2.4.1"
         },
@@ -17586,10 +17586,10 @@
         "xamarin.essentials.nuspec"
       ]
     },
-    "Xamarin.Forms/3.2.0.637442-pre1": {
-      "sha512": "V3fuFk/8pDjfDa+yRgf8TsiRIu7N1fzzuaJ5+qNPOwlYvIWCtFGCuxL6KIPx/jwA1VX4O85o0EKgAB7oNzJy1A==",
+    "Xamarin.Forms/3.1.0.697729": {
+      "sha512": "YlFOM9u8onIRxJwYJ3l+O0wFKqzzrDjDrgnoBr1rct+eaQKU77vFydxvTP+WxYlYzR14hYvyLNC65L84+6ke6w==",
       "type": "package",
-      "path": "xamarin.forms/3.2.0.637442-pre1",
+      "path": "xamarin.forms/3.1.0.697729",
       "files": [
         ".signature.p7s",
         "build/netstandard1.0/Mono.Cecil.Mdb.dll",
@@ -17731,7 +17731,7 @@
         "lib/uap10.0/Xamarin.Forms.Platform.dll",
         "lib/uap10.0/Xamarin.Forms.Xaml.dll",
         "lib/uap10.0/Xamarin.Forms.Xaml.xml",
-        "xamarin.forms.3.2.0.637442-pre1.nupkg.sha512",
+        "xamarin.forms.3.1.0.697729.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
     },
@@ -17788,7 +17788,7 @@
       "Plugin.Permissions >= 3.0.0.12",
       "TFE2017.Core >= 1.0.0",
       "Xamarin.Essentials >= 0.8.0-preview",
-      "Xamarin.Forms >= 3.2.0.637442-pre1",
+      "Xamarin.Forms >= 3.1.0.697729",
       "ZXing.Net.Mobile >= 2.4.1",
       "ZXing.Net.Mobile.Forms >= 2.4.1"
     ]
@@ -17852,7 +17852,7 @@
           },
           "Xamarin.Forms": {
             "target": "Package",
-            "version": "[3.2.0.637442-pre1, )"
+            "version": "[3.1.0.697729, )"
           },
           "ZXing.Net.Mobile": {
             "target": "Package",
