@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TFE2017.Core.Managers;
+using TFE2017.Core.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -20,6 +21,7 @@ namespace TFE2017.Core.Views.Pages
         private string _entryId;
         private string _destinationName;
         private ListView _list;
+        private List<Room> _rooms;
 
         public DestinationPage(string query)
         {
@@ -28,7 +30,7 @@ namespace TFE2017.Core.Views.Pages
                 InitializeComponent();
 
                 _query = query;
-                                
+
                 DecodeQuery();
             }
             catch (Exception ex)
@@ -41,12 +43,13 @@ namespace TFE2017.Core.Views.Pages
 
         protected override async void OnAppearing()
         {
+            base.OnAppearing();
+            
             if (_list is null)
             {
-                await Task.Run(async () => await InitList());
+                 await InitList();
             }
 
-            base.OnAppearing();
         }
 
         private void DecodeQuery()
@@ -68,12 +71,15 @@ namespace TFE2017.Core.Views.Pages
             {
                 //var dbMan = new DataBaseManager();
 
-                _list = new ListView()
-                {
-                    ItemsSource = await DataBaseManager.GetAllRooms()
-                };
-                _list.ItemSelected += DestinationSelected;
+                _list = new ListView();
 
+                _rooms = await DataBaseManager.GetAllRooms(_buildingId);
+
+                if (_rooms.Any())
+                {                
+                    _list.ItemsSource = _rooms.Select(room => room.Name);
+                    _list.ItemSelected += DestinationSelected;
+                }
                 Device.BeginInvokeOnMainThread(() => Container.Children.Add(_list));
                 return true;
             }
@@ -89,14 +95,14 @@ namespace TFE2017.Core.Views.Pages
         private void DestinationSelected(object sender, SelectedItemChangedEventArgs e)
         {
             _list.IsEnabled = false;
-            _destinationName = _list.SelectedItem.ToString();
+            _destinationName = _rooms.FirstOrDefault(room => room.Name == _list.SelectedItem.ToString()).Id;
             //Device.BeginInvokeOnMainThread(() => DisplayAlert(_query, "building = " + _buildingId + "\n depart = " + _entryId + "\n desination = " + _destinationName, "ok"));
             ButtonSuivant.IsEnabled = true;
         }
 
         public async void ButtonSuivantCicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new OnTheWayPage(_buildingId,_entryId,_destinationName));
+            Navigation.PushAsync(new OnTheWayPage(_buildingId, _entryId, _destinationName));
         }
     }
 }

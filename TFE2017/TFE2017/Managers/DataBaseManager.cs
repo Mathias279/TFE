@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TFE2017.Core.Models;
 using TFE2017.Core.Models.Abstract;
-using TFE2017.Core.Services;
+using TFE2017.Core.Services; 
 
 namespace TFE2017.Core.Managers
 {
@@ -91,13 +91,24 @@ namespace TFE2017.Core.Managers
             }
         }
 
-        static public async Task<List<Room>> GetAllRooms()
+        static public async Task<List<Room>> GetAllRooms(string buildinId)
         {
             try
             {
-                List<IRecord> queryResult = await RunQuery($"MATCH (n:ROOM) RETURN n");
+                string query = $" MATCH (b:Building {{ Id : { buildinId } }}),( r:Room), p = shortestPath((b)-[*]-(r))" +
+                    $" RETURN r.Id , r.Name "+
+                    $" ORDER BY r.Name";
+                List<IRecord> queryResult = await RunQuery(query);
 
-                return new List<Room>();// ParserService.ToObjects(queryResult);
+                List<Room> listRooms = new List<Room>();
+                foreach (IRecord record in queryResult)
+                {
+                    var id = record.Values[record.Keys[0]].ToString();
+                    var name = record.Values[record.Keys[1]].ToString();
+                    listRooms.Add(new Room(id,name));
+                }
+
+                return listRooms;
 
             }
             catch (Exception ex)
@@ -109,7 +120,7 @@ namespace TFE2017.Core.Managers
             }
         }
 
-        static public async Task<List<IPlaceEntity>> GetPath(string a1, string a2, string a3)
+        static public async Task<List<IPlaceEntity>> GetPath(string buildinId, string beginId, string endId, bool noStairs = false, bool noLifts = false)
         {
             try
             {
@@ -119,20 +130,27 @@ namespace TFE2017.Core.Managers
                 int floor = 0;
                 string name = "nom";
 
-                string query = $"MATCH p = (n) - [*1..4] - (h) -[] - (r: ROOM) " +
-                    $" WHERE n.floor = {floor} AND r.name = '{name}' " +
-                    $" AND h.entryPoint " +
-                    $" AND NOT n: Building " +
-                    $" AND none(x IN nodes(p)" +
-                    $" WHERE x: Building)" +
-                    $" RETURN p AS shortestPath, reduce(link = 0, r IN relationships(p) | link + 1) AS totallinksORDER BY totallinks ASCLIMIT 1";
+                string query = $" MATCH path = shortestPath((beginning:Room {{ Id: {beginId} }} ) - [*0..20] - (destination:Room {{ Id : {endId} }} ))";
+
+                if (noStairs)
+                    query += $" WHERE NONE (n IN nodes(path WHERE n:Staircase)";
+                if (noStairs && noLifts)
+                    query += $" And ";
+                if (noLifts)
+                    query += $" WHERE NONE (n IN nodes(path WHERE n:Lift)";
+
+                query += $" RETURN path as shortestPath, reduce(link = 0, destination IN relationships(path) | link + 1) AS totallinks" +
+                $" ORDER BY totallinks ASC" +
+                $" LIMIT 1";
+
+                var queryFull = query;
 
                 using (var tx = session.BeginTransaction())
                 {
                     var result = tx.Run(query).ToList();
                     foreach (var element in result)
                     {
-                        roomsList.Add(new Room());
+                        roomsList.Add(element.As<Room>());
                         //roomsList.Add(element["n.name"].ToString());
                     }
                     tx.Success();
