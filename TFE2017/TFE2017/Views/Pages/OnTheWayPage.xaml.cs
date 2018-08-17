@@ -10,14 +10,15 @@ using Xamarin.Forms.Xaml;
 
 namespace TFE2017.Core.Views.Pages
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class OnTheWayPage : ContentPage
-	{
-		public OnTheWayPage (string buidingId, string departId, string destinationId)
-		{
-			InitializeComponent ();
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class OnTheWayPage : ContentPage
+    {
+        public OnTheWayPage(string buidingId, string departId, string destinationId, bool useStairs, bool useLift)
+        {
+            InitializeComponent();
 
-            DataBaseManager.GetPath("1", "2", "3");
-		}
-	}
+            var path = DataBaseManager.GetPath(buidingId, departId, departId, useStairs, useLift);
+
+        }
+    }
 }

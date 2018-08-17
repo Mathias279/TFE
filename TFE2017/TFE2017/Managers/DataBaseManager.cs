@@ -120,7 +120,7 @@ namespace TFE2017.Core.Managers
             }
         }
 
-        static public async Task<List<IPlaceEntity>> GetPath(string buildinId, string beginId, string endId, bool noStairs = false, bool noLifts = false)
+        static public async Task<List<IPlaceEntity>> GetPath(string buildinId, string beginId, string endId, bool useStairs, bool useLift)
         {
             try
             {
@@ -132,11 +132,11 @@ namespace TFE2017.Core.Managers
 
                 string query = $" MATCH path = shortestPath((beginning:Room {{ Id: {beginId} }} ) - [*0..20] - (destination:Room {{ Id : {endId} }} ))";
 
-                if (noStairs)
+                if (!useStairs)
                     query += $" WHERE NONE (n IN nodes(path WHERE n:Staircase)";
-                if (noStairs && noLifts)
+                if (!useStairs && !useLift)
                     query += $" And ";
-                if (noLifts)
+                if (!useLift)
                     query += $" WHERE NONE (n IN nodes(path WHERE n:Lift)";
 
                 query += $" RETURN path as shortestPath, reduce(link = 0, destination IN relationships(path) | link + 1) AS totallinks" +

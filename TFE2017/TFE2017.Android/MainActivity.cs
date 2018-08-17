@@ -14,7 +14,7 @@ using Acr.UserDialogs;
 
 namespace TFE2017.Droid
 {
-    [Activity(Label = "TFE2017", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "TFE2017", Icon = "@drawable/logoBordeau", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected async override void OnCreate(Bundle bundle)

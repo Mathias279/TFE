@@ -19,19 +19,39 @@ namespace TFE2017.Core.Views.Pages
         private string _query;
         private string _buildingId;
         private string _entryId;
-        private string _destinationName;
+        private string _stairs;
+        private string _destinationId;
+
+        private bool _useStairs;
+        private bool _useLift;
+
         private ListView _list;
         private List<Room> _rooms;
 
-        public DestinationPage(string query)
+        public DestinationPage(string query, bool useStairs, bool useLift)
         {
             try
             {
                 InitializeComponent();
 
                 _query = query;
+                _useStairs = useStairs;
+                _useLift = useLift;
 
                 DecodeQuery();
+
+                if (_list is null)
+                {
+                    Task.Run(async () =>
+                    {
+                        if (await InitList())
+                            Device.BeginInvokeOnMainThread(() => Container.Children.Add(_list));
+                        else
+                            await DisplayAlert("Erreur", "Une erreur est survenue lors de l'appel a la base de données", "ok");
+
+                    });
+                }
+
             }
             catch (Exception ex)
             {
@@ -40,17 +60,7 @@ namespace TFE2017.Core.Views.Pages
 #endif
             }
         }
-
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            
-            if (_list is null)
-            {
-                 await InitList();
-            }
-
-        }
+        
 
         private void DecodeQuery()
         {
@@ -58,30 +68,32 @@ namespace TFE2017.Core.Views.Pages
 
 
             if (fields.Count() == 3 &&
-                fields[0] == Constants.UrlField0 && fields[1].Split('=')[0] == Constants.UrlField1Key && fields[2].Split('=')[0] == Constants.UrlField2Key)
+                fields[0] == Constants.UrlField0 && 
+                fields[1].Split('=')[0] == Constants.UrlField1Key && 
+                fields[2].Split('=')[0] == Constants.UrlField2Key)
             {
                 _buildingId = fields[1].Split('=')[1];
                 _entryId = fields[2].Split('=')[1];
             }
+            else
+                DisplayAlert("Erreur", "erreur dans les parametres du qr code", "ok");
         }
 
         private async Task<bool> InitList()
         {
             try
             {
-                //var dbMan = new DataBaseManager();
-
                 _list = new ListView();
-
                 _rooms = await DataBaseManager.GetAllRooms(_buildingId);
 
                 if (_rooms.Any())
                 {                
                     _list.ItemsSource = _rooms.Select(room => room.Name);
                     _list.ItemSelected += DestinationSelected;
+                    return true;
                 }
-                Device.BeginInvokeOnMainThread(() => Container.Children.Add(_list));
-                return true;
+                else
+                    return false;
             }
             catch (Exception ex)
             {
@@ -95,14 +107,13 @@ namespace TFE2017.Core.Views.Pages
         private void DestinationSelected(object sender, SelectedItemChangedEventArgs e)
         {
             _list.IsEnabled = false;
-            _destinationName = _rooms.FirstOrDefault(room => room.Name == _list.SelectedItem.ToString()).Id;
-            //Device.BeginInvokeOnMainThread(() => DisplayAlert(_query, "building = " + _buildingId + "\n depart = " + _entryId + "\n desination = " + _destinationName, "ok"));
+            _destinationId = _rooms.FirstOrDefault(room => room.Name == _list.SelectedItem.ToString()).Id;
             ButtonSuivant.IsEnabled = true;
         }
 
         public async void ButtonSuivantCicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new OnTheWayPage(_buildingId, _entryId, _destinationName));
+            await Navigation.PushAsync(new OnTheWayPage(_buildingId, _entryId, _destinationId, _useStairs, _useLift));
         }
     }
 }

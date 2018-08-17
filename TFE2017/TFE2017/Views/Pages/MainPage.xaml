@@ -14,6 +14,8 @@
                 <Button x:Name="ButtonPositionPage" Clicked="ButtonPositionPageClicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
                 <Button x:Name="ButtonDestinationPage" Clicked="BoutonDestinationPageClicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
             </StackLayout>
+            
+            <Label x:Name="LabelWelcome" VerticalOptions="Center" HorizontalOptions="Center" />
 
             <Button x:Name="ButtonSuivant" Clicked="ButtonSuivantCicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
 

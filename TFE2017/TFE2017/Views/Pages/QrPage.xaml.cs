@@ -19,8 +19,9 @@ namespace TFE2017.Core.Views.Pages
     public partial class QrPage : ContentPage
     {
         private Uri _appUrl;
-        private string _idBuilding;
-        private string _idQrCode;
+        private Uri _uriQR;
+        //private string _idBuilding;
+        //private string _idQrCode;
         internal string _textQR;
         private ScannerPage _scanner;
 
@@ -31,9 +32,9 @@ namespace TFE2017.Core.Views.Pages
                 InitializeComponent();
                 InitVisual();
 
-                _appUrl = new Uri("https://play.google.com/store/apps/details?id=com.Slack&buildingId=1&entryId=1");
-                _idBuilding = string.Empty;
-                _idQrCode = string.Empty;
+                _appUrl = new Uri("http://onelink.to/intramuros?builingId=1&entryId=1");
+                //_idBuilding = string.Empty;
+                //_idQrCode = string.Empty;
                 _textQR = string.Empty;
 
                 //ScanAsync();
@@ -50,6 +51,11 @@ namespace TFE2017.Core.Views.Pages
         {
             //Scan();
             base.OnAppearing();
+
+            _appUrl = new Uri("http://onelink.to/intramuros?builingId=1&entryId=1");
+            //_idBuilding = string.Empty;
+            //_idQrCode = string.Empty;
+            _textQR = string.Empty;
         }
 
         public async Task ScanAsync()
@@ -84,25 +90,13 @@ namespace TFE2017.Core.Views.Pages
 
         private async Task CheckScanResultasync()
         {
-            Uri uriQR = null;
-            if (!string.IsNullOrWhiteSpace(_textQR) && Uri.TryCreate(_textQR, UriKind.RelativeOrAbsolute, out uriQR))
+            Uri uriFromQR = null;
+            if (!string.IsNullOrWhiteSpace(_textQR) && Uri.TryCreate(_textQR, UriKind.RelativeOrAbsolute, out uriFromQR))
             {
-                //    bool isQRValid = true;
-
-                //    isQRValid &= _appUrl.Scheme == uriQR.Scheme;
-                //    isQRValid &= _appUrl.AbsoluteUri == uriQR.AbsoluteUri;
-                //    isQRValid &= _appUrl.LocalPath == uriQR.LocalPath;
-
-                //    if (isQRValid)
-                //    {
-                await DisplayAlert("qr code", "le code est: " + _textQR, "ok");
+                //await DisplayAlert("qr code", "le code est: " + _textQR, "ok");
+                if (!(uriFromQR is null))
+                    _uriQR = uriFromQR;
                 ButtonSuivant.IsEnabled = true;
-                //}
-                //else
-                //{
-                //    await DisplayAlert("erreur", "qr non valide", "cancel");
-                //    await DisplayAlert("erreur", _appUrl.ToString() + "\n " + uriQR.ToString(), "cancel");
-                //}
             }
             else
             {
@@ -119,7 +113,8 @@ namespace TFE2017.Core.Views.Pages
         public async void ButtonSuivantClicked(object sender, EventArgs e)
         {
             UserDialogs.Instance.ShowLoading();
-            await Navigation.PushAsync(new DestinationPage(_appUrl.Query));
+            await Navigation.PushAsync(new PreferencesPage(_uriQR.Query));
+            //await Navigation.PushAsync(new DestinationPage(_uriQR.Query));
             UserDialogs.Instance.HideLoading();
         }
 

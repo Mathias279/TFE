@@ -14,8 +14,12 @@ using Xamarin.Forms.Xaml;
 namespace TFE2017
 {
 	public partial class App : Application
-	{
-		public App ()
+    {
+        public static string BuildingId { get; set; }
+        public static string EntryId { get; set; }
+        public static string DestinationId { get; set; }
+
+        public App ()
 		{
             try
             {
