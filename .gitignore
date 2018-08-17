@@ -1,2 +1,5 @@
+**/bin
+
+**/obj
 
 \.vs/TFE2017/v15/Server/sqlite3/
