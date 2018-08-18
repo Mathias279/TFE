@@ -17,7 +17,9 @@ namespace TFE2017.Core.Views.Pages
         {
             InitializeComponent();
 
-            var path = DataBaseManager.GetPath(buidingId, departId, departId, useStairs, useLift);
+            var building = Task.Run(() => DataBaseManager.GetBuilding(buidingId)).Result;
+            var path = Task.Run(() => DataBaseManager.GetPath(buidingId, departId, destinationId, useStairs, useLift)).Result;
+
 
         }
     }

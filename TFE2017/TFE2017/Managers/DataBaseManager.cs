@@ -87,7 +87,7 @@ namespace TFE2017.Core.Managers
             }
             finally
             {
-                Disconnect();
+                await Disconnect();
             }
         }
 
@@ -96,7 +96,7 @@ namespace TFE2017.Core.Managers
             try
             {
                 string query = $" MATCH (b:Building {{ Id : { buildinId } }}),( r:Room), p = shortestPath((b)-[*]-(r))" +
-                    $" RETURN r.Id , r.Name "+
+                    $" RETURN r.Id , r.Name " +
                     $" ORDER BY r.Name";
                 List<IRecord> queryResult = await RunQuery(query);
 
@@ -105,11 +105,48 @@ namespace TFE2017.Core.Managers
                 {
                     var id = record.Values[record.Keys[0]].ToString();
                     var name = record.Values[record.Keys[1]].ToString();
-                    listRooms.Add(new Room(id,name));
+                    listRooms.Add(new Room(id, name));
                 }
 
                 return listRooms;
 
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                Debugger.Break();
+#endif
+                return null;
+            }
+        }
+
+        static public async Task<Building> GetBuilding(string buildingId)
+        {
+            try
+            {
+
+                string query = $" MATCH (b:Building) RETURN b.Id, b.Name, b.Angle ";
+
+                List<IRecord> queryResult = await RunQuery(query);
+                List<Building> buildings = new List<Building>();
+
+                foreach (IRecord record in queryResult)
+                {
+                    var id = "0";
+                    var name = "0";
+                    var angle = "0";
+
+                    if (!(record.Values[record.Keys[0]] is null))
+                        id = record.Values[record.Keys[0]].ToString();
+                    if (!(record.Values[record.Keys[1]] is null))
+                        name = record.Values[record.Keys[1]].ToString();
+                    if (!(record.Values[record.Keys[2]] is null))
+                        angle = record.Values[record.Keys[2]].ToString();
+
+                    buildings.Add(new Building(id, angle, name));
+                }
+
+                return buildings.FirstOrDefault(building => building.Id == buildingId);
             }
             catch (Exception ex)
             {
@@ -125,38 +162,74 @@ namespace TFE2017.Core.Managers
             try
             {
                 ISession session = await Connect();
-                List<IPlaceEntity> roomsList = new List<IPlaceEntity>();
-
-                int floor = 0;
-                string name = "nom";
-
                 string query = $" MATCH path = shortestPath((beginning:Room {{ Id: {beginId} }} ) - [*0..20] - (destination:Room {{ Id : {endId} }} ))";
-
-                if (!useStairs)
-                    query += $" WHERE NONE (n IN nodes(path WHERE n:Staircase)";
-                if (!useStairs && !useLift)
-                    query += $" And ";
-                if (!useLift)
-                    query += $" WHERE NONE (n IN nodes(path WHERE n:Lift)";
-
-                query += $" RETURN path as shortestPath, reduce(link = 0, destination IN relationships(path) | link + 1) AS totallinks" +
-                $" ORDER BY totallinks ASC" +
-                $" LIMIT 1";
-
-                var queryFull = query;
-
-                using (var tx = session.BeginTransaction())
+                if (!useStairs || !useLift)
                 {
-                    var result = tx.Run(query).ToList();
-                    foreach (var element in result)
+                    query += $" WHERE ";
+                    if (!useStairs)
+                        query += " NONE (s IN nodes(path) WHERE s:Staircase)";
+                    if (!useStairs && !useLift)
+                        query += $" AND ";
+                    if (!useLift)
+                        query += $" NONE (l IN nodes(path) WHERE l:Lift)";
+                }
+                //query += $" RETURN path as shortestPath, reduce(link = 0, destination IN relationships(path) | link + 1) AS totallinks" +
+                //$" ORDER BY totallinks ASC" +
+                //$" LIMIT 1";
+                var queryNodes = query + "UNWIND nodes(path) as n RETURN n";
+                var queryRelations = query + "UNWIND relationships(path) as r RETURN r";
+
+                List<IPlaceEntity> nodes = new List<IPlaceEntity>();
+
+                List<IRecord> queryResult = await RunQuery(queryNodes);
+
+                foreach (var element in queryResult)
+                {
+                    var key1 = element.Keys[0];
+                    var obj = element[key1];
+
+                    if (obj is INode)
                     {
-                        roomsList.Add(element.As<Room>());
-                        //roomsList.Add(element["n.name"].ToString());
+                        INode node = (INode)obj;
+                        if (node.Labels[0] == "Room")
+                            nodes.Add(new Room(node.Properties["Id"].ToString(), node.Properties["Name"].ToString()));
+                        else
+                            nodes.Add(new Room("0", node.Labels[0]));
                     }
-                    tx.Success();
                 }
 
-                return roomsList;
+                List<IPlaceEntity> relations = new List<IPlaceEntity>();
+
+                queryResult = await RunQuery(queryRelations);
+
+                foreach (var element in queryResult)
+                {
+                    var key1 = element.Keys[0];
+                    var obj = element[key1];
+
+                    if (obj is IRelationship)
+                    {
+                        IRelationship rel = (IRelationship)obj;
+                        var pos = new PositionEntity(double.Parse(rel.Properties["X"].ToString()), double.Parse(rel.Properties["Y"].ToString()), double.Parse(rel.Properties["Z"].ToString()));
+                        relations.Add(new Door(pos));
+
+                    }
+                }
+
+                List<IPlaceEntity> path = new List<IPlaceEntity>();
+
+                if (relations.Any())
+                {
+                    for (int index = 0; index < nodes.Count-1; index++)
+                    {
+
+                        path.Add(nodes[index]);
+                        path.Add(relations[index]);
+                    }
+                    path.Add(nodes.Last());
+                }
+
+                return path;
             }
             catch (Exception ex)
             {

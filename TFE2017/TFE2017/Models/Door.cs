@@ -7,6 +7,12 @@ namespace TFE2017.Core.Models
 {
     class Door: RelationEntity
     {
+        public Door(PositionEntity position)
+        {
+            Position = position;
+        }
+
+
         private void SetCenter()
         {
             //Center = new PositionEntity((Edge1.X + Edge2.X) / 2, (Edge1.Y + Edge2.Y) / 2);

@@ -11,6 +11,13 @@ namespace TFE2017.Core.Models
     {
         public string Id { get; private set; }
         public string Name { get; private set; }
-        public double Angle { get; private set; }
+        public string Angle { get; private set; }
+
+        public Building(string id, string name, string angle)
+        {
+            Id = id;
+            Name = name;
+            Angle = angle;
+        }
     }
 }

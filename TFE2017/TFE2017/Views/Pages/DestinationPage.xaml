@@ -4,7 +4,8 @@
              x:Class="TFE2017.Core.Views.Pages.DestinationPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label x:Name="LabelDestination" Text="Select your destination" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
+            <Entry x:Name="EntryRecherche" HorizontalOptions="FillAndExpand" VerticalOptions="Start"></Entry>
+                <Label x:Name="LabelDestination" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
             <StackLayout x:Name="Container">
             </StackLayout>
             <Button x:Name="ButtonSuivant" Clicked="ButtonSuivantCicked" IsEnabled="False" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />

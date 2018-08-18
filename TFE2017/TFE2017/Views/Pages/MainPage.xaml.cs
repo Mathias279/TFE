@@ -22,7 +22,7 @@ namespace TFE2017.Core.Views.Pages
                 InitVisual();
 
 #if DEBUG
-                IsDebugMode.IsVisible = true;
+                IsDebugMode.IsVisible = false;
 #endif
             }
             catch (Exception ex)
@@ -35,7 +35,9 @@ namespace TFE2017.Core.Views.Pages
 
         private void InitVisual()
         {
-            LabelTitre.Text = "debug?";
+            LabelTitre.Text = "INTRAMUROS";
+            LabelTitre.FontSize = LabelTitre.FontSize + 5 ;
+
             ButtonScanPage.Text = "ScanPage";
             ButtonPositionPage.Text = "PositionPage";
             ButtonDestinationPage.Text = "DestinationPage";

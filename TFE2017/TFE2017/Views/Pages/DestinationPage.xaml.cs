@@ -26,13 +26,21 @@ namespace TFE2017.Core.Views.Pages
         private bool _useLift;
 
         private ListView _list;
-        private List<Room> _rooms;
+        private List<Room> _roomsFull;
+        private List<Room> _roomsShown;
 
         public DestinationPage(string query, bool useStairs, bool useLift)
         {
             try
             {
                 InitializeComponent();
+
+                LabelDestination.Text = "Selectionnez votre destination";
+                ButtonSuivant.Text = "Commencer la navigation";
+                EntryRecherche.IsSpellCheckEnabled = false;
+                EntryRecherche.IsTextPredictionEnabled = false;
+                EntryRecherche.Placeholder = "Filtrer les resultats";
+                EntryRecherche.TextChanged += FilterList;
 
                 _query = query;
                 _useStairs = useStairs;
@@ -42,16 +50,21 @@ namespace TFE2017.Core.Views.Pages
 
                 if (_list is null)
                 {
+                    Device.BeginInvokeOnMainThread(() => UserDialogs.Instance.ShowLoading());
                     Task.Run(async () =>
                     {
                         if (await InitList())
-                            Device.BeginInvokeOnMainThread(() => Container.Children.Add(_list));
+                        {
+                            Device.BeginInvokeOnMainThread(() =>
+                            {
+                                Container.Children.Add(_list);
+                                UserDialogs.Instance.HideLoading();
+                            });
+                        }
                         else
-                            await DisplayAlert("Erreur", "Une erreur est survenue lors de l'appel a la base de données", "ok");
-
+                            Device.BeginInvokeOnMainThread(() => DisplayAlert("Erreur", "Une erreur est survenue lors de l'appel a la base de données", "ok"));
                     });
                 }
-
             }
             catch (Exception ex)
             {
@@ -60,20 +73,49 @@ namespace TFE2017.Core.Views.Pages
 #endif
             }
         }
-        
+
+        private async void FilterList(object sender, TextChangedEventArgs e)
+        {
+            var entry = (Xamarin.Forms.Entry)sender;
+            List<Room> tempRooms;
+
+            if (_roomsFull.Any())
+            {
+                if (!(string.IsNullOrWhiteSpace(entry.Text)))
+                {
+
+                    tempRooms = _roomsFull.Where(room => room.Name.ToLower().Contains(entry.Text.ToLower())).ToList();
+
+                }
+                else
+                    tempRooms = _roomsFull;
+
+                if (tempRooms != _roomsShown)
+                {
+                    _roomsShown = tempRooms;
+                    ListView filteredList = new ListView();
+                    filteredList.ItemsSource = tempRooms.Select(room => room.Name);
+                    filteredList.ItemSelected += DestinationSelected;
+
+                    Container.Children.Clear();
+                    Container.Children.Add(filteredList);
+
+                }
+            }
+        }
 
         private void DecodeQuery()
         {
             string[] fields = _query.Split('?')[1].Split('&');
 
 
-            if (fields.Count() == 3 &&
-                fields[0] == Constants.UrlField0 && 
-                fields[1].Split('=')[0] == Constants.UrlField1Key && 
-                fields[2].Split('=')[0] == Constants.UrlField2Key)
+            if (fields.Count() == 2 &&
+                //fields[0] == Constants.UrlField0 && 
+                fields[0].Split('=')[0] == Constants.UrlField1Key && 
+                fields[1].Split('=')[0] == Constants.UrlField2Key)
             {
-                _buildingId = fields[1].Split('=')[1];
-                _entryId = fields[2].Split('=')[1];
+                _buildingId = fields[0].Split('=')[1];
+                _entryId = fields[1].Split('=')[1];
             }
             else
                 DisplayAlert("Erreur", "erreur dans les parametres du qr code", "ok");
@@ -84,11 +126,12 @@ namespace TFE2017.Core.Views.Pages
             try
             {
                 _list = new ListView();
-                _rooms = await DataBaseManager.GetAllRooms(_buildingId);
+                _roomsFull = await DataBaseManager.GetAllRooms(_buildingId);
 
-                if (_rooms.Any())
-                {                
-                    _list.ItemsSource = _rooms.Select(room => room.Name);
+                if (_roomsFull.Any())
+                {
+                    _roomsShown = _roomsFull;
+                    _list.ItemsSource = _roomsFull.Select(room => room.Name);
                     _list.ItemSelected += DestinationSelected;
                     return true;
                 }
@@ -106,14 +149,21 @@ namespace TFE2017.Core.Views.Pages
 
         private void DestinationSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            _list.IsEnabled = false;
-            _destinationId = _rooms.FirstOrDefault(room => room.Name == _list.SelectedItem.ToString()).Id;
-            ButtonSuivant.IsEnabled = true;
+
+            ListView listShown = (ListView)sender;
+            string selectedName = listShown.SelectedItem.ToString();
+            Room selectedRoom = _roomsShown.FirstOrDefault(room => room.Name == selectedName);
+            if(!(selectedRoom is null)) {
+                _destinationId = selectedRoom.Id;
+                ButtonSuivant.IsEnabled = true;
+            }
         }
 
         public async void ButtonSuivantCicked(object sender, EventArgs e)
         {
+            Device.BeginInvokeOnMainThread(() => UserDialogs.Instance.ShowLoading());
             await Navigation.PushAsync(new OnTheWayPage(_buildingId, _entryId, _destinationId, _useStairs, _useLift));
+            Device.BeginInvokeOnMainThread(() => UserDialogs.Instance.HideLoading());
         }
     }
 }
