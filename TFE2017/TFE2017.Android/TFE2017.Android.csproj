@@ -111,5 +111,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\qrlogob1e2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\flechetransp.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

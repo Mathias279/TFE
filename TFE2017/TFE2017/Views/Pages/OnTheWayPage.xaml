@@ -1,12 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
              x:Class="TFE2017.Core.Views.Pages.OnTheWayPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <AbsoluteLayout>
+            <forms:ZXingScannerView x:Name="ZXingScannerView1" IsScanning="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsAnalyzing="False" IsVisible="True"/>
+
+            <AbsoluteLayout x:Name="AbsoluteContainer" AbsoluteLayout.LayoutBounds="1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#66000000" Margin="10,10,10,10">
+                <StackLayout x:Name="Container" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Label x:Name="LabelTitre" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" />
+                    <Image Source="flechetransp.png" IsVisible="False" Scale="0.2"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label x:Name="LabelNext" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" HorizontalTextAlignment="Start" />
+                        <Button x:Name="ButtonNext" Grid.Row="0" Grid.Column="1" Clicked="ButtonNextClicked" HorizontalOptions="CenterAndExpand" />
+                    </Grid>
+                </StackLayout>
+            </AbsoluteLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

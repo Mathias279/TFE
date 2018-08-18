@@ -46,24 +46,29 @@ namespace TFE2017.Core.Views.Pages
                 _useStairs = useStairs;
                 _useLift = useLift;
 
-                DecodeQuery();
-
-                if (_list is null)
+                if (IsQRValid())
                 {
-                    Device.BeginInvokeOnMainThread(() => UserDialogs.Instance.ShowLoading());
-                    Task.Run(async () =>
+                    if (_list is null)
                     {
-                        if (await InitList())
+                        Device.BeginInvokeOnMainThread(() => UserDialogs.Instance.ShowLoading());
+                        Task.Run(async () =>
                         {
-                            Device.BeginInvokeOnMainThread(() =>
+                            if (await InitList())
                             {
-                                Container.Children.Add(_list);
-                                UserDialogs.Instance.HideLoading();
-                            });
-                        }
-                        else
-                            Device.BeginInvokeOnMainThread(() => DisplayAlert("Erreur", "Une erreur est survenue lors de l'appel a la base de données", "ok"));
-                    });
+                                Device.BeginInvokeOnMainThread(() =>
+                                {
+                                    Container.Children.Add(_list);
+                                    UserDialogs.Instance.HideLoading();
+                                });
+                            }
+                            else
+                                Device.BeginInvokeOnMainThread(() => DisplayAlert("Erreur", "Une erreur est survenue lors de l'appel a la base de données", "ok"));
+                        });
+                    }
+                }
+                else
+                {
+                    DisplayAlert("Erreur", "QR code invalide !", "ok");
                 }
             }
             catch (Exception ex)
@@ -104,21 +109,34 @@ namespace TFE2017.Core.Views.Pages
             }
         }
 
-        private void DecodeQuery()
+        private bool IsQRValid()
         {
-            string[] fields = _query.Split('?')[1].Split('&');
+            string baseUrlOk = "http://onelink.to/intramuros";
+
+            string[] halfUrl = _query.Split('?');
+
+            if (halfUrl.Count() != 2)
+                return false;
+
+            string baseUrlQuery = halfUrl[0];
+            string[] fields = halfUrl[1].Split('&');
 
 
-            if (fields.Count() == 2 &&
+            if (baseUrlQuery == baseUrlOk &&
+                fields.Count() == 2 &&
                 //fields[0] == Constants.UrlField0 && 
-                fields[0].Split('=')[0] == Constants.UrlField1Key && 
+                fields[0].Split('=')[0] == Constants.UrlField1Key &&
                 fields[1].Split('=')[0] == Constants.UrlField2Key)
             {
                 _buildingId = fields[0].Split('=')[1];
                 _entryId = fields[1].Split('=')[1];
+                return true;
             }
             else
-                DisplayAlert("Erreur", "erreur dans les parametres du qr code", "ok");
+            {
+                //DisplayAlert("Erreur", "erreur dans les parametres du qr code", "ok");
+                return false;
+            }
         }
 
         private async Task<bool> InitList()
@@ -161,9 +179,7 @@ namespace TFE2017.Core.Views.Pages
 
         public async void ButtonSuivantCicked(object sender, EventArgs e)
         {
-            Device.BeginInvokeOnMainThread(() => UserDialogs.Instance.ShowLoading());
             await Navigation.PushAsync(new OnTheWayPage(_buildingId, _entryId, _destinationId, _useStairs, _useLift));
-            Device.BeginInvokeOnMainThread(() => UserDialogs.Instance.HideLoading());
         }
     }
 }

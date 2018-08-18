@@ -106,14 +106,14 @@ namespace TFE2017.Core.Views.Pages
 
         private void InitVisual()
         {
-            LabelCode.Text = "Veuiilez scanner le QR code à votre disosition";
+            LabelCode.Text = "Veuillez scanner le QR code à votre disposition";
             ButtonSuivant.Text = "Suivant";
             ButtonReScan.Text = "Scanner";
         }
 
         public async void ButtonSuivantClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new PreferencesPage(_uriQR.Query));
+            await Navigation.PushAsync(new PreferencesPage(_uriQR.ToString()));
             //await Navigation.PushAsync(new DestinationPage(_uriQR.Query));
         }
 

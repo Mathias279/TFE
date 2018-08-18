@@ -14,7 +14,7 @@ namespace TFE2017.Core.Views.Customs
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ScannerPage : ContentPage
 	{
-        private bool _withTorch;
+        private bool _isScanning;
         private ZXingScannerView _scanView;
         private ZXingDefaultOverlay _scanOverlay;
         private MobileBarcodeScanningOptions _scanOptions;
@@ -22,23 +22,23 @@ namespace TFE2017.Core.Views.Customs
         public string Result { get; internal set; }
         public bool IsDone { get; internal set; }
 
-        public ScannerPage(bool WithTorch)
+        public ScannerPage(bool isScanning)
         {
             InitializeComponent();
 
             Result = null;
             IsDone = false;
 
-            _withTorch = false;//WithTorch;
+            _isScanning = isScanning;//WithTorch;
 
             _scanOptions = MakeOptions();
             _scanView = MakeView();
             _scanOverlay = MakeOverlay();
-            if (_withTorch)
+            if (false)
                 _scanOverlay.FlashButtonClicked += (sender, e) => FlashButtonClickedCustom();
 
             MainGrid.Children.Add(_scanView);
-            MainGrid.Children.Add(_scanOverlay);
+            //MainGrid.Children.Add(_scanOverlay);
         }
 
         private MobileBarcodeScanningOptions MakeOptions()
@@ -50,6 +50,7 @@ namespace TFE2017.Core.Views.Customs
                 UseFrontCameraIfAvailable = false,
                 TryHarder = true,
                 DisableAutofocus = false,
+                
                 //PossibleFormats = new List<ZXing.BarcodeFormat>
                 //{
                 //ZXing.BarcodeFormat.Ean8, ZXing.BarcodeFormat.Ean13
@@ -62,7 +63,7 @@ namespace TFE2017.Core.Views.Customs
         {
             ZXingScannerView view = new ZXingScannerView()
             {
-                IsScanning = true,
+                IsScanning = _isScanning,
                 IsAnalyzing = true
             };
             view.OnScanResult += async (result) => await ScannedAsync(result);
@@ -78,7 +79,7 @@ namespace TFE2017.Core.Views.Customs
                 IsClippedToBounds = true,
                 Opacity = 0,
             };
-            if (_withTorch)
+            if (false)
                 overlay.ShowFlashButton = true;
             return overlay;
         }

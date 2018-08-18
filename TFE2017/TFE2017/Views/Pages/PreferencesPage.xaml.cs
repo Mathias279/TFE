@@ -36,10 +36,8 @@ namespace TFE2017.Core.Views.Pages
                 await DisplayAlert("Attention", "Veuillez accepter au moins une des deux options", "ok");
             else
             {
-                UserDialogs.Instance.ShowLoading();
                 await Navigation.PushAsync(new DestinationPage(_query, ToggleStairs.IsToggled, ToggleLift.IsToggled));
             }
-            UserDialogs.Instance.HideLoading();
         }
 
     }
