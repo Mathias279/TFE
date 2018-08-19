@@ -60,10 +60,9 @@ namespace TFE2017.Core.Views.Pages
                 Debugger.Break();
             }
         }
-
-
+        
         public void ReadingChanged(CompassChangedEventArgs e)
-        {
+            {
             var data = e.Reading;
             //Console.WriteLine($"Reading: {data.HeadingMagneticNorth} degrees");
             //Heading = data.HeadingMagneticNorth;

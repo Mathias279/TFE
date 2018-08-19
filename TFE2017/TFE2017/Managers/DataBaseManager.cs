@@ -60,11 +60,9 @@ namespace TFE2017.Core.Managers
 
                 if (!(session is null))
                 {
-
                     using (var tx = await session.BeginTransactionAsync())
                     {
                         result = tx.Run(query);
-
                         tx.Success();
                         tx.Dispose();
                     }
@@ -180,9 +178,7 @@ namespace TFE2017.Core.Managers
                 var queryRelations = query + "UNWIND relationships(path) as r RETURN r";
 
                 List<IPlaceEntity> nodes = new List<IPlaceEntity>();
-
                 List<IRecord> queryResult = await RunQuery(queryNodes);
-
                 foreach (var element in queryResult)
                 {
                     var key1 = element.Keys[0];
@@ -199,9 +195,7 @@ namespace TFE2017.Core.Managers
                 }
 
                 List<IPlaceEntity> relations = new List<IPlaceEntity>();
-
                 queryResult = await RunQuery(queryRelations);
-
                 foreach (var element in queryResult)
                 {
                     var key1 = element.Keys[0];
@@ -217,6 +211,30 @@ namespace TFE2017.Core.Managers
                 }
 
                 List<IPlaceEntity> path = new List<IPlaceEntity>();
+
+                List<IPlaceEntity> entries = new List<IPlaceEntity>();
+                var queryEntry = $"MATCH (b: Building) - [e: ENTRY] - (beginning: Room {{ Id: {beginId} }} ) " +
+                    " unwind [e,e] as twin" +
+                    " return twin";
+                queryResult = await RunQuery(queryEntry);
+                foreach (var element in queryResult)
+                {
+                    var key1 = element.Keys[0];
+                    var obj = element[key1];
+                    if (obj is IRelationship)
+                    {
+                        IRelationship rel = (IRelationship)obj;
+                        var pos = new PositionEntity(double.Parse(rel.Properties["X"].ToString()), double.Parse(rel.Properties["Y"].ToString()), double.Parse(rel.Properties["Z"].ToString()));
+                        entries.Add(new Door(pos));
+
+                    }
+                }
+                if (entries.Count == 1)
+                    path.Add(entries[0]);
+                else
+                    throw new Exception("entry error");
+
+
 
                 if (relations.Any())
                 {
