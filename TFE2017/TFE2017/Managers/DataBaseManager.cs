@@ -1,14 +1,11 @@
-﻿using Acr.UserDialogs;
-using Neo4j.Driver.V1;
+﻿using Neo4j.Driver.V1;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TFE2017.Core.Models;
 using TFE2017.Core.Models.Abstract;
-using TFE2017.Core.Services; 
 
 namespace TFE2017.Core.Managers
 {
@@ -17,7 +14,6 @@ namespace TFE2017.Core.Managers
         private static string _urlConnect = "bolt://hobby-ohlpjagjjjpngbkejmmoojbl.dbs.graphenedb.com:24786";
         private static string _urlUser = "Math279";
         private static string _urlPassword = "b.Ge9EvCbZwWWH.DWYwHYCkL6ycEu18";
-
         private static IDriver _driver;
 
         static private async Task<ISession> Connect()
@@ -105,9 +101,7 @@ namespace TFE2017.Core.Managers
                     var name = record.Values[record.Keys[1]].ToString();
                     listRooms.Add(new Room(id, name));
                 }
-
                 return listRooms;
-
             }
             catch (Exception ex)
             {
@@ -122,9 +116,7 @@ namespace TFE2017.Core.Managers
         {
             try
             {
-
                 string query = $" MATCH (b:Building) RETURN b.Id, b.Name, b.Angle ";
-
                 List<IRecord> queryResult = await RunQuery(query);
                 List<Building> buildings = new List<Building>();
 
@@ -140,10 +132,8 @@ namespace TFE2017.Core.Managers
                         name = record.Values[record.Keys[1]].ToString();
                     if (!(record.Values[record.Keys[2]] is null))
                         angle = record.Values[record.Keys[2]].ToString();
-
                     buildings.Add(new Building(id, angle, name));
                 }
-
                 return buildings.FirstOrDefault(building => building.Id == buildingId);
             }
             catch (Exception ex)
@@ -171,19 +161,14 @@ namespace TFE2017.Core.Managers
                     if (!useLift)
                         query += $" NONE (l IN nodes(path) WHERE l:Lift)";
                 }
-                //query += $" RETURN path as shortestPath, reduce(link = 0, destination IN relationships(path) | link + 1) AS totallinks" +
-                //$" ORDER BY totallinks ASC" +
-                //$" LIMIT 1";
                 var queryNodes = query + "UNWIND nodes(path) as n RETURN n";
                 var queryRelations = query + "UNWIND relationships(path) as r RETURN r";
-
                 List<IPlaceEntity> nodes = new List<IPlaceEntity>();
                 List<IRecord> queryResult = await RunQuery(queryNodes);
                 foreach (var element in queryResult)
                 {
                     var key1 = element.Keys[0];
                     var obj = element[key1];
-
                     if (obj is INode)
                     {
                         INode node = (INode)obj;
@@ -193,25 +178,20 @@ namespace TFE2017.Core.Managers
                             nodes.Add(new Room("0", node.Labels[0]));
                     }
                 }
-
                 List<IPlaceEntity> relations = new List<IPlaceEntity>();
                 queryResult = await RunQuery(queryRelations);
                 foreach (var element in queryResult)
                 {
                     var key1 = element.Keys[0];
                     var obj = element[key1];
-
                     if (obj is IRelationship)
                     {
                         IRelationship rel = (IRelationship)obj;
                         var pos = new PositionEntity(double.Parse(rel.Properties["X"].ToString()), double.Parse(rel.Properties["Y"].ToString()), double.Parse(rel.Properties["Z"].ToString()));
                         relations.Add(new Door(pos));
-
                     }
                 }
-
                 List<IPlaceEntity> path = new List<IPlaceEntity>();
-
                 List<IPlaceEntity> entries = new List<IPlaceEntity>();
                 var queryEntry = $"MATCH (b: Building) - [e: ENTRY] - (beginning: Room {{ Id: {beginId} }} ) " +
                     " unwind [e,e] as twin" +
@@ -226,27 +206,21 @@ namespace TFE2017.Core.Managers
                         IRelationship rel = (IRelationship)obj;
                         var pos = new PositionEntity(double.Parse(rel.Properties["X"].ToString()), double.Parse(rel.Properties["Y"].ToString()), double.Parse(rel.Properties["Z"].ToString()));
                         entries.Add(new Door(pos));
-
                     }
                 }
                 if (entries.Count == 1)
                     path.Add(entries[0]);
                 else
                     throw new Exception("entry error");
-
-
-
                 if (relations.Any())
                 {
                     for (int index = 0; index < nodes.Count-1; index++)
                     {
-
                         path.Add(nodes[index]);
                         path.Add(relations[index]);
                     }
                     path.Add(nodes.Last());
                 }
-
                 return path;
             }
             catch (Exception ex)

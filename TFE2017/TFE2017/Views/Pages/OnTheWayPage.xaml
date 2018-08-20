@@ -24,9 +24,9 @@
             <StackLayout  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" Opacity="60" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <Label x:Name="LabelTitre" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>                
             </StackLayout>
-            <Image x:Name="Fleche" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Source="flechetransp.png" Scale="0.8"/>
+            <Image x:Name="Fleche" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Source="flechetransp.png" Scale="0.8" Opacity="0.8"/>
             <StackLayout Grid.Row="5" Grid.Column="0" BackgroundColor="White" Opacity="60" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <Label x:Name="LabelNext"  HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>
+                <Label x:Name="LabelNext"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>
             </StackLayout>
             <Button x:Name="ButtonNext" Grid.Row="5" Grid.Column="1" Clicked="ButtonNextClicked" HorizontalOptions="Center" />
         </Grid>

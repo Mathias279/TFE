@@ -15,7 +15,7 @@
                 <Button x:Name="ButtonDestinationPage" Clicked="BoutonDestinationPageClicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
             </StackLayout>
 
-            <Image Source="logobordeau.png" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Image Source="logobordeau.png" VerticalOptions="Center" HorizontalOptions="Center" Scale="0.8"/>
             <Label x:Name="LabelWelcome" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" />
 
 
