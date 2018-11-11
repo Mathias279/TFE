@@ -116,7 +116,7 @@ namespace TFE2017.Core.Managers
         {
             try
             {
-                string query = $" MATCH (b:Building) RETURN b.Id, b.Name, b.Angle ";
+                string query = $" MATCH (b:Building {{Id:{buildingId}}}) RETURN b.Id, b.Name, b.Angle ";
                 List<IRecord> queryResult = await RunQuery(query);
                 List<Building> buildings = new List<Building>();
 

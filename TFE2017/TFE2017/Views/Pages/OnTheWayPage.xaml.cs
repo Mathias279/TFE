@@ -36,7 +36,7 @@ namespace TFE2017.Core.Views.Pages
 
                 if (!(building is null) && double.TryParse(building.Angle, out _buildingAngle)) { }
                 else
-                    _buildingAngle = 0;
+                    _buildingAngle = 328;
 
                 _rotating = false;
                 _stepDirection = 0;
@@ -92,7 +92,7 @@ namespace TFE2017.Core.Views.Pages
                 else
                 {
                     double north = e.Reading.HeadingMagneticNorth;
-                    double rotation = (_stepDirection + _buildingAngle - north + 360) % 360;
+                    double rotation = (_stepDirection + _buildingAngle - north  ) % 360;
                     _rotating = true;
                     Fleche.RotateTo(rotation, 250, null);
                 }

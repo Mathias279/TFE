@@ -9,12 +9,12 @@
             
             <StackLayout x:Name="StackStairs" Orientation="Horizontal" VerticalOptions="Center"> 
                 <Label x:Name="LabelStrairs" HorizontalOptions="StartAndExpand"></Label>
-                <Switch x:Name="ToggleStairs" HorizontalOptions="End"></Switch>
+                <Switch x:Name="ToggleStairs" Toggled="StairsToggled" HorizontalOptions="End"></Switch>
             </StackLayout>
             
             <StackLayout x:Name="StackLift" Orientation="Horizontal" VerticalOptions="Center">
                 <Label x:Name="LabelLift" HorizontalOptions="StartAndExpand"></Label>
-                <Switch x:Name="ToggleLift" HorizontalOptions="End"></Switch>
+                <Switch x:Name="ToggleLift" Toggled="LiftToggled" HorizontalOptions="End"></Switch>
             </StackLayout>
             <Button x:Name="ButtonSuivant" Clicked="ButtonSuivantCicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
         </StackLayout>

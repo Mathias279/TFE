@@ -30,6 +30,20 @@ namespace TFE2017.Core.Views.Pages
             ButtonSuivant.Text = "Suivant";
         }
 
+        public void StairsToggled(object sender, EventArgs e)
+        {
+            Switch toggle = (Switch)sender;
+            if (!(toggle.IsToggled))
+                ToggleLift.IsToggled = true;
+        }
+
+        public void LiftToggled(object sender, EventArgs e)
+        {
+            Switch toggle = (Switch)sender;
+            if (!(toggle.IsToggled))
+                ToggleStairs.IsToggled = true;
+        }
+
         public async void ButtonSuivantCicked(object sender, EventArgs e)
         {
             if (!(ToggleStairs.IsToggled) && !(ToggleLift.IsToggled))
