@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using TFE2017.Core.Models;
 using TFE2017.Core.Models.Abstract;
@@ -14,215 +15,323 @@ namespace TFE2017.Core.Managers
         private static string _urlConnect = "bolt://hobby-ohlpjagjjjpngbkejmmoojbl.dbs.graphenedb.com:24786";
         private static string _urlUser = "Math279";
         private static string _urlPassword = "b.Ge9EvCbZwWWH.DWYwHYCkL6ycEu18";
-        private static IDriver _driver;
+        private static TimeSpan _timeout = new TimeSpan(0, 1, 0);
+        //private static Config _config = 
+        private static IDriver _driver = GraphDatabase.Driver(
+            _urlConnect,
+            AuthTokens.Basic(_urlUser, _urlPassword),
+            Config.Builder.
+                WithConnectionAcquisitionTimeout(_timeout).
+                WithConnectionIdleTimeout(_timeout).
+                WithConnectionTimeout(_timeout).
+                ToConfig());
 
-        static private async Task<ISession> Connect()
+        static public List<Room> GetAllRooms(string buildinId)
         {
             try
             {
-                _driver = GraphDatabase.Driver(_urlConnect, AuthTokens.Basic(_urlUser, _urlPassword), Config.Builder.WithEncryptionLevel(EncryptionLevel.Encrypted).ToConfig());
-                return _driver.Session();
-            }
-            catch (Exception ex)
-            {
-#if DEBUG
-                Debugger.Break();
-#endif
-                return null;
-            }
-        }
-
-        static private async Task Disconnect()
-        {
-            try
-            {
-                _driver.Dispose();
-                await _driver.CloseAsync();
-            }
-            catch (Exception ex)
-            {
-#if DEBUG
-                Debugger.Break();
-#endif
-            }
-        }
-
-        public static async Task<List<IRecord>> RunQuery(string query)
-        {
-            try
-            {
-                ISession session = await Connect();
-                IStatementResult result;
-
-                if (!(session is null))
+                string query = $" MATCH p = shortestPath((b:Building {{ Id : { buildinId } }})-[*]-(room:Room))" +
+                    $" RETURN room" +
+                    $" ORDER BY room.Name";
+                using (var session = _driver.Session())
                 {
-                    using (var tx = await session.BeginTransactionAsync())
+                    return session.ReadTransaction(tx =>
                     {
-                        result = tx.Run(query);
+                        var result = tx.Run(query);
+                        List<Room> rooms = new List<Room>();
+                        foreach (var res in result)
+                        {
+                            var node = res["room"].As<INode>();
+                            var id = node["Id"].As<string>();
+                            var name = node["Name"].As<string>();
+                            rooms.Add(new Room(id, name));
+                        }
                         tx.Success();
                         tx.Dispose();
-                    }
-                    if (result.Any())
+                        return rooms;
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                Debugger.Break();
+#endif
+            }
+            return new List<Room>();
+        }
+
+        static public Building GetBuilding(string buildingId)
+        {
+            try
+            {
+                string query = $" MATCH (b:Building {{ Id : { buildingId } }})" +
+                   $" RETURN b";
+                using (var session = _driver.Session())
+                {
+                    return session.ReadTransaction(tx =>
                     {
-                        return result.ToList();
-                    }
-                    else
-                        return null;
+                        var result = tx.Run(query);
+                        var node = result.Single()["b"].As<INode>();
+                        var id = node["Id"].As<string>();
+                        var name = node["Name"].As<string>();
+                        var angle = node["Angle"].As<string>();
+                        tx.Success();
+                        tx.Dispose();
+                        return new Building(id, name, angle);
+                    });
                 }
-                else
-                    return null;
             }
             catch (Exception ex)
             {
 #if DEBUG
                 Debugger.Break();
 #endif
-                return null;
             }
-            finally
-            {
-                await Disconnect();
-            }
+            return new Building();
         }
 
-        static public async Task<List<Room>> GetAllRooms(string buildinId)
+        static public Building GetRoom(string roomId)
         {
             try
             {
-                string query = $" MATCH (b:Building {{ Id : { buildinId } }}),( r:Room), p = shortestPath((b)-[*]-(r))" +
-                    $" RETURN r.Id , r.Name " +
-                    $" ORDER BY r.Name";
-                List<IRecord> queryResult = await RunQuery(query);
-
-                List<Room> listRooms = new List<Room>();
-                foreach (IRecord record in queryResult)
+                string query = $" MATCH (r:Room {{ Id : { roomId } }})" +
+                   $" RETURN r";
+                using (var session = _driver.Session())
                 {
-                    var id = record.Values[record.Keys[0]].ToString();
-                    var name = record.Values[record.Keys[1]].ToString();
-                    listRooms.Add(new Room(id, name));
-                }
-                return listRooms;
-            }
-            catch (Exception ex)
-            {
-#if DEBUG
-                Debugger.Break();
-#endif
-                return null;
-            }
-        }
-
-        static public async Task<Building> GetBuilding(string buildingId)
-        {
-            try
-            {
-                string query = $" MATCH (b:Building {{Id:{buildingId}}}) RETURN b.Id, b.Name, b.Angle ";
-                List<IRecord> queryResult = await RunQuery(query);
-                List<Building> buildings = new List<Building>();
-
-                foreach (IRecord record in queryResult)
-                {
-                    var id = "0";
-                    var name = "0";
-                    var angle = "0";
-
-                    if (!(record.Values[record.Keys[0]] is null))
-                        id = record.Values[record.Keys[0]].ToString();
-                    if (!(record.Values[record.Keys[1]] is null))
-                        name = record.Values[record.Keys[1]].ToString();
-                    if (!(record.Values[record.Keys[2]] is null))
-                        angle = record.Values[record.Keys[2]].ToString();
-                    buildings.Add(new Building(id, angle, name));
-                }
-                return buildings.FirstOrDefault(building => building.Id == buildingId);
-            }
-            catch (Exception ex)
-            {
-#if DEBUG
-                Debugger.Break();
-#endif
-                return null;
-            }
-        }
-
-        static public async Task<List<IPlaceEntity>> GetPath(string buildinId, string beginId, string endId, bool useStairs, bool useLift)
-        {
-            try
-            {
-                ISession session = await Connect();
-                string query = $" MATCH path = shortestPath((beginning:Room {{ Id: {beginId} }} ) - [*0..20] - (destination:Room {{ Id : {endId} }} ))";
-                if (!useStairs || !useLift)
-                {
-                    query += $" WHERE ";
-                    if (!useStairs)
-                        query += " NONE (s IN nodes(path) WHERE s:Staircase)";
-                    if (!useStairs && !useLift)
-                        query += $" AND ";
-                    if (!useLift)
-                        query += $" NONE (l IN nodes(path) WHERE l:Lift)";
-                }
-                var queryNodes = query + "UNWIND nodes(path) as n RETURN n";
-                var queryRelations = query + "UNWIND relationships(path) as r RETURN r";
-                List<IPlaceEntity> nodes = new List<IPlaceEntity>();
-                List<IRecord> queryResult = await RunQuery(queryNodes);
-                foreach (var element in queryResult)
-                {
-                    var key1 = element.Keys[0];
-                    var obj = element[key1];
-                    if (obj is INode)
+                    return session.ReadTransaction(tx =>
                     {
-                        INode node = (INode)obj;
-                        if (node.Labels[0] == "Room")
-                            nodes.Add(new Room(node.Properties["Id"].ToString(), node.Properties["Name"].ToString()));
+                        var result = tx.Run(query);
+                        var node = result.Single()["r"].As<INode>();
+                        var id = node["Id"].As<string>();
+                        var name = node["Name"].As<string>();
+                        var angle = node["Angle"].As<string>();
+                        tx.Success();
+                        tx.Dispose();
+                        return new Building(id, name, angle);
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                Debugger.Break();
+#endif
+            }
+            return new Building();
+        }
+
+        static public int GetLevel(string roomId)
+        {
+            try
+            {
+                string query = $" MATCH (r:Room {{ Id : { roomId } }})-[rel]-(n)" +
+                   $" RETURN rel";
+                using (var session = _driver.Session())
+                {
+                    return session.ReadTransaction(tx =>
+                    {
+                        var result = tx.Run(query);
+                        var relation = result.Single()["r"].As<IRelationship>();
+                        int x = Int32.Parse(relation["X"].As<string>());
+                        int y = Int32.Parse(relation["Y"].As<string>());
+                        int z = Int32.Parse(relation["Z"].As<string>());
+                        tx.Success();
+                        tx.Dispose();
+                        return z;
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                Debugger.Break();
+#endif
+            }
+            return 0;
+        }
+
+        static public List<IPlaceEntity> GetPath(string buildinId, string beginId, string endId, bool useStairs, bool useLift)
+        {
+            var allPath = new List<IPath>();
+
+            // get min len
+            int minRel = int.MaxValue;
+
+            string preferences = "";
+            if (!useStairs)
+                preferences = $" WHERE NONE (s IN nodes(path) WHERE s:Staircase) ";
+            else if (!useLift)
+                preferences = $" WHERE NONE (l IN nodes(path) WHERE l:Lift)";
+
+            string query = $" MATCH path = " +
+                $"shortestPath((beginning: Room {{ Id: { beginId} }} ) - [*0..15] - (destination: Room {{ Id: { endId} }} )) " +
+                $" {preferences} " +
+                $" RETURN length(path) as minlen";
+
+            try
+            {
+                using (var session = _driver.Session())
+                {
+                    session.ReadTransaction(tx =>
+                    {
+                        var result = tx.Run(query);
+                        minRel = result.Single()["minlen"].As<int>();
+                        tx.Success();
+                        tx.Dispose();
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                Debugger.Break();
+#endif
+            }
+
+            //get A Lot of paths
+            try
+            {
+                for (int testLen = minRel; testLen < minRel + 5; testLen++)
+                {
+                    query = $" MATCH path = " +
+                        $"(beginning: Room {{ Id: { beginId} }} ) - [*{testLen}] - (destination: Room {{ Id: { endId} }} ) " +
+                        $" {preferences} " +
+                        $" RETURN path" +
+                        $" LIMIT 5";
+                    using (var session = _driver.Session())
+                    {
+                        session.ReadTransaction(tx =>
+                        {
+                            try
+                            {
+                                var result = tx.Run(query);
+                                foreach (var res in result)
+                                {
+                                    var path = res["path"].As<IPath>();
+                                    allPath.Add(path);
+                                }
+                                tx.Success();
+                            }
+                            catch (Exception ex)
+                            {
+                                tx.Failure();
+                            }
+                            tx.Dispose();
+                        });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                Debugger.Break();
+#endif
+            }
+
+            //get len for each path and best path
+            double shortestDist = double.MaxValue;
+            IPath bestPath = allPath.First();
+
+            try
+            {
+                foreach (IPath path in allPath)
+                {
+                    double pathDist = 0;
+                    PositionEntity previousPos = new PositionEntity(path.Relationships[0]["X"].As<double>(), 
+                        path.Relationships[0]["Y"].As<double>(), path.Relationships[0]["Z"].As<double>());
+
+                    foreach (IRelationship rel in path.Relationships)
+                    {
+                        PositionEntity thisPos = new PositionEntity(rel["X"].As<double>(),
+                            rel["Y"].As<double>(), rel["Z"].As<double>());
+                        pathDist += MapManager.GetDistance(previousPos, thisPos);
+
+                        if (rel.Type == "STAIRS")
+                            pathDist += 10;
+                        else if (rel.Type == "LIFT")
+                            pathDist += 1;
+
+                        if (pathDist > shortestDist)
+                            break;
                         else
-                            nodes.Add(new Room("0", node.Labels[0]));
+                            previousPos = thisPos;
                     }
-                }
-                List<IPlaceEntity> relations = new List<IPlaceEntity>();
-                queryResult = await RunQuery(queryRelations);
-                foreach (var element in queryResult)
-                {
-                    var key1 = element.Keys[0];
-                    var obj = element[key1];
-                    if (obj is IRelationship)
+
+                    if (pathDist < shortestDist)
                     {
-                        IRelationship rel = (IRelationship)obj;
-                        var pos = new PositionEntity(double.Parse(rel.Properties["X"].ToString()), double.Parse(rel.Properties["Y"].ToString()), double.Parse(rel.Properties["Z"].ToString()));
-                        relations.Add(new Door(pos));
+                        shortestDist = pathDist;
+                        bestPath = path;
                     }
                 }
-                List<IPlaceEntity> path = new List<IPlaceEntity>();
-                List<IPlaceEntity> entries = new List<IPlaceEntity>();
-                var queryEntry = $"MATCH (b: Building) - [e: ENTRY] - (beginning: Room {{ Id: {beginId} }} ) " +
-                    " unwind [e,e] as twin" +
-                    " return twin";
-                queryResult = await RunQuery(queryEntry);
-                foreach (var element in queryResult)
-                {
-                    var key1 = element.Keys[0];
-                    var obj = element[key1];
-                    if (obj is IRelationship)
-                    {
-                        IRelationship rel = (IRelationship)obj;
-                        var pos = new PositionEntity(double.Parse(rel.Properties["X"].ToString()), double.Parse(rel.Properties["Y"].ToString()), double.Parse(rel.Properties["Z"].ToString()));
-                        entries.Add(new Door(pos));
-                    }
-                }
-                if (entries.Count == 1)
-                    path.Add(entries[0]);
-                else
-                    throw new Exception("entry error");
-                if (relations.Any())
-                {
-                    for (int index = 0; index < nodes.Count-1; index++)
-                    {
-                        path.Add(nodes[index]);
-                        path.Add(relations[index]);
-                    }
-                    path.Add(nodes.Last());
-                }
-                return path;
             }
+            catch (Exception ex)
+            {
+#if DEBUG
+                Debugger.Break();
+#endif
+            }
+
+            int endLoop = bestPath.Relationships.Count();
+
+            List<IPlaceEntity> myPath = new List<IPlaceEntity>();
+
+            // get entry
+            try
+            {
+                query = $"MATCH (b: Building) - [e: ENTRY] - (begin: Room {{ Id: {beginId} }} ) " +
+                    " RETURN e";
+                using (var session = _driver.Session())
+                {
+                    session.ReadTransaction(tx =>
+                    {
+                        var result = tx.Run(query);
+                        var relation = result.First()["e"].As<IRelationship>();
+                        int x = Int32.Parse(relation["X"].As<string>());
+                        int y = Int32.Parse(relation["Y"].As<string>());
+                        int z = Int32.Parse(relation["Z"].As<string>());
+                        tx.Success();
+                        tx.Dispose();
+                        Door entry = new Door(new PositionEntity(x, y, z));
+                        myPath.Add(entry);
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                Debugger.Break();
+#endif
+            }
+
+            //get final path
+            try
+            {
+                for (int i = 0; i < endLoop; i++)
+                {
+                    Room nod = new Room(bestPath.Nodes[i]["Id"].As<string>(), "");
+                    if (bestPath.Nodes[i].Labels.Contains("Room"))
+                        nod.Name = bestPath.Nodes[i]["Name"].As<string>();
+                    else
+                        nod.Name = bestPath.Nodes[i].Labels.First();
+                    myPath.Add(nod);
+
+                    Door rel = new Door(new PositionEntity(bestPath.Relationships[i]["X"].As<double>(),
+                        bestPath.Relationships[i]["Y"].As<double>(),
+                        bestPath.Relationships[i]["Z"].As<double>()));
+                    myPath.Add(rel);
+                }
+
+                Room n = new Room(bestPath.Nodes[endLoop]["Id"].As<string>(), "");
+                if (bestPath.Nodes[endLoop].Labels.Contains("Room"))
+                    n.Name = bestPath.Nodes[endLoop]["Name"].As<string>();
+                else
+                    n.Name = bestPath.Nodes[endLoop].Labels.First();
+                myPath.Add(n);
+
+                return myPath;
+            }
+
             catch (Exception ex)
             {
 #if DEBUG
@@ -230,6 +339,7 @@ namespace TFE2017.Core.Managers
 #endif
                 return new List<IPlaceEntity>();
             }
-        }
+        }        
     }
 }
+

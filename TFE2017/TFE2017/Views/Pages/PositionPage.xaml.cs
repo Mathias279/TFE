@@ -98,8 +98,6 @@ namespace TFE2017.Core.Views.Pages
             }
         }
     }
-
-
     public class CompassTest
     {
 

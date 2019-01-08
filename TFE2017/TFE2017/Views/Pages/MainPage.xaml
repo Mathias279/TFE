@@ -13,6 +13,7 @@
                 <Button x:Name="ButtonScanPage" Clicked="ButtonScanPageClicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
                 <Button x:Name="ButtonPositionPage" Clicked="ButtonPositionPageClicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
                 <Button x:Name="ButtonDestinationPage" Clicked="BoutonDestinationPageClicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
+                <Button x:Name="ButtonTestPage" Clicked="BoutonTestPageClicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
             </StackLayout>
 
             <Image Source="logobordeau.png" VerticalOptions="Center" HorizontalOptions="Center" Scale="0.8"/>

@@ -25,7 +25,7 @@ namespace TFE2017.Core.Views.Pages
             LabelTitre.Text = "Veuillez entrer vos préférences";
             LabelStrairs.Text = "Emprunter les escaliers?";
             ToggleStairs.IsToggled = true;
-            LabelLift.Text = "Emprunter les ascenceurs?";
+            LabelLift.Text = "Emprunter les ascenseurs?";
             ToggleLift.IsToggled = true;
             ButtonSuivant.Text = "Suivant";
         }

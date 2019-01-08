@@ -22,7 +22,7 @@ namespace TFE2017.Core.Views.Pages
                 InitVisual();
 
 #if DEBUG
-                IsDebugMode.IsVisible = false;
+                IsDebugMode.IsVisible = true;
 #endif
             }
             catch (Exception ex)
@@ -41,6 +41,7 @@ namespace TFE2017.Core.Views.Pages
             ButtonScanPage.Text = "ScanPage";
             ButtonPositionPage.Text = "PositionPage";
             ButtonDestinationPage.Text = "DestinationPage";
+            ButtonTestPage.Text = "TestPage";
             LabelWelcome.Text = "Bienvenue dans Intramuros : L'application qui vous guide dans les bâtiments !";
             ButtonSuivant.Text = "Commencer";
         }
@@ -71,6 +72,13 @@ namespace TFE2017.Core.Views.Pages
         {
             //await Navigation.PushAsync(new DestinationPage("http://onelink.to/intramuros?builingId=1&entryId=1"));
         }
+
+        public async void BoutonTestPageClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TestPage());
+        }
+        
+
 
         public async void ButtonSuivantCicked(object sender, EventArgs e)
         {

@@ -18,8 +18,9 @@ namespace TFE2017.Core.Managers
         {
             double dX = a.X - b.X;
             double dY = a.Y - b.Y;
-
-            return Math.Sqrt(Math.Pow(dX, 2) + Math.Pow(dY, 2));
+            double dZ = a.Z - b.Z;
+            
+            return Math.Sqrt(Math.Pow(dX, 2) + Math.Pow(dY, 2) + Math.Pow(dZ, 2));
         }
 
         /// <summary>

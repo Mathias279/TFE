@@ -20,8 +20,10 @@ namespace TFE2017.Core.Views.Pages
         private List<IPlaceEntity> _path;
         private double _buildingAngle;
         private double _stepDirection;
-        private int _step;
+        private int _currentStep;
+        private int _totalSteps;
         private bool _rotating;
+        private double _rotation;
 
         public OnTheWayPage(string buidingId, string departId, string destinationId, bool useStairs, bool useLift)
         {
@@ -34,17 +36,18 @@ namespace TFE2017.Core.Views.Pages
 
                 Building building = Task.Run(() => DataBaseManager.GetBuilding(buidingId)).Result;
 
-                if (!(building is null) && double.TryParse(building.Angle, out _buildingAngle)) { }
-                else
-                    _buildingAngle = 328;
+                double.TryParse(building.Angle, out _buildingAngle);
 
                 _rotating = false;
+                _rotation = 0;
                 _stepDirection = 0;
-                _step = 0;
-                _path = Task.Run(() => DataBaseManager.GetPath(buidingId, departId, destinationId, useStairs, useLift)).Result;
+                _currentStep = 0;
+                _totalSteps = 0;
+                _path = DataBaseManager.GetPath(buidingId, departId, destinationId, useStairs, useLift);
 
                 if (_path.Count > 1)
                 {
+                    _totalSteps = (_path.Count - 1) / 2;
                     ButtonNext.IsEnabled = true;
                     ButtonNextClicked(null, null);
                 }
@@ -81,21 +84,13 @@ namespace TFE2017.Core.Views.Pages
 
         public void RotateFleche(CompassChangedEventArgs e)
         {
+            Compass.ReadingChanged -= RotateFleche;
             try
             {
-                Compass.ReadingChanged -= RotateFleche;
-                if (_rotating)
-                {
-                    Task.Delay(100);
-                    _rotating = false;
-                }
-                else
-                {
-                    double north = e.Reading.HeadingMagneticNorth;
-                    double rotation = (_stepDirection + _buildingAngle - north  ) % 360;
-                    _rotating = true;
-                    Fleche.RotateTo(rotation, 250, null);
-                }
+                double north = e.Reading.HeadingMagneticNorth;
+                double oldRotation = _rotation;
+                _rotation = Math.Round((_stepDirection + _buildingAngle - north));                 
+                Fleche.RotateTo(_rotation, 250, null);
             }
             catch (Exception ex)
             {
@@ -103,10 +98,7 @@ namespace TFE2017.Core.Views.Pages
                 Debugger.Break();
 #endif
             }
-            finally
-            {
-                Compass.ReadingChanged += RotateFleche;
-            }
+            Compass.ReadingChanged += RotateFleche;
         }
 
         private void ButtonPrevClicked(object sender, EventArgs e)
@@ -118,29 +110,35 @@ namespace TFE2017.Core.Views.Pages
         {
             try
             {
-                Door doorStart = new Door(new PositionEntity(0,0,0));
-                Room roomStart = new Room("0", "0");
-                Door doorEnd = new Door(new PositionEntity(0, 0, 0));
-                Room roomEnd = new Room("0", "0");
 
-                if (_step + 1 < _path.Count - 1)
+                //ex : pth .count = 12
+                // 6 doors + 6 rooms
+
+                Door doorStepStart = new Door(new PositionEntity(0, 0, 0));
+                Room roomStepStart = new Room("0", "0");
+                Door doorStepEnd = new Door(new PositionEntity(0, 0, 0));
+                Room roomStepEnd = new Room("0", "0");
+
+                if (_currentStep < _totalSteps)// ex: 0 - 5 < 6 (=12/2)
                 {
-                    doorStart = (Door)_path[_step];
-                    roomStart = (Room)_path[_step + 1];
-                    doorEnd = (Door)_path[_step + 2];
-                    roomEnd = (Room)_path[_step + 3];
+                    doorStepStart = (Door)_path[_currentStep * 2];
+                    roomStepStart = (Room)_path[(_currentStep * 2) + 1];
+                    doorStepEnd = (Door)_path[(_currentStep + 1) * 2];
+                    roomStepEnd = (Room)_path[((_currentStep + 1) * 2) + 1];
+                    LabelTitre.Text = $"Votre position est: {roomStepStart.Name}.\nIl reste {_totalSteps - _currentStep} étapes.\nVeuillez suivre la flèche.";
 
-                    _step += 2;
+                    _currentStep++;
 
-                    LabelNext.Text = roomEnd.Name;
-                    _stepDirection = MapManager.GetDirection(doorStart.Position, doorEnd.Position);
+                    LabelNext.Text = roomStepEnd.Name;
+                    _stepDirection = MapManager.GetDirection(doorStepStart.Position, doorStepEnd.Position);
                 }
-                else
+                if (_currentStep == _totalSteps) //ex : current = total => last
                 {
-                    doorEnd = (Door)_path[_step];
-                    roomEnd = (Room)_path[_step + 1];
-                    LabelNext.Text = "Terminus : " + roomEnd.Name;
-                    _stepDirection = MapManager.GetDirection(doorStart.Position, doorEnd.Position);
+                    doorStepEnd = (Door)_path[_currentStep * 2];
+                    roomStepEnd = (Room)_path[(_currentStep * 2) + 1];
+                    LabelTitre.Text = $"Votre position est: {roomStepStart.Name}.\nDernière étape.\nVeuillez suivre la flèche.";
+                    LabelNext.Text = "Terminus : " + roomStepEnd.Name;
+                    _stepDirection = MapManager.GetDirection(doorStepStart.Position, doorStepEnd.Position);
                     ButtonNext.IsEnabled = false;
                 }
             }

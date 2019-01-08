@@ -54,15 +54,10 @@ namespace TFE2017.Core.Views.Pages
                         Task.Run(async () =>
                         {
                             if (await InitList())
-                            {
-                                Device.BeginInvokeOnMainThread(() =>
-                                {
-                                    Container.Children.Add(_list);
-                                    UserDialogs.Instance.HideLoading();
-                                });
-                            }
+                                Device.BeginInvokeOnMainThread(() => Container.Children.Add(_list));
                             else
                                 Device.BeginInvokeOnMainThread(() => DisplayAlert("Erreur", "Une erreur est survenue lors de l'appel a la base de données", "ok"));
+                            Device.BeginInvokeOnMainThread(() => UserDialogs.Instance.HideLoading());
                         });
                     }
                 }
@@ -144,7 +139,7 @@ namespace TFE2017.Core.Views.Pages
             try
             {
                 _list = new ListView();
-                _roomsFull = await DataBaseManager.GetAllRooms(_buildingId);
+                _roomsFull = DataBaseManager.GetAllRooms(_buildingId);
 
                 if (_roomsFull.Any())
                 {
